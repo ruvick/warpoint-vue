@@ -4,7 +4,7 @@
 		<div class="my-page-body">
 			<div class="q-pa-md" style="padding: 0;">
 				<div class="q-gutter-y-md">
-					<q-card class="q-layout">
+					<q-card class="q-layout no-shadow no-border-radius">
 						<q-tabs
 							v-model="tab"
 							dense
@@ -22,36 +22,50 @@
 						<!-- <q-separator /> -->
 
 						<q-tab-panels v-model="tab" animated>
-							<q-tab-panel class="row justify-between bg-dark-panel" name="mails">
 
-								<div class="col-4">
-									<div class="text-h6 q-mb-xl">Введите данные:</div>
+							<q-tab-panel class="column bg-dark-panel" name="mails">
 
-									<q-form @submit="onSubmit"  class="column" method="post" style="width: 288px;">
-										<q-input class="q-mb-lg" v-model.number="model" standout="text-white" type="number" filled label="Номер сертификата" />
-										<q-input class="q-mb-lg" v-model.number="model" standout="text-white" type="number" filled label="PIN" />
-									</q-form>
-									<q-btn class="text-h6" label="проверить баланс" type="submit" color="primary"/>
-								</div>
+								<div class="row justify-between q-pb-xl">
 
-								<div class="row col justify-center items-center">
-									<div class="column items-center">
-										<div class="row">
-											<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация о сертификате
-												<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
-													<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#sert-ico"></use></svg>
-												</i>
-											</div>
-										</div>
-										<q-circular-progress
-											indeterminate
-											rounded
-											size="30px"
-											color="light-blue"
-											class="q-mt-lg"
-										/>
+									<div class="col-4 q-pt-md">
+										<div class="text-h6 q-mb-xl">Введите данные:</div>
+
+										<q-form @submit="onSubmit"  class="column" method="post" style="width: 288px;">
+											<q-input class="q-mb-lg" v-model.number="model" standout="text-white" type="number" filled label="Номер сертификата" />
+											<q-input class="q-mb-lg" v-model.number="model" standout="text-white" type="number" filled label="PIN" />
+										</q-form>
+										<q-btn class="text-h6" label="проверить баланс" type="submit" color="primary"/>
 									</div>
+
+									<div class="row col justify-center items-center bg-dark-box">
+										<div class="column items-center">
+											<div class="row">
+												<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация о сертификате
+													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
+														<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#sert-ico"></use></svg>
+													</i>
+												</div>
+											</div>
+											<q-circular-progress indeterminate rounded size="30px" color="light-blue" class="q-mt-lg"/>
+										</div>
+									</div>
+
 								</div>
+
+								<div class="row q-pt-xl q-pb-md ">
+
+									<q-expansion-item class="text-h6 text-grey-10" expand-separator label="История операций">
+										<q-card>
+											<q-card-section class="bg-dark-panel">
+												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+												commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+												eveniet doloribus ullam aliquid.
+											</q-card-section>
+										</q-card>
+									</q-expansion-item>
+									
+								</div>
+								<q-separator class="bg-dark-separator" />
 
 							</q-tab-panel>
 
@@ -92,7 +106,7 @@ export default {
 <style lang="scss">
 	.my-page-body {
 		padding: 0.3937rem 2rem 0.3937rem 8.5rem;
-    	position: relative;
+    	// position: relative;
 		color: #fff;
 		min-height: 93vh;
 		background-color: #1C1E22; 
@@ -100,10 +114,6 @@ export default {
 	}
 	.q-gutter-y-md, .q-gutter-md {
 		margin: -4.375rem 0 0 -0.8125rem;
-	}
-	.q-card {
-	   box-shadow: none;
-    	border-radius: 0;
 	}
 	.my-page-body .q-tab.q-tab--active {
 		min-height: 3rem;
@@ -122,7 +132,7 @@ export default {
     opacity: 0;
 	}
 	.my-page-body .bg-dark-panel {
-		padding: 3rem 1rem;
+		padding: 2rem 1rem;
 		background-color: #1C1E22;
 	}
 	.q-field--filled .q-field__control {
@@ -133,5 +143,14 @@ export default {
 	}
 	.q-field__native, .q-field__input {
     color: #9E9E9E;
+	}
+	.bg-dark-box {
+		background-color: #1D1F24;
+	}
+	.q-item__section--main ~ .q-item__section--side {
+    padding-left: 0.25rem;
+	}
+	.q-item__section--side > .q-icon {
+    font-size: 2.0625rem;
 	}
 </style>
