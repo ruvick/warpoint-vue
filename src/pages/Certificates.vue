@@ -1,7 +1,7 @@
 <template>
 
 	<q-page-container class="my-page-container">
-		<div class="my-page-body">
+		<div class="my-page-body q-pt-md q-pb-sm">
 			<div class="q-pa-md" style="padding: 0;">
 				<div class="q-gutter-y-md">
 					<q-card class="q-layout no-shadow no-border-radius">
@@ -23,7 +23,7 @@
 
 						<q-tab-panels v-model="tab" animated>
 
-							<q-tab-panel class="column bg-dark-panel" name="mails">
+							<q-tab-panel class="column bg-dark-panel q-pt-lg q-pb-md" name="mails">
 
 								<div class="row justify-between q-pb-xl">
 
@@ -34,7 +34,8 @@
 											<q-input class="q-mb-lg" v-model.number="model" standout="text-white" type="number" filled label="Номер сертификата" />
 											<q-input class="q-mb-lg" v-model.number="model" standout="text-white" type="number" filled label="PIN" />
 										</q-form>
-										<q-btn class="text-h6" label="проверить баланс" type="submit" color="primary"/>
+										<q-btn class="text-h6" label="Проверить баланс" type="submit" color="primary"/>
+										<!-- <q-btn class="text-h6 bg-dark-panel" label="Очистить" type="submit" primary/> -->
 									</div>
 
 									<div class="row col justify-center items-center bg-dark-box">
@@ -131,8 +132,7 @@ export default {
 	.my-page-body .q-tab--active .q-tab__indicator {
     opacity: 0;
 	}
-	.my-page-body .bg-dark-panel {
-		padding: 2rem 1rem;
+	.bg-dark-panel {
 		background-color: #1C1E22;
 	}
 	.q-field--filled .q-field__control {
