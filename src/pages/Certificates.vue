@@ -14,21 +14,40 @@
 							align="justify"
 							narrow-indicator
 						>
-							<q-tab style="flex: 0;" name="mails" label="проверка баланса" />
-							<q-tab style="flex: 0;" name="alarms" label="активация сертификата" />
-							<q-tab style="flex: 0;" name="movies" label="история активаций" />
+							<q-tab style="flex: 0;" name="mails" label="Проверка баланса" />
+							<q-tab style="flex: 0;" name="alarms" label="Активация сертификата" /> 
+							<q-tab style="flex: 0;" name="movies" label="История активаций" />
 						</q-tabs>
 
 						<!-- <q-separator /> -->
 
 						<q-tab-panels v-model="tab" animated>
-							<q-tab-panel class="bg-dark-panel" name="mails">
-								<div class="text-h6">Mails</div>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
+							<q-tab-panel class="row justify-between bg-dark-panel" name="mails">
+
+								<div class="col-4">
+									<div class="text-h6 q-mb-xl">Введите данные:</div>
+
+									<q-form @submit="onSubmit"  class="column" method="post" style="width: 288px;">
+										<q-input class="q-mb-lg" v-model.number="model" standout="text-white" type="number" filled label="Номер сертификата" />
+										<q-input class="q-mb-lg" v-model.number="model" standout="text-white" type="number" filled label="PIN" />
+									</q-form>
+									<q-btn class="text-h6" label="проверить баланс" type="submit" color="primary"/>
+								</div>
+
+								<div class="row col justify-center items-center">
+									<div class="row">
+										<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация о сертификате
+											<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
+												<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#sert-ico"></use></svg>
+											</i>
+										</div>
+									</div>
+								</div>
+
 							</q-tab-panel>
 
 							<q-tab-panel class="bg-dark-panel" name="alarms">
-								<div class="text-h6">Alarms</div>
+								<div class="text-h6">Узнайте у клиента номер заказа сертификата:</div>
 								Lorem ipsum dolor sit amet consectetur adipisicing elit.
 							</q-tab-panel>
 
@@ -38,40 +57,6 @@
 							</q-tab-panel>
 						</q-tab-panels>
 					</q-card>
-
-					<!-- <q-card>
-						<q-tab-panels v-model="tab" animated>
-							<q-tab-panel name="mails">
-								<div class="text-h6">Mails</div>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							</q-tab-panel>
-
-							<q-tab-panel name="alarms">
-								<div class="text-h6">Alarms</div>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							</q-tab-panel>
-
-							<q-tab-panel name="movies">
-								<div class="text-h6">Movies</div>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							</q-tab-panel>
-						</q-tab-panels>
-
-						<q-separator />
-
-						<q-tabs
-							v-model="tab"
-							dense
-							:class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
-							align="justify"
-							narrow-indicator
-						>
-							<q-tab name="mails" label="Mails" />
-							<q-tab name="alarms" label="Alarms" />
-							<q-tab name="movies" label="Movies" />
-						</q-tabs>
-
-					</q-card> -->
 
 				</div>
   		</div>
@@ -96,32 +81,47 @@ export default {
 
 <style lang="scss">
 	.my-page-body {
-		padding: 6.3px 32px 6.3px 136px;
-    position: relative;
+		padding: 0.3937rem 2rem 0.3937rem 8.5rem;
+    	position: relative;
 		color: #fff;
 		min-height: 93vh;
 		background-color: #1C1E22; 
-		margin-top: 70px;
+		margin-top: 4.375rem;
 	}
 	.q-gutter-y-md, .q-gutter-md {
-    margin-top: -70px;
+		margin: -4.375rem 0 0 -0.8125rem;
 	}
 	.q-card {
-		box-shadow: none;
-    border-radius: 0;
+	   box-shadow: none;
+    	border-radius: 0;
 	}
 	.my-page-body .q-tab.q-tab--active {
-		min-height: 48px;
+		min-height: 3rem;
 		background-color: #1C1E22;
 		border-radius: 6px 6px 0px 0px;
 		.text-primary {
 			color: #5B89F8;
 		}
 	}
+	.my-page-body .q-tab__label {
+		font-size: 1.25rem;
+		font-weight: 500;
+		line-height: 1.465rem;
+	}
 	.my-page-body .q-tab--active .q-tab__indicator {
     opacity: 0;
 	}
 	.my-page-body .bg-dark-panel {
+		padding: 3rem 1rem;
 		background-color: #1C1E22;
+	}
+	.q-field--filled .q-field__control {
+		background: #5B89F826;
+	}
+	.q-field__label {
+		color: #9E9E9E;
+	}
+	.q-field__native, .q-field__input {
+    color: #9E9E9E;
 	}
 </style>
