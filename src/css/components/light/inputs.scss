@@ -1,0 +1,226 @@
+.no-calendar .q-field__native[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.my-input-date {
+  border-radius: 4px;
+  min-height: 40px;
+  input {
+    color: currentColor !important;
+  }
+  .q-field__inner {
+    .q-field__control {
+      height: 40px;
+      padding: 0 8px;
+      background: none;
+      box-shadow: none;
+      .q-field__append {
+        height: 40px;
+        padding-left: 0;
+        padding-right: 4px;
+      }
+    }
+  }
+}
+
+.my-input-standart {
+  border-radius: 4px;
+  min-height: 48px;
+  input {
+    color: currentColor !important;
+    font-weight: 500;
+  }
+  .q-field__inner {
+    .q-field__control {
+      height: 48px;
+      padding: 0 10px;
+      background: none;
+      box-shadow: none;
+      .q-field__append {
+        height: 48px;
+        padding-left: 0;
+        padding-right: 4px;
+      }
+    }
+  }
+}
+
+.q-field__native[type="number"]::-webkit-inner-spin-button,
+.q-field__native[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.q-field__native[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.my-input-standart-big {
+  border-radius: 4px;
+  min-height: 72px;
+  padding: 0;
+  input {
+    color: white !important;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .q-field__focusable-action {
+    color: $grey-10;
+    opacity: 1;
+  }
+  .q-field__inner {
+    .q-field__control {
+      height: 72px;
+      padding: 0 16px;
+      background: none;
+      box-shadow: none;
+      .q-field__append {
+        height: 72px;
+        padding-left: 0;
+        padding-right: 4px;
+      }
+      .q-field__label {
+        top: 24px;
+        color: $grey-9;
+        font-size: 20px;
+        line-height: 23.44px;
+      }
+      .q-field__control-container {
+        .q-field__native {
+          padding-top: 30px;
+        }
+      }
+    }
+  }
+}
+
+
+.my-input-standart-middle {
+  border-radius: 4px;
+  min-height: 56px;
+  padding: 0;
+  input {
+    color: white !important;
+    font-weight: 400;
+    font-size: 20px;
+    &::placeholder {
+      color: $grey-9;
+    }
+  }
+  .q-field__focusable-action {
+    color: $grey-10;
+    opacity: 1;
+  }
+  .q-field__inner {
+    .q-field__control {
+      height: 56px;
+      padding: 0 16px;
+      background: none;
+      box-shadow: none;
+      .q-field__append {
+        height: 56px;
+        padding-left: 0;
+        padding-right: 4px;
+      }
+      .q-field__label {
+        top: 24px;
+        color: $grey-9;
+        font-size: 20px;
+        line-height: 23.44px;
+      }
+    }
+  }
+}
+
+.my-input-textarea {
+  border-radius: 4px;
+  min-height: 72px;
+  padding: 0;
+
+  .q-field__inner {
+    .q-field__control {
+      height: max-content;
+      padding: 0 16px;
+      background: none;
+      box-shadow: none;
+      .q-field__append {
+        height: max-content;
+        padding-left: 0;
+        padding-right: 4px;
+      }
+      .q-field__label {
+        top: 24px;
+        color: $grey-9;
+        font-size: 20px;
+        line-height: 23.44px;
+      }
+      .q-field__control-container {
+        textarea {
+          color: white !important;
+          font-weight: 500;
+          font-size: 20px;
+          min-height: 355px !important;
+          padding-top: 16px;
+          &::placeholder {
+            color: $grey-9;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.toggle-switcher {
+  .q-toggle__inner {
+    width: 64px;
+    height: 32px;
+    padding: 0;
+    .q-toggle__track {
+      height: 32px;
+      opacity: 1;
+      background: $blue-grey-8;
+      border-radius: 24px;
+    }
+    .q-toggle__thumb {
+      top: 4px;
+      left: 6px;
+      width: 24px;
+      height: 24px;
+      &:after {
+        background: $primary;
+        border: 4px solid $grey-10;
+        box-shadow: none;
+      }
+      &:before {
+        display: none;
+      }
+    }
+  }
+  &[aria-checked="true"] {
+    .q-toggle__inner {
+      .q-toggle__thumb {
+        left: 33px;
+      }
+    }
+  }
+}
+
+
+.inp-search {
+  min-width: 334px;
+  .q-field__inner {
+    .q-field__control {
+      padding-right: 0;
+      .q-field__append {
+        padding-right: 0;
+        .q-btn {
+          border-radius: 0 4px 4px 0;
+        }
+        &.q-anchor--skip {
+          padding-right: 16px;
+        }
+      }
+    }
+  }
+}

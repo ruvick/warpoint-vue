@@ -1,0 +1,30 @@
+.sales {
+  .card-sale {
+    padding: 8px 8px 16px 8px;
+    max-width: 168px;
+    .img-sec {
+      width: 152px;
+      height: 152px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 7.36px;
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.pay-received {
+  .check {
+    width: 289px;
+    height: 202px;
+    background: url(icons/pay-received.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 289px 202px;
+  }
+  .succes {
+    margin-top: 61.5px;
+    text-align: center;
+  }
+}

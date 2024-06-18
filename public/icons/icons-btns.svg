@@ -1,0 +1,9 @@
+<svg fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <symbol viewBox="0 0 14 3" id="minus-btn-nc">
+    <path d="M0.499248 2.4845V0.270752H13.8255V2.4845H0.499248Z" />
+  </symbol>
+  <symbol viewBox="0 0 14 16" id="plus-btn-nc">
+    <path d="M0.365611 9.48635V6.75695H13.9679V9.48635H0.365611ZM5.69019 15.3329V0.89544H8.64331V15.3329H5.69019Z" />
+  </symbol>
+</svg>

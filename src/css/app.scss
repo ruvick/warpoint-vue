@@ -1,0 +1,34 @@
+// app global css in SCSS form
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import './quasar.variables.scss';
+@import './text.scss';
+
+body {
+  font-family: "Roboto Flex", sans-serif;
+}
+
+// layout
+@import './layout.scss';
+
+// components light
+@import './components/light/header.scss';
+@import './components/light/tabs.scss';
+@import './components/light/btns.scss';
+@import './components/light/selects.scss';
+@import './components/light/q-menus.scss';
+@import './components/light/dates.scss';
+@import './components/light/inputs.scss';
+@import './components/light/lists.scss';
+@import './components/light/steppers.scss';
+@import './components/light/cards.scss';
+@import './components/light/checkboxes.scss';
+@import './components/light/tables.scss';
+
+// components complex
+@import './components/complex/drawers.scss';
+@import './components/complex/resources.scss';
+@import './components/complex/dialogs.scss';
+@import './components/complex/data-time-celendar.scss';
+
+// pages
+@import './pages/timeline.scss';

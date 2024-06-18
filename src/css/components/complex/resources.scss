@@ -1,0 +1,60 @@
+.resource-timline {
+  border: none !important;
+  margin-top: 47px;
+  .q-calendar-resource {
+    .q-calendar-resource__body {
+      .q-calendar-resource__day--container {
+        .q-calendar-resource__head {
+          border: none;
+          .q-calendar-resource__head--resources {
+            border: none;
+            min-width: 160px;
+          }
+          .q-calendar-resource__head--intervals {
+            border: none;
+            .q-calendar-resource__head--interval {
+              border: none;
+              font-size: 18px;
+              padding-bottom: 2.4px;
+              line-height: 21px;
+            }
+          }
+        }
+
+        .q-calendar-resource__resources--body {
+          .q-calendar-resource__resource--row {
+            padding: 2px 0;
+            border: none;
+            .q-calendar-resource__resource {
+              min-width: 168px;
+              min-height: 64px;
+              border: none;
+              z-index: 6;
+            }
+            .q-calendar-resource__resource--intervals {
+              .q-calendar-resource__resource--interval {
+                min-height: 64px;
+                max-width: 168px;
+                min-width: 168px;
+                // border-right: 4px solid rgb(17, 18, 22);
+                border: none;
+                position: relative;
+                z-index: 1;
+              }
+            }
+            .q-card {
+              border: none;
+              min-height: 64px;
+              z-index: 5;
+              padding: 0 2px;
+              background: rgba(0, 0, 0, 0) !important;
+              .q-card__section {
+                border-radius: 4px !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

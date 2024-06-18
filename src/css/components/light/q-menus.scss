@@ -1,0 +1,41 @@
+.my-select-menu,
+.my-select-big-menu {
+  box-shadow: none;
+  background: $dark;
+  .q-virtual-scroll__content {
+    .q-item {
+      font-size: 18px;
+      .q-focus-helper {
+        opacity: 0;
+      }
+      .q-item__label {
+        color: $grey-10;
+      }
+    }
+  }
+}
+
+.my-select-big-menu {
+  box-shadow: none;
+  background: $dark;
+  .q-virtual-scroll__content {
+    .q-item {
+      min-height: 72px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+{
+  "name": "quasar-project",
+  "version": "0.0.1",
+  "description": "ERP2",
+  "productName": "ERP2",
+  "author": "yury blinov <yu.blinov@warpoint.ru>",
+  "private": true,
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev",
+    "build": "quasar build"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@quasar/extras": "^1.16.4",
+    "@quasar/quasar-ui-qcalendar": "^4.0.0-beta.19",
+    "axios": "^1.2.1",
+    "defu": "^6.1.4",
+    "pinia": "^2.0.11",
+    "quasar": "^2.8.0",
+    "v-calendar": "^3.1.2",
+    "vue": "^3.4.18",
+    "vue-router": "^4.3.3"
+  },
+  "devDependencies": {
+    "@quasar/app-vite": "^1.8.0",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.14"
+  },
+  "engines": {
+    "node": "^20 || ^18 || ^16",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}

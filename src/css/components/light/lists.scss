@@ -1,0 +1,125 @@
+.column-cities {
+  .column {
+    flex: 0 0 25%;
+  }
+  .item-change-city {
+    margin-bottom: 32px;
+    .letter {
+      font-size: 23px;
+      color: $blue-1;
+      font-weight: 700;
+      line-height: 26.95px;
+      min-height: 34px;
+      line-height: 34px;
+      text-transform: uppercase;
+      padding-left: 8px;
+    }
+    .list {
+      .q-item {
+        min-height: 32px;
+        padding: 2px 8px;
+        max-width: max-content;
+        border-radius: 4px;
+        .q-item__section {
+          transition: all 0.25s;
+          &:hover {
+            color: white !important;
+          }
+        }
+        &.actived {
+          background: $blue-grey-8;
+          .q-item__section {
+            color: $primary !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.list-expansion-sales {
+  border-radius: 4px;
+  overflow: hidden;
+  .q-expansion-item {
+    &.no-arrow {
+      .q-expansion-item__container {
+        .q-item {
+          .q-icon {
+            display: none;
+          }
+        }
+      }
+    }
+    .q-expansion-item__container {
+      .q-item {
+        padding: 0 24px;
+        align-items: center;
+        .q-focus-helper {
+          display: none;
+        }
+        .q-icon {
+          color: $primary;
+        }
+        .q-item__section--side {
+          margin-left: auto;
+          padding-right: 0;
+          padding-left: 16px;
+        }
+        .q-item__section--title {
+          user-select: none;
+        }
+      }
+      .q-expansion-item__content {
+        .q-card  {
+          .q-card__section {
+            padding: 0;
+            .q-radio {
+              padding-left: 40px;
+              min-height: 40px;
+              width: 100%;
+              .q-radio__inner {
+                display: none;
+              }
+              &[aria-checked="true"] {
+                background: rgba(40, 45, 55, 1);
+                .q-radio__label {
+                  color: $blue-1;
+                }
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+    &--expanded {
+      background: $dark;
+    }
+  }
+}
+
+.list-itog {
+  padding-right: 80px;
+  .q-item {
+    padding: 0;
+    min-height: 40px;
+    justify-content: flex-end;
+    span {
+      &:first-child {
+        padding-right: 27px;
+      }
+    }
+  }
+}
+
+.no-focus {
+  .q-item {
+    .q-focus-helper {
+      display: none;
+    }
+    .q-ripple {
+      display: none;
+    }
+  }
+}

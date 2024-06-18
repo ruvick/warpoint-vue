@@ -1,0 +1,41 @@
+.q-drawer--left {
+  position: fixed;
+}
+.my-left-drawer {
+  width: 104px !important;
+  .logo {
+    height: 63.2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .list-links {
+    .q-item {
+      flex-direction: column;
+      align-items: center;
+      padding: 7.8px 0;
+      border-radius: 5.2px;
+      overflow: hidden;
+      margin-bottom: 8px;
+      .q-icon {
+        color: white;
+      }
+      .q-item__section {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 15px;
+        color: white;
+      }
+
+      &.q-router-link--active,
+      &:hover {
+        background: $primary;
+        .q-icon,
+        .q-item__section {
+          color: rgba(28, 30, 34, 1);
+        }
+      }
+    }
+  }
+}

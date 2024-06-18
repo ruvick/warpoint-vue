@@ -1,0 +1,64 @@
+.my-select {
+  min-width: 256px;
+  min-height: 48px;
+  .q-field__control {
+    padding: 0 15.36px;
+    border-radius: 4px;
+    min-height: 48px;
+    .q-field__control-container {
+      .q-field__native {
+        min-height: 48px;
+        span {
+          color: $grey-10;
+          font-weight: 500;
+        }
+      }
+    }
+    .q-field__prepend {
+      height: 48px;
+    }
+    .q-field__append {
+      height: 48px;
+      .q-select__dropdown-icon {
+        color: $primary;
+        font-size: 30.72px;
+      }
+    }
+  }
+  &-big {
+    height: 72px;
+    .q-field__control {
+      height: 72px;
+      .q-field__control-container {
+        padding-top: 0;
+        .q-field__native {
+          height: 72px;
+          padding-top: 24px;
+          padding-bottom: 0;
+        }
+        .q-field__label {
+          top: 25px;
+          color: $grey-9;
+          font-size: 20px;
+          transition: all 0.25s;
+        }
+      }
+      .q-field__prepend {
+        height: 72px;
+      }
+      .q-field__append {
+        height: 72px;
+      }
+    }
+    &.q-field--float {
+      .q-field__control {
+        .q-field__control-container {
+          .q-field__label {
+            font-size: 16px;
+            transform: translateY(-14px) scale(1);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+.my-table {
+  .q-table {
+    thead, tbody {
+      tr {
+        th, td {
+          border: none;
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 21px;
+
+        }
+      }
+    }
+
+    thead {
+      tr {
+        th {
+          color: $grey-9;
+          padding: 0 8px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          color: white;
+          padding: 12px 8px;
+        }
+        .td-action {
+          text-align: center;
+        }
+
+        &:hover {
+          td {
+            &:before {
+              background: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.my-table.table-cart {
+  .q-table {
+    thead {
+      tr {
+        th {
+          border: none;
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 14px;
+        }
+      }
+    }
+    tbody {
+      .td-name {
+        .text {
+          max-width: 157px;
+          white-space: break-spaces;
+        }
+      }
+      .td-quantity {
+        .sec-quantity {
+          padding: 9.5px 8px;
+          max-width: max-content;
+          border-radius: 6px;
+          margin: auto;
+          .text-quantity {
+            min-width: 32px;
+            margin: 0 4px;
+          }
+        }
+      }
+    }
+  }
+}

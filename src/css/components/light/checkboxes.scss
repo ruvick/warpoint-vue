@@ -1,0 +1,17 @@
+.my-check {
+  .q-checkbox__bg {
+    background: rgba(91, 137, 248, 0.3);
+    border: none;
+    border-radius: 4.8px;
+  }
+  &[aria-checked="true"] {
+    .q-checkbox__bg {
+      background: currentColor;
+      text-align: center;
+      .q-checkbox__svg {
+        width: calc(100% - 8.6px) !important;
+        margin: auto;
+      }
+    }
+  }
+}

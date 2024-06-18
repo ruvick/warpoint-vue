@@ -1,0 +1,75 @@
+.my-date {
+  box-shadow: none;
+  min-width: 376px;
+  .q-date__main {
+    .q-date__content {
+      .q-date__view {
+        .q-date__navigation {
+          margin-bottom: 16px;
+          .q-btn {
+            font-size: 22px;
+          }
+          .relative-position {
+            &:nth-child(5) {
+              margin: 0 10px;
+            }
+          }
+          .q-date__arrow {
+            &:nth-child(3) {
+              margin-right: 20px;
+            }
+            .q-btn {
+              width: 30.24px;
+              height: 30.24px;
+              background: $dark;
+              .q-icon {
+                color: $primary;
+                font-size: 28px;
+              }
+            }
+          }
+        }
+        .q-date__calendar-weekdays {
+          padding-bottom: 7.5px;
+          .q-date__calendar-item {
+            opacity: 1;
+            min-width: 52px;
+            & > div {
+              color: white;
+              font-size: 18px;
+              font-weight: 500;
+            }
+          }
+        }
+        .q-date__calendar-days-container {
+          .q-date__calendar-days {
+            .q-date__calendar-item {
+              min-width: 52px;
+              margin: 7.5px 0;
+              .q-btn {
+                width: 32px;
+                height: 32px;
+                color: white;
+                .block {
+                  font-weight: 500;
+                  font-size: 18px;
+                }
+                &.bg-positive {
+                  .block {
+                    color: $dark;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .q-date__calendar-item {
+    & > div,
+    button {
+      border-radius: 4px;
+    }
+  }
+}

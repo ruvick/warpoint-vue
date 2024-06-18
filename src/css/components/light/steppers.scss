@@ -1,0 +1,51 @@
+.stepper-new-booking {
+  background: rgba(0,0,0,0);
+  box-shadow: none;
+  .q-stepper__content {
+    .q-stepper__step {
+      .q-stepper__tab {
+        .q-stepper__dot {
+          width: 40px;
+          min-width: 40px;
+          height: 40px;
+          background: none;
+          border: 2px solid currentColor;
+          padding: 10px;
+          &:after {
+            width: 3px;
+            background: $grey-10;
+            margin-top: 2px;
+            left: calc(50% - 1.75px);
+          }
+          .q-icon {
+            display: none;
+          }
+        }
+        &--active {
+          .q-stepper__dot {
+            border: 2px solid $primary;
+            .row {
+              width: 16px;
+              height: 16px;
+              background: $primary;
+              border-radius: 100%;
+            }
+          }
+        }
+        &--done {
+          .q-stepper__dot {
+            background: $primary;
+            border-color: $primary;
+            .q-icon {
+              display: inherit;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .q-stepper__step-content {
+        display: none;
+      }
+    }
+  }
+}

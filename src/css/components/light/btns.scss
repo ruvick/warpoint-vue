@@ -1,0 +1,105 @@
+.my-btn {
+  height: 48px;
+  padding: 0 24px;
+  &:before {
+    box-shadow: none;
+  }
+  .q-btn__content {
+    .block {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+  &.my-btn-select {
+    padding: 0 15.36px;
+  }
+  &.q-btn--unelevated {
+    border-radius: 4px;
+  }
+  &.semicircular {
+    border-radius: 6px;
+  }
+  &.q-btn--square {
+    &:before {
+      box-shadow: none;
+    }
+  }
+  &.big-btn {
+    height: 56px;
+  }
+  &.mega-btn {
+    height: 72px;
+  }
+
+  &.bg-dark-5 {
+    background: $dark-5 !important;
+  }
+}
+.btn-no-effects {
+  &:before {
+    box-shadow: none;
+  }
+}
+.q-btn {
+  cursor: pointer;
+}
+
+.my-btn-period {
+  min-height: 34px;
+  padding: 0 16px;
+  .block {
+    line-height: 1;
+  }
+}
+
+.q-btn {
+  &.br-left {
+    border-radius: 4.8px 0 0 4.8px;
+  }
+  &.br-right {
+    border-radius: 0px 4.8px 4.8px 0px;
+  }
+}
+
+.btn-disabled {
+  &[aria-disabled="true"] {
+    background: rgba(50, 53, 58, 1) !important;
+    &.disabled {
+      opacity: 1 !important;
+    }
+    .block {
+      color: rgba(97, 97, 97, 1);
+    }
+  }
+}
+
+.btn-non-disabled {
+  .q-field__control > div {
+    opacity: 1 !important;
+  }
+}
+
+.btn-val-person {
+  min-width: 32px;
+  min-height: 32px;
+}
+
+
+.control-cart-btn {
+  .btn-minus {
+    border-radius: 100% 0 0 100%;
+    padding-right: 12px;
+    padding-left: 10px;
+  }
+  .btn-info {
+    border-radius: 0;
+    opacity: 1 !important;
+    padding: 0;
+  }
+  .btn-plus {
+    border-radius: 0 100% 100% 0;
+    padding-left: 12px;
+    padding-right: 10px;
+  }
+}
+
