@@ -35,12 +35,21 @@
 								</div>
 
 								<div class="row col justify-center items-center">
-									<div class="row">
-										<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация о сертификате
-											<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
-												<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#sert-ico"></use></svg>
-											</i>
+									<div class="column items-center">
+										<div class="row">
+											<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация о сертификате
+												<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
+													<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#sert-ico"></use></svg>
+												</i>
+											</div>
 										</div>
+										<q-circular-progress
+											indeterminate
+											rounded
+											size="30px"
+											color="light-blue"
+											class="q-mt-lg"
+										/>
 									</div>
 								</div>
 
@@ -71,7 +80,8 @@ export default {
      name: 'Certificates',
   setup () {
     return {
-      tab: ref('mails')
+      tab: ref('mails'),
+		value: 71
     }
   }
 };
