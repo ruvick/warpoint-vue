@@ -94,9 +94,18 @@
 												</i>
 											</div>
 
+											<!-- Поля статуса -->
 											<div class="row">
-												.col	
+												<div class="col">
+
+												</div>
 											</div>
+
+											<!-- Таблица  -->
+											 <div class="row">
+												<div class="col">l</div>
+												<div class="col">r</div>
+											 </div>
 
 										</div>
 
@@ -196,6 +205,7 @@
 													</i>
 												</div>
 											</div>
+											<q-circular-progress indeterminate rounded size="30px" color="light-blue" class="q-mt-lg"/>
 										</div>
 
 
@@ -234,7 +244,7 @@
 													<svg viewBox="0 0 289 202"><use xlink:href="icons/allIcons.svg#sert-activ"></use></svg>
 												</div>
 												<div class="row justify-center">
-													<q-btn class="q-btn-no text-h6 no-hover text-grey-10 text-capitalize" icon-right="close" outline flat label="На главную" type="reset" primary/>
+													<q-btn class="q-btn-no text-h6 no-hover text-grey-10 text-capitalize" icon-right="mail" outline flat label="На главную" type="reset" primary/>
 												</div>
 											</div>
 
