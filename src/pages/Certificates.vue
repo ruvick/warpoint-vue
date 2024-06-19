@@ -31,11 +31,11 @@
 										<div class="text-h6 q-mb-xl">Введите данные:</div>
 
 										<q-form @submit="onSubmit"  class="column" method="post" style="width: 18rem;">
-											<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="certificateNumber" type="number" label="Номер сертификата"/>
-											<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="pin" type="number" label="PIN"/>
+											<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="certificateNumber" type="number" label="Номер сертификата" style="border-radius: 0.375rem; overflow: hidden;"/>
+											<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="pin" type="number" label="PIN" style="border-radius: 0.375rem; overflow: hidden;"/>
 										</q-form>
-										<q-btn class="text-h6" label="Проверить баланс" type="submit" color="primary"/>
-										<!-- <q-btn class="text-h6 bg-dark-panel" label="Очистить" type="submit" primary/> -->
+										<!-- <q-btn class="text-h6" label="Проверить баланс" type="submit" color="primary" style="border-radius: 0.375rem;"/> -->
+										<q-btn class="text-h6 no-hover" outline color="primary" label="Очистить" type="submit" primary style="border-radius: 0.375rem;"/>
 									</div>
 
 									<div class="row col bg-dark-box q-pt-md q-pb-md q-pl-lg q-pr-lg">
@@ -53,7 +53,7 @@
 										</div>
 
 										<!-- Блок 2 Информация о сертификате  -->
-										<div class="column" style="width: 100%;">
+										<div class="column" style="width: 100%; display: none;">
 											<div class="row items-center text-h6 text-grey-10 q-mb-xl">Информация о сертификате
 												<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
 													<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#sert-ico"></use></svg>
@@ -63,6 +63,21 @@
 											<div class="row">
 												item
 												item
+											</div>
+
+										</div>
+
+										<!-- Блок 3 Нет сертификата  -->
+										<div class="column" style="width: 100%;">
+											<div class="column justify-center items-center text-h6 text-grey-10 q-mb-xs">Вы точно указали правильный номер сертификата?
+												<div class="col" style="width: 289px; height: 202px;" >
+													<svg viewBox="0 0 289 202"><use xlink:href="icons/allIcons.svg#sert-no"></use></svg>
+												</div>
+											</div>
+
+											<div class="row justify-center">
+												<q-btn class="q-btn-no text-h6 no-hover text-grey-10" icon-right="close" outline flat label="Очистить всё" type="reset" primary style="text-transform: none"/>
+												<q-btn class="q-btn-no text-h6 no-hover" color="primary" icon-right="close" outline flat label="Повторить поиск" type="button" primary style="text-transform: none"/>
 											</div>
 
 										</div>
@@ -142,7 +157,7 @@ export default {
 	.my-page-body .q-tab.q-tab--active {
 		min-height: 3rem;
 		background-color: #1C1E22;
-		border-radius: 6px 6px 0px 0px;
+		border-radius: 0.375rem 0.375rem 0px 0px;
 		.text-primary {
 			color: #5B89F8;
 		}
@@ -183,5 +198,14 @@ export default {
 	}
 	.q-expansion-item .q-item__section--main {
     flex: 0 1 auto;
+	}
+	.q-btn-reset:before {
+		display: none;
+	}
+	.q-btn-no .q-icon,
+	.q-btn-no .q-spinner {
+		font-size: 1.4375rem;
+		margin-top: 0.1875rem;
+		margin-left: 0.5938rem;
 	}
 </style>
