@@ -210,6 +210,7 @@
 									<div class="text-h6 q-mb-xl">Активация сертификата</div>
 
 									<div class="row">
+										<!-- Left-block  -->
 										<div class="col-4">
 											<div class="column items-start">
 
@@ -224,18 +225,31 @@
 											</div>
 										</div>
 
+										<!-- Right-block  -->
 										<div class="col">
+
+											<!-- Сертификат активирован -->
 											<div class="column items-center" style="width: 100%;">
+												<div class="col" style="width: 289px; height: 202px;" >
+													<svg viewBox="0 0 289 202"><use xlink:href="icons/allIcons.svg#sert-activ"></use></svg>
+												</div>
+												<div class="row justify-center">
+													<q-btn class="q-btn-no text-h6 no-hover text-grey-10 text-capitalize" icon-right="close" outline flat label="На главную" type="reset" primary/>
+												</div>
+											</div>
+
+											<!-- Активация не прошла -->
+											<div class="column items-center" style="width: 100%; display: none;">
 												<div class="col" style="width: 289px; height: 202px;" >
 													<svg viewBox="0 0 289 202"><use xlink:href="icons/allIcons.svg#activ-failed"></use></svg>
 												</div>
-
 												<div class="row justify-center">
-													<q-btn class="q-btn-no text-h6 no-hover text-grey-10" icon-right="close" outline flat label="Очистить всё" type="reset" primary style="text-transform: none"/>
-													<q-btn class="q-btn-no text-h6 no-hover text-grey-10" icon-right="close" outline flat label="Повторить попытку" type="button" primary style="text-transform: none"/>
-													<q-btn class="q-btn-no text-h6 no-hover" color="primary" icon-right="close" outline flat label="Написать в техподдержку" type="button" primary style="text-transform: none"/>
+													<q-btn class="q-btn-no text-h6 no-hover text-grey-10" icon-right="close" outline flat label="Очистить всё" type="reset" primary no-caps/>
+													<q-btn class="q-btn-no text-h6 no-hover text-grey-10" icon-right="close" outline flat label="Повторить попытку" type="button" primary no-caps/>
+													<q-btn class="q-btn-no q-btn-no--send text-h6 no-hover" color="primary" icon-right="send" outline flat label="Написать в техподдержку" type="button" primary no-caps/>
 												</div>
 											</div>
+
 										</div>
 									</div>
 
@@ -343,5 +357,9 @@ export default {
 		font-size: 1.4375rem;
 		margin-top: 0.1875rem;
 		margin-left: 0.5938rem;
+	}
+	.q-btn-no--send .q-icon {
+		transform: rotate(-45deg);
+		margin-top: -0.375rem;
 	}
 </style>
