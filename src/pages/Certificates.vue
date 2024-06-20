@@ -87,7 +87,7 @@
 										</div>
 
 										<!-- Блок 2 Информация о сертификате  -->
-										<div class="column" style="width: 100%; display: non;">
+										<div class="column items-start" style="width: 100%; display: non;">
 											<div class="row items-center text-h6 text-grey-10 q-mb-xl">Информация о сертификате
 												<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
 													<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#sert-ico"></use></svg>
@@ -95,26 +95,26 @@
 											</div>
 
 											<!-- Поля статуса -->
-											<div class="row q-mb-lg">
+											<div class="row q-mb-lg" style="width: 100%;">
 												<div class="col">
-													<div class="row items-center">
+													<div class="row items-center" style="width: 100%;">
 
-														<div class="input-info q-mr-lg q-mb-md" style="max-width: 200px; width: 100%;">
+														<div class="input-info q-mr-lg q-mb-md" style="min-width: 200px;">
 															<div class="input-info__name">Баланс</div>
 															<div class="input-info__value">3 500 ₽</div>
 														</div>
 
-														<div class="input-info q-mr-lg q-mb-md" style="max-width: 288px; width: 100%;">
+														<div class="input-info q-mr-lg q-mb-md" style="min-width: 288px;">
 															<div class="input-info__name">Статус</div>
 															<div class="input-info__value input-info__value--active">АКТИВИРОВАН</div>
 														</div>
 
-														<div class="input-info q-mr-lg q-mb-md" style="max-width: 288px; width: 100%;">
+														<div class="input-info q-mr-lg q-mb-md" style="min-width: 288px;">
 															<div class="input-info__name">Номер сертификата</div>
 															<div class="input-info__value">RU12-3456-7890-9999</div>
 														</div>
 
-														<div class="input-info q-mr-lg q-mb-md" style="max-width: 200px; width: 100%;">
+														<div class="input-info q-mr-lg q-mb-md" style="min-width: 200px;">
 															<div class="input-info__name">Номинал</div>
 															<div class="input-info__value">5 000 ₽</div>
 														</div>
@@ -124,7 +124,7 @@
 											</div>
 
 											<!-- Таблица  -->
-											 <div class="row">
+											 <div class="row" style="width: 100%;">
 												<!-- Left Table  -->
 												<div class="col">
 													<div class="row">
@@ -248,7 +248,7 @@
 									<div class="row col bg-dark-box q-pt-md q-pb-md q-pl-lg q-pr-lg">
 
 										<!-- Блок 1 Right  -->
-										<div class="column items-center justify-center" style="width: 100%;">
+										<div class="column items-center justify-center" style="width: 100%; display: none;">
 											<div class="row">
 												<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация
 													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
@@ -257,6 +257,76 @@
 												</div>
 											</div>
 											<q-circular-progress indeterminate rounded size="30px" color="light-blue" class="q-mt-lg"/>
+										</div>
+
+										<!-- Блок 2 Right  -->
+										<div class="column" style="width: 100%; display: non;">
+											<div class="row q-mb-xl">
+												<div class="row items-center text-h6 text-grey-10">Заказ сертификата №1234-5678-90 
+													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
+														<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#loop"></use></svg>
+													</i>
+												</div>
+											</div>
+
+											<div class="row items-stretch" style="width: 100%;">
+
+												<!-- Поля статуса -->
+												<div class="col">
+													<div class="column items-start">
+														<div class="input-info q-mb-md" style="min-width: 288px;">
+															<div class="input-info__name">Номинал</div>
+															<div class="input-info__value input-info__value--active">25 000 ₽</div>
+														</div>
+														<div class="input-info q-mb-md" style="min-width: 288px;">
+															<div class="input-info__name">Статус</div>
+															<div class="input-info__value input-info__value--active">ОПЛАЧЕН</div>
+														</div>
+														<div class="input-info q-mb-md" style="min-width: 288px;">
+															<div class="input-info__name">Дата и время оплаты</div>
+															<div class="input-info__value">12 июня 2024, 13:00:17</div>
+														</div>
+													</div>
+												</div>
+
+												<!-- Таблица  -->
+												<div class="col column justify-between">
+													<div class="row">
+														<div class="column">
+															<div class="item text-grey-10 q-mr-lg q-mb-md">Имя покупателя:</div>
+															<div class="item text-grey-10 q-mr-lg q-mb-md">Телефон покупателя:</div>
+															<div class="item text-grey-10 q-mr-lg q-mb-md">E-mail:</div>
+														</div>
+														<div class="column">
+															<div class="item q-mb-md">Егор Дивеев</div>
+															<div class="item q-mb-md">+7 (903) 000-00-02</div>
+															<div class="item q-mb-md">samtynoob@example.ru</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="column">
+															<div class="item text-grey-10 q-mr-lg q-mb-md">Место покупки:</div>
+															<div class="item text-grey-10 q-mr-lg q-mb-md">Метод:</div>
+															<div class="item text-grey-10 q-mr-lg q-mb-md">Тип сертификата:</div>
+														</div>
+														<div class="column">
+															<div class="item q-mb-md">ekb.warpoint.ru</div>
+															<div class="item q-mb-md">Безналичный</div>
+															<div class="item q-mb-md">Пластиковый</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+
+											<!-- Actions -->
+											 <div class="row q-mt-xl">
+												<div class="column items-end" style="width: 100%;">
+													<q-btn class="text-h6" label="Всё верно" type="submit" color="primary" style="border-radius: 0.375rem;"/>
+													<div class="item text-body2 text-green-5" color="positive">Отлично! Приступайте к активации</div>
+												</div>
+											 </div>
+
 										</div>
 
 									</div>
