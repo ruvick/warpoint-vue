@@ -9,7 +9,7 @@
         :color="stylesColor[style]"
         rounded
         class="q-mr-sm"
-      />{{ useNumberDivider(price / 100) }} ₽
+      />{{ useNumberDivider(price / 100) }} ₽ 
     </span>
   </div>
 </template>

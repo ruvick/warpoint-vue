@@ -59,8 +59,8 @@ export default route(function (/* { store, ssrContext } */) {
 		const token = mainStore.g.token || localStorage.getItem('token')
 
 		if (to.matched.some(record => record.meta.requiresAuth) && !token) {
-			next()
-			// next({ path: '/login' })
+			// next()
+			next({ path: '/login' })
 		} else {
 			next();
 		}

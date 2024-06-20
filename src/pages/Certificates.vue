@@ -35,7 +35,7 @@
 								<!-- Основная верхняя обертка  -->
 								<div class="row justify-between q-pb-xl">
 
-									<div class="row column col-4">
+									<div class="row column col-4 col-4--medium">
 
 										<!-- Блок 1 left  -->
 										<div class="q-pt-md" style="display: non;">
@@ -46,8 +46,8 @@
 													label="Номер сертификата" style="border-radius: 0.375rem; overflow: hidden;"/>
 												<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="pin" type="number" label="PIN" style="border-radius: 0.375rem; overflow: hidden;"/>
 											</q-form>
-											<!-- <q-btn class="text-h6" label="Проверить баланс" type="submit" color="primary" style="border-radius: 0.375rem;"/> -->
-											<q-btn class="text-h6 no-hover" outline color="primary" label="Очистить" type="submit" primary style="border-radius: 0.375rem;"/>
+											<q-btn class="text-h6" label="Проверить баланс" type="submit" color="primary" style="border-radius: 0.375rem;"/>
+											<!-- <q-btn class="text-h6 no-hover" outline color="primary" label="Очистить" type="submit" primary style="border-radius: 0.375rem;"/> -->
 										</div>
 
 										<!-- Блок 2 left  -->
@@ -95,16 +95,67 @@
 											</div>
 
 											<!-- Поля статуса -->
-											<div class="row">
+											<div class="row q-mb-lg">
 												<div class="col">
+													<div class="row items-center">
 
+														<div class="input-info q-mr-lg q-mb-md" style="max-width: 200px; width: 100%;">
+															<div class="input-info__name">Баланс</div>
+															<div class="input-info__value">3 500 ₽</div>
+														</div>
+
+														<div class="input-info q-mr-lg q-mb-md" style="max-width: 288px; width: 100%;">
+															<div class="input-info__name">Статус</div>
+															<div class="input-info__value input-info__value--active">АКТИВИРОВАН</div>
+														</div>
+
+														<div class="input-info q-mr-lg q-mb-md" style="max-width: 288px; width: 100%;">
+															<div class="input-info__name">Номер сертификата</div>
+															<div class="input-info__value">RU12-3456-7890-9999</div>
+														</div>
+
+														<div class="input-info q-mr-lg q-mb-md" style="max-width: 200px; width: 100%;">
+															<div class="input-info__name">Номинал</div>
+															<div class="input-info__value">5 000 ₽</div>
+														</div>
+
+													</div>
 												</div>
 											</div>
 
 											<!-- Таблица  -->
 											 <div class="row">
-												<div class="col">l</div>
-												<div class="col">r</div>
+												<!-- Left Table  -->
+												<div class="col">
+													<div class="row">
+														<div class="column">
+															<div class="item text-grey-10 q-mr-sm q-mb-md">PIN:</div>
+															<div class="item text-grey-10 q-mr-sm q-mb-md">Тип сертификата:</div>
+															<div class="item text-grey-10 q-mr-sm q-mb-md">Дата покупки:</div>
+														</div>
+														<div class="column">
+															<div class="item q-mb-md">1234</div>
+															<div class="item q-mb-md">Пластиковый</div>
+															<div class="item q-mb-md">11 апреля 2024</div>
+														</div>
+													</div>
+												</div>
+
+												<!-- Right Table  -->
+												<div class="col">
+													<div class="row">
+														<div class="column">
+															<div class="item text-grey-10 q-mr-sm q-mb-md">Место активации:</div>
+															<div class="item text-grey-10 q-mr-sm q-mb-md">Номер брони:</div>
+															<div class="item text-grey-10 q-mr-sm q-mb-md">Срок действия:</div>
+														</div>
+														<div class="column">
+															<div class="item q-mb-md">Россия, Екатеринбург, ТРЦ “Радуга Парк”</div>
+															<div class="item q-mb-md">Россия, Екатеринбург, ТРЦ “Радуга Парк”</div>
+															<div class="item q-mb-md">до 11 апреля 2028</div>
+														</div>
+													</div>
+												</div>
 											 </div>
 
 										</div>
@@ -208,8 +259,6 @@
 											<q-circular-progress indeterminate rounded size="30px" color="light-blue" class="q-mt-lg"/>
 										</div>
 
-
-
 									</div>
 
 								</div>
@@ -302,8 +351,6 @@ export default {
     }
   }
 };
-
-
 </script>
 
 <style lang="scss">
@@ -346,7 +393,9 @@ export default {
 	.q-field__focusable-action {
 		color: #C7CCCC;
 	}
-
+	// .q-placeholder {
+	// 	color: #fff;
+	// }
 	.bg-dark-box {
 		background-color: #1D1F24;
 	}
@@ -371,5 +420,34 @@ export default {
 	.q-btn-no--send .q-icon {
 		transform: rotate(-45deg);
 		margin-top: -0.375rem;
+	}
+	
+	.input-info {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: flex-start;
+		background-color: #25272D;
+		border-radius: 4px;
+		overflow: hidden;
+		padding: 11px 16px;
+		gap: 8px;
+	}
+	.input-info__name {
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 18.75px;
+		color: #9E9E9E;
+	}
+	.input-info__value {
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 23.44px;
+		color: #fff;
+	}
+	.input-info__value--active {
+		color: #44A248;
+	}
+	.col-4--medium {
+		width: 30% !important;
 	}
 </style>

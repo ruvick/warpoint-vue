@@ -11,7 +11,7 @@ export const useApi = async (url, options = {}) => {
 		headers: g.token ? { Authorization: `Bearer ${g.token}` } : {}
 	};
 
-	// const params = defu(options, defaults);
+	const params = defu(options, defaults);
 
 	let data = null;
 	let error = null;
