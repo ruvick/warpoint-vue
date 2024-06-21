@@ -396,14 +396,19 @@
 
 
 								<q-table
-									style="height: 400px"
-									flat bordered
-									:rows="rows"
-									:columns="columns"
-									row-key="index"
-									virtual-scroll
-									v-model:pagination="pagination"
-									:rows-per-page-options="[0]"
+								class="my-sticky-dynamic"
+								style="height: 438px"
+								flat 
+								:rows="rows"
+								:columns="columns"
+								:loading="loading"
+								row-key="index"
+								virtual-scroll
+								:virtual-scroll-item-size="48"
+								:virtual-scroll-sticky-size-start="48"
+								:pagination="pagination"
+								:rows-per-page-options="[0]"
+								@virtual-scroll="onScroll"
 								/>
 
 								
@@ -493,127 +498,127 @@ const columns = [
   {
     name: 'name',
     required: true,
-    label: 'Dessert (100g serving)',
+    label: 'Номер заказа сертификата',
     align: 'left',
     field: row => row.name,
     format: val => `${val}`,
     sortable: true
   },
-  { name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true },
-  { name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true },
-  { name: 'carbs', label: 'Carbs (g)', field: 'carbs' },
-  { name: 'protein', label: 'Protein (g)', field: 'protein' },
-  { name: 'sodium', label: 'Sodium (mg)', field: 'sodium' },
-  { name: 'calcium', label: 'Calcium (%)', field: 'calcium', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
-  { name: 'iron', label: 'Iron (%)', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }
+  { name: 'calories', align: 'center', label: 'Дата', field: 'calories', sortable: true },
+  { name: 'fat', label: 'Время', field: 'fat', sortable: true },
+  { name: 'carbs', label: 'Номинал', field: 'carbs' },
+  { name: 'protein', label: 'Номер сертификата', field: 'protein' },
+  { name: 'sodium', label: 'Статус сертификата', field: 'sodium' },
+//   { name: 'calcium', label: 'Calcium (%)', field: 'calcium', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
+//   { name: 'iron', label: 'Iron (%)', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }
 ]
 
 const seed = [
   {
-    name: 'Frozen Yogurt',
-    calories: 159,
-    fat: 6.0,
-    carbs: 24,
-    protein: 4.0,
-    sodium: 87,
-    calcium: '14%',
-    iron: '1%'
+    name: '1234-5678-90',
+    calories: '20.08.2024',
+    fat: '20.08.2024',
+    carbs: '5 000 ₽',
+    protein: 'RU00-0000-0000-0000',
+    sodium: 'Активирован',
+   //  calcium: '14%',
+   //  iron: '1%'
   },
   {
-    name: 'Ice cream sandwich',
-    calories: 237,
-    fat: 9.0,
-    carbs: 37,
-    protein: 4.3,
-    sodium: 129,
-    calcium: '8%',
-    iron: '1%'
+    name: '2464-5832-45',
+    calories: '20.08.2024',
+    fat: '11:10:56',
+    carbs: '5 000 ₽',
+    protein: 'RU00-0000-0000-0000',
+    sodium: 'Активирован',
+   //  calcium: '8%',
+   //  iron: '1%'
   },
   {
-    name: 'Eclair',
-    calories: 262,
-    fat: 16.0,
-    carbs: 23,
-    protein: 6.0,
-    sodium: 337,
-    calcium: '6%',
-    iron: '7%'
+    name: '4365-4754-78',
+    calories: '21.08.2024',
+    fat: '11:10:56',
+    carbs: '5 000 ₽',
+    protein: 'RU00-0000-0000-0000',
+    sodium: 'Активирован',
+   //  calcium: '6%',
+   //  iron: '7%'
   },
   {
-    name: 'Cupcake',
-    calories: 305,
-    fat: 3.7,
-    carbs: 67,
-    protein: 4.3,
-    sodium: 413,
-    calcium: '3%',
-    iron: '8%'
+    name: '5475-1358-30',
+    calories: '24.08.2024',
+    fat: '11:10:56',
+    carbs: '5 000 ₽',
+    protein: 'RU00-0000-0000-0000',
+    sodium: 'Активирован',
+   //  calcium: '3%',
+   //  iron: '8%'
   },
   {
-    name: 'Gingerbread',
-    calories: 356,
-    fat: 16.0,
-    carbs: 49,
-    protein: 3.9,
-    sodium: 327,
-    calcium: '7%',
-    iron: '16%'
+    name: '5735-6403-73',
+    calories: '29.08.2024',
+    fat: '11:10:56',
+    carbs: '5 000 ₽',
+    protein: 'RU00-0000-0000-0000',
+    sodium: 'Активирован',
+   //  calcium: '7%',
+   //  iron: '16%'
   },
   {
-    name: 'Jelly bean',
-    calories: 375,
-    fat: 0.0,
-    carbs: 94,
-    protein: 0.0,
-    sodium: 50,
-    calcium: '0%',
-    iron: '0%'
+    name: '5674-3089-24',
+    calories: '01.09.2024',
+    fat: '11:10:56',
+    carbs: '5 000 ₽',
+    protein: 'RU00-0000-0000-0000',
+    sodium: 'Активирован',
+   //  calcium: '0%',
+   //  iron: '0%'
   },
   {
-    name: 'Lollipop',
-    calories: 392,
-    fat: 0.2,
-    carbs: 98,
-    protein: 0,
-    sodium: 38,
-    calcium: '0%',
-    iron: '2%'
+    name: '5678-9247-89',
+    calories: '01.09.2024',
+    fat: '11:10:56',
+    carbs: '5 000 ₽',
+    protein: 'RU00-0000-0000-0000',
+    sodium: 'Активирован',
+   //  calcium: '0%',
+   //  iron: '2%'
   },
   {
-    name: 'Honeycomb',
-    calories: 408,
-    fat: 3.2,
-    carbs: 87,
-    protein: 6.5,
-    sodium: 562,
-    calcium: '0%',
-    iron: '45%'
+    name: '6804-8956-48',
+    calories: '02.09.2024',
+    fat: '11:10:56',
+    carbs: '5 000 ₽',
+    protein: 'RU00-0000-0000-0000',
+    sodium: 'Активирован',
+   //  calcium: '0%',
+   //  iron: '45%'
   },
   {
-    name: 'Donut',
-    calories: 452,
-    fat: 25.0,
-    carbs: 51,
-    protein: 4.9,
-    sodium: 326,
-    calcium: '2%',
-    iron: '22%'
+    name: '5367-6478-90',
+    calories: '04.09.2024',
+    fat: '11:10:56',
+    carbs: '5 000 ₽',
+    protein: 'RU00-0000-0000-0000',
+    sodium: 'Активирован',
+   //  calcium: '2%',
+   //  iron: '22%'
   },
   {
-    name: 'KitKat',
-    calories: 518,
-    fat: 26.0,
-    carbs: 65,
-    protein: 7,
-    sodium: 54,
-    calcium: '12%',
-    iron: '6%'
+    name: '5674-7889-51',
+    calories: '08.09.2024',
+    fat: '11:10:56',
+    carbs: '5 000 ₽',
+    protein: 'RU00-0000-0000-0000',
+    sodium: 'Активирован',
+   //  calcium: '12%',
+   //  iron: '6%'
   }
 ]
 
 // we generate lots of rows here
 let rows = []
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 10; i++) {
   rows = rows.concat(seed.slice(0).map(r => ({ ...r })))
 }
 rows.forEach((row, index) => {
@@ -742,4 +747,49 @@ export default {
       //   max-width: 832px;
 		//   width: 100%;
     }
+  .q-table__top,
+  .q-table__bottom,
+  thead tr:first-child th {
+	color: #535965;
+	background-color: #1F2024;
+  }
+	 thead tr th {
+		position: sticky;
+		z-index: 1;
+	 }
+	 thead tr:last-child th {
+		top: 40px;
+	}
+	thead tr:first-child th {
+		top: 0;
+	}
+	tbody {
+		scroll-margin-top: 48px;
+	}
+	.q-table__card {
+		background-color: #1C1E22;
+	}
+	.q-table th, .q-table td {
+		color: #fff;
+    padding: 10px 16px;
+    background-color: #1C1E22;
+	}
+	.q-table thead, .q-table tr, .q-table th, .q-table td {
+    border: none;
+	}
+	.q-table .q-virtual-scroll__content .text-left {
+		width: 216px;
+		background: #252e42;
+		border-radius: 6px;
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 21.09px;
+	}
+	.q-table tbody tr td:nth-child(1) {
+	 text-align: center;
+    width: 64px;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 21.09px;
+}
 </style>
