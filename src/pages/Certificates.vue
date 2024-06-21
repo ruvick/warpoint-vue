@@ -390,36 +390,34 @@
 							<!-- Content Tab 3 -->
 							<q-tab-panel class="column bg-dark-panel q-pt-lg q-pb-md" name="movies">
 
-								<div class="row justify-between q-pb-xl">
+								<div class="row justify-between">
 									<div class="text-h6 q-mb-xl">История активаций подарочных сертфикатов</div>
 								</div>
 
-
 								<q-table
-								class="my-sticky-dynamic"
-								style="height: 643px"
-								flat 
-								:rows="rows"
-								:columns="columns"
-								:loading="loading"
-								row-key="index"
-								virtual-scroll
-								:virtual-scroll-item-size="48"
-								:virtual-scroll-sticky-size-start="48"
-								:pagination="pagination"
-								:rows-per-page-options="[0]"
-								@virtual-scroll="onScroll"
-								/>
+									class="my-sticky-dynamic"
+									style="height: 643px"
+									flat
+									:rows="rows"
+									:columns="columns"
+									:loading="loading"
+									row-key="index"
+									virtual-scroll
+									:virtual-scroll-item-size="48"
+									:virtual-scroll-sticky-size-start="48"
+									:pagination="pagination"
+									:rows-per-page-options="[0]"
+									@virtual-scroll="onScroll"
+								>
+									<template v-slot:bottom>
+										<div class="q-table__control">
+											<span> <span class="q-table__control-name">Записей:</span> {{ rows.length }} из {{ totalRows }}</span>
+											<span style="margin-left: 50px;"> {{ formattedTotalCarbs }} ₽</span>
+										</div>
+									</template>
+								</q-table>
 
-								
-								<div class="gghk" @click="icon = true">Открыть модалку</div>
-
-								<div class="activ-history row items-center q-mt-md">
-									<div class="activ-history__item row items-center q-mr-xl">
-										<div class="activ-history__quant q-mr-sm">Записей:</div> <div class="activ-history__value text-grey">10 из 10</div> 
-									</div>
-									<div class="activ-history__item text-h6">50 000 ₽ </div>
-								</div>
+								<div class="cert-modal q-pt-lg" @click="icon = true">Открыть модальное окно</div>
 
 								<!-- Popup  -->
 								<q-dialog v-model="icon"> 
@@ -487,162 +485,76 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
-const columns = [
-  {
-    name: 'index',
-    label: '№',
-    field: 'index'
-  },
-  {
-    name: 'name',
-    required: true,
-    label: 'Номер заказа сертификата',
-    align: 'right',
-    field: row => row.name,
-    format: val => `${val}`,
-    sortable: true
-  },
-  { name: 'calories', align: 'right', label: 'Дата', field: 'calories', sortable: true },
-  { name: 'fat', align: 'right', label: 'Время', field: 'fat', sortable: true },
-  { name: 'carbs', align: 'right', label: 'Номинал', field: 'carbs', sortable: true },
-  { name: 'protein', align: 'right', label: 'Номер сертификата', field: 'protein', sortable: true },
-  { name: 'sodium', label: 'Статус сертификата', field: 'sodium', sortable: true },
-//   { name: 'calcium', label: 'Calcium (%)', field: 'calcium', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
-//   { name: 'iron', label: 'Iron (%)', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }
-]
+const rows = ref([
+{ index: 1, name: '1234-5678-90', calories: '20.08.2024', fat: '20.08.2024', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 2, name: '2464-5832-45', calories: '20.08.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 3, name: '4365-4754-78', calories: '21.08.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 4, name: '5475-1358-30', calories: '24.08.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 5, name: '5735-6403-73', calories: '29.08.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 6, name: '5674-3089-24', calories: '01.09.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 7, name: '5678-9247-89', calories: '01.09.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 8, name: '6804-8956-48', calories: '02.09.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 9, name: '5367-6478-90', calories: '04.09.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 10, name: '5674-7889-51', calories: '08.09.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 11, name: '5678-9247-89', calories: '01.09.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 12, name: '5674-3089-24', calories: '01.09.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 13, name: '4365-4754-78', calories: '21.08.2024', fat: '11:10:56', carbs: '5000', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+]);
 
-const seed = [
-  {
-    name: '1234-5678-90',
-    calories: '20.08.2024',
-    fat: '20.08.2024',
-    carbs: '5 000 ₽',
-    protein: 'RU00-0000-0000-0000',
-    sodium: 'Активирован',
-   //  calcium: '14%',
-   //  iron: '1%'
-  },
-  {
-    name: '2464-5832-45',
-    calories: '20.08.2024',
-    fat: '11:10:56',
-    carbs: '5 000 ₽',
-    protein: 'RU00-0000-0000-0000',
-    sodium: 'Активирован',
-   //  calcium: '8%',
-   //  iron: '1%'
-  },
-  {
-    name: '4365-4754-78',
-    calories: '21.08.2024',
-    fat: '11:10:56',
-    carbs: '5 000 ₽',
-    protein: 'RU00-0000-0000-0000',
-    sodium: 'Активирован',
-   //  calcium: '6%',
-   //  iron: '7%'
-  },
-  {
-    name: '5475-1358-30',
-    calories: '24.08.2024',
-    fat: '11:10:56',
-    carbs: '5 000 ₽',
-    protein: 'RU00-0000-0000-0000',
-    sodium: 'Активирован',
-   //  calcium: '3%',
-   //  iron: '8%'
-  },
-  {
-    name: '5735-6403-73',
-    calories: '29.08.2024',
-    fat: '11:10:56',
-    carbs: '5 000 ₽',
-    protein: 'RU00-0000-0000-0000',
-    sodium: 'Активирован',
-   //  calcium: '7%',
-   //  iron: '16%'
-  },
-  {
-    name: '5674-3089-24',
-    calories: '01.09.2024',
-    fat: '11:10:56',
-    carbs: '5 000 ₽',
-    protein: 'RU00-0000-0000-0000',
-    sodium: 'Активирован',
-   //  calcium: '0%',
-   //  iron: '0%'
-  },
-  {
-    name: '5678-9247-89',
-    calories: '01.09.2024',
-    fat: '11:10:56',
-    carbs: '5 000 ₽',
-    protein: 'RU00-0000-0000-0000',
-    sodium: 'Активирован',
-   //  calcium: '0%',
-   //  iron: '2%'
-  },
-  {
-    name: '6804-8956-48',
-    calories: '02.09.2024',
-    fat: '11:10:56',
-    carbs: '5 000 ₽',
-    protein: 'RU00-0000-0000-0000',
-    sodium: 'Активирован',
-   //  calcium: '0%',
-   //  iron: '45%'
-  },
-  {
-    name: '5367-6478-90',
-    calories: '04.09.2024',
-    fat: '11:10:56',
-    carbs: '5 000 ₽',
-    protein: 'RU00-0000-0000-0000',
-    sodium: 'Активирован',
-   //  calcium: '2%',
-   //  iron: '22%'
-  },
-  {
-    name: '5674-7889-51',
-    calories: '08.09.2024',
-    fat: '11:10:56',
-    carbs: '5 000 ₽',
-    protein: 'RU00-0000-0000-0000',
-    sodium: 'Активирован',
-   //  calcium: '12%',
-   //  iron: '6%'
-  }
-]
+const columns = ref([
+{ name: 'index', label: '№', field: 'index' },
+{ name: 'name', required: true, label: 'Номер заказа сертификата', align: 'right', field: row => row.name, format: val => `${val}`, sortable: true },
+{ name: 'calories', align: 'right', label: 'Дата', field: 'calories', sortable: true },
+{ name: 'fat', align: 'right', label: 'Время', field: 'fat', sortable: true },
+{ name: 'carbs', align: 'right', label: 'Номинал', field: 'carbs', sortable: true },
+{ name: 'protein', align: 'right', label: 'Номер сертификата', field: 'protein', sortable: true },
+{ name: 'sodium', label: 'Статус сертификата', field: 'sodium', sortable: true }
+]);
 
-// we generate lots of rows here
-let rows = []
-for (let i = 0; i < 2; i++) {
-  rows = rows.concat(seed.slice(0).map(r => ({ ...r })))
-}
-rows.forEach((row, index) => {
-  row.index = index
-})
+const loading = ref(false);
+const pagination = ref({ page: 1, rowsPerPage: 13 });
+
+const totalRows = computed(() => rows.value.length);
+
+const totalCarbs = computed(() => {
+return rows.value.reduce((total, row) => total + parseInt(row.carbs.replace(/\s/g, ''), 10), 0);
+});
+
+const formattedTotalCarbs = computed(() => {
+return totalCarbs.value.toLocaleString();
+});
+
+const onScroll = () => {
+console.log('Virtual scroll event');
+};
 
 export default {
-     name: 'Certificates',
-	  
-  setup () {
-    return {
-      tab: ref('mails'),
-		value: 71,
-		certificateNumber: ref(''),
-		pin: ref(''),
-		icon: ref(false),
-		columns,
-      rows,
+name: 'Certificates',
+setup() {
+    const tab = ref('mails');
+    const value = ref(71);
+    const certificateNumber = ref('');
+    const pin = ref('');
+    const icon = ref(false);
 
-      pagination: ref({
-        rowsPerPage: 0
-      })
-    }
-  }
+    return {
+     tab,
+     value,
+     certificateNumber,
+     pin,
+     icon,
+     columns,
+     rows,
+     loading,
+     pagination,
+     totalRows,
+     totalCarbs,
+     formattedTotalCarbs,
+     onScroll
+    };
+}
 };
 </script>
 
@@ -847,5 +759,14 @@ export default {
 	font-weight: 500;
 	line-height: 21.09px;
 	color: #9E9E9E;
+	}
+	.q-table__control span:nth-child(2) {
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 28.13px;
+	color: #fff;
+	}
+	.q-table__control-name {
+		color: #fff !important;
 	}
 </style>
