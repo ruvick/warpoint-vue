@@ -397,7 +397,7 @@
 
 								<q-table
 								class="my-sticky-dynamic"
-								style="height: 438px"
+								style="height: 643px"
 								flat 
 								:rows="rows"
 								:columns="columns"
@@ -499,16 +499,16 @@ const columns = [
     name: 'name',
     required: true,
     label: 'Номер заказа сертификата',
-    align: 'left',
+    align: 'right',
     field: row => row.name,
     format: val => `${val}`,
     sortable: true
   },
-  { name: 'calories', align: 'center', label: 'Дата', field: 'calories', sortable: true },
-  { name: 'fat', label: 'Время', field: 'fat', sortable: true },
-  { name: 'carbs', label: 'Номинал', field: 'carbs' },
-  { name: 'protein', label: 'Номер сертификата', field: 'protein' },
-  { name: 'sodium', label: 'Статус сертификата', field: 'sodium' },
+  { name: 'calories', align: 'right', label: 'Дата', field: 'calories', sortable: true },
+  { name: 'fat', align: 'right', label: 'Время', field: 'fat', sortable: true },
+  { name: 'carbs', align: 'right', label: 'Номинал', field: 'carbs', sortable: true },
+  { name: 'protein', align: 'right', label: 'Номер сертификата', field: 'protein', sortable: true },
+  { name: 'sodium', label: 'Статус сертификата', field: 'sodium', sortable: true },
 //   { name: 'calcium', label: 'Calcium (%)', field: 'calcium', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
 //   { name: 'iron', label: 'Iron (%)', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }
 ]
@@ -618,7 +618,7 @@ const seed = [
 
 // we generate lots of rows here
 let rows = []
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 2; i++) {
   rows = rows.concat(seed.slice(0).map(r => ({ ...r })))
 }
 rows.forEach((row, index) => {
@@ -770,9 +770,12 @@ export default {
 		background-color: #1C1E22;
 	}
 	.q-table th, .q-table td {
-		color: #fff;
+	 color: #fff;
     padding: 10px 16px;
     background-color: #1C1E22;
+	font-size: 18px !important;
+	font-weight: 500;
+	line-height: 21.09px;
 	}
 	.q-table thead, .q-table tr, .q-table th, .q-table td {
     border: none;
@@ -786,10 +789,57 @@ export default {
 		line-height: 21.09px;
 	}
 	.q-table tbody tr td:nth-child(1) {
-	 text-align: center;
-    width: 64px;
+		text-align: center;
+		width: 64px;
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 21.09px;
+	}
+	.q-table tbody tr td:nth-child(2) {
+		width: 216px;
+		background: #252e42;
+		border-radius: 6px;
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 21.09px;
+		border: 2px solid #1C1E22;
+	}
+	.q-table thead tr th {
+		text-align: left;
+		color: #535965;
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 21.09px;
+		white-space: normal;
+	}
+	.q-table thead tr th:nth-child(1) {
+		text-align: center;
+	}
+	.q-table thead tr th:nth-child(2) {
+	 width: 200px;
+   //  display: flex;
+    align-items: center;
+	}
+	.q-table thead tr th:nth-child(2) .q-table__sort-icon {
+    transform: translateY(10px);
+}
+	.q-table tbody td {
+    text-align: left;
+	}
+	.q-table th.sortable .q-table__sort-icon {
+    opacity: 1;
+	 float: left;
+	}
+	.q-table__separator {
+		display: none;
+	}
+	.q-table__bottom {
+		justify-content: flex-start;
+	}
+	.q-table__control span {
 	font-size: 18px;
 	font-weight: 500;
 	line-height: 21.09px;
-}
+	color: #9E9E9E;
+	}
 </style>
