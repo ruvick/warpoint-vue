@@ -417,7 +417,8 @@
 									</template>
 								</q-table>
 
-								<div class="cert-modal q-pt-lg" @click="icon = true">Открыть модальное окно</div>
+								<!-- Кнопка открытия модального окна  -->
+								<q-btn class="cert-modal q-mt-xl" @click="icon = true">Открыть модальное окно</q-btn>
 
 								<!-- Popup  -->
 								<q-dialog v-model="icon"> 
@@ -488,27 +489,27 @@
 import { ref, computed } from 'vue';
 
 const rows = ref([
-{ index: 1, name: '1234-5678-90', calories: '20.08.2024', fat: '20.08.2024', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 2, name: '2464-5832-45', calories: '20.08.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 3, name: '4365-4754-78', calories: '21.08.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 4, name: '5475-1358-30', calories: '24.08.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 5, name: '5735-6403-73', calories: '29.08.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 6, name: '5674-3089-24', calories: '01.09.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 7, name: '5678-9247-89', calories: '01.09.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 8, name: '6804-8956-48', calories: '02.09.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 9, name: '5367-6478-90', calories: '04.09.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 10, name: '5674-7889-51', calories: '08.09.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 11, name: '5678-9247-89', calories: '01.09.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 12, name: '5674-3089-24', calories: '01.09.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 13, name: '4365-4754-78', calories: '21.08.2024', fat: '11:10:56', carbs: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 1, orderNumber: '1234-5678-90', date: '20.08.2024', time: '20.08.2024', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 2, orderNumber: '2464-5832-45', date: '20.08.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 3, orderNumber: '4365-4754-78', date: '21.08.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 4, orderNumber: '5475-1358-30', date: '24.08.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 5, orderNumber: '5735-6403-73', date: '29.08.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 6, orderNumber: '5674-3089-24', date: '01.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 7, orderNumber: '5678-9247-89', date: '01.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 8, orderNumber: '6804-8956-48', date: '02.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 9, orderNumber: '5367-6478-90', date: '04.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 10, orderNumber: '5674-7889-51', date: '08.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 11, orderNumber: '5678-9247-89', date: '01.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 12, orderNumber: '5674-3089-24', date: '01.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
+{ index: 13, orderNumber: '4365-4754-78', date: '21.08.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
 ]);
 
 const columns = ref([
 { name: 'index', label: '№', field: 'index' },
-{ name: 'name', required: true, label: 'Номер заказа сертификата', align: 'right', field: row => row.name, format: val => `${val}`, sortable: true },
-{ name: 'calories', align: 'right', label: 'Дата', field: 'calories', sortable: true },
-{ name: 'fat', align: 'right', label: 'Время', field: 'fat', sortable: true },
-{ name: 'carbs', align: 'right', label: 'Номинал', field: 'carbs', sortable: true },
+{ name: 'orderNumber', required: true, label: 'Номер заказа сертификата', align: 'right', field: row => row.orderNumber, format: val => `${val}`, sortable: true },
+{ name: 'date', align: 'right', label: 'Дата', field: 'date', sortable: true },
+{ name: 'time', align: 'right', label: 'Время', field: 'time', sortable: true },
+{ name: 'nominal', align: 'right', label: 'Номинал', field: 'nominal', sortable: true },
 { name: 'protein', align: 'right', label: 'Номер сертификата', field: 'protein', sortable: true },
 { name: 'sodium', label: 'Статус сертификата', field: 'sodium', sortable: true }
 ]);
@@ -519,7 +520,7 @@ const pagination = ref({ page: 1, rowsPerPage: 13 });
 const totalRows = computed(() => rows.value.length);
 
 const totalCarbs = computed(() => {
-return rows.value.reduce((total, row) => total + parseInt(row.carbs.replace(/\s/g, ''), 10), 0);
+return rows.value.reduce((total, row) => total + parseInt(row.nominal.replace(/\s/g, ''), 10), 0);
 });
 
 const formattedTotalCarbs = computed(() => {
