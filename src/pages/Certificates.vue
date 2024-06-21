@@ -27,13 +27,13 @@
 
 						<!-- <q-separator /> -->
 
-						<q-tab-panels v-model="tab" animated>
+						<q-tab-panels class="bg-dark-panel" v-model="tab" animated>
 
 							<!-- Content Tab 1 -->
 							<q-tab-panel class="column bg-dark-panel q-pt-lg q-pb-md" name="mails">
 
 								<!-- Основная верхняя обертка  -->
-								<div class="row justify-between q-pb-xl">
+								<div class="cert-body row justify-between q-pb-xl">
 
 									<div class="row column col-4 col-4--medium">
 
@@ -41,7 +41,7 @@
 										<div class="q-pt-md" style="display: non;">
 											<div class="text-h6 q-mb-xl">Введите данные:</div>
 
-											<q-form @submit="onSubmit" class="column" method="post" style="width: 18rem;">
+											<q-form @submit="onSubmit" class="column" method="post" style="max-width: 18rem; width: 100%;">
 												<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="certificateNumber" mask="AAAA - #### - #### - SSS"
 													label="Номер сертификата" style="border-radius: 0.375rem; overflow: hidden;"/>
 												<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="pin" type="number" label="PIN" style="border-radius: 0.375rem; overflow: hidden;"/>
@@ -124,10 +124,10 @@
 											</div>
 
 											<!-- Таблица  -->
-											 <div class="row" style="width: 100%;">
+											 <div class="table-cert row" style="width: 100%;">
 												<!-- Left Table  -->
 												<div class="col">
-													<div class="row">
+													<div class="row no-wrap">
 														<div class="column">
 															<div class="item text-grey-10 q-mr-sm q-mb-md">PIN:</div>
 															<div class="item text-grey-10 q-mr-sm q-mb-md">Тип сертификата:</div>
@@ -143,16 +143,16 @@
 
 												<!-- Right Table  -->
 												<div class="col">
-													<div class="row">
+													<div class="row no-wrap">
 														<div class="column">
-															<div class="item text-grey-10 q-mr-sm q-mb-md">Место активации:</div>
-															<div class="item text-grey-10 q-mr-sm q-mb-md">Номер брони:</div>
-															<div class="item text-grey-10 q-mr-sm q-mb-md">Срок действия:</div>
+															<div class="item text-grey-10 q-mr-sm q-mb-md text-no-wrap">Место активации:</div>
+															<div class="item text-grey-10 q-mr-sm q-mb-md text-no-wrap">Номер брони:</div>
+															<div class="item text-grey-10 q-mr-sm q-mb-md text-no-wrap">Срок действия:</div>
 														</div>
 														<div class="column">
-															<div class="item q-mb-md">Россия, Екатеринбург, ТРЦ “Радуга Парк”</div>
-															<div class="item q-mb-md">Россия, Екатеринбург, ТРЦ “Радуга Парк”</div>
-															<div class="item q-mb-md">до 11 апреля 2028</div>
+															<div class="item q-mb-md text-no-wrap">Россия, Екатеринбург, ТРЦ “Радуга Парк”</div>
+															<div class="item q-mb-md text-no-wrap">Россия, Екатеринбург, ТРЦ “Радуга Парк”</div>
+															<div class="item q-mb-md text-no-wrap">до 11 апреля 2028</div>
 														</div>
 													</div>
 												</div>
@@ -219,7 +219,7 @@
 							<q-tab-panel class="column bg-dark-panel q-pt-lg q-pb-md" name="alarms">
 
 								<!-- Основная верхняя обертка  -->
-								<div class="row justify-between q-pb-xl">
+								<div class="cert-body row justify-between q-pb-xl">
 
 									<div class="row column col-4">
 
@@ -227,7 +227,7 @@
 										<div class="q-pt-md">
 											<div class="text-h6 q-mb-xl">Узнайте у клиента номер заказа сертификата:</div>
 
-											<q-form @submit="onSubmit"  class="column" method="post" style="width: 23.5rem;">
+											<q-form @submit="onSubmit"  class="column" method="post" style="max-width: 23.5rem; width: 100%;">
 												<q-input
 													color="grey-9"
 													standout
@@ -269,7 +269,7 @@
 												</div>
 											</div>
 
-											<div class="row items-stretch" style="width: 100%;">
+											<div class="table-cert row items-stretch" style="width: 100%;">
 
 												<!-- Поля статуса -->
 												<div class="col">
@@ -344,9 +344,9 @@
 											<div class="column items-start">
 
 												<div class="row q-mb-lg">
-													<q-input class="q-mr-lg" clearable clear-icon="close" filled v-model="certificateNumber" mask="AAAA - #### - #### - ####"
+													<q-input class="q-mr-lg q-mb-md" clearable clear-icon="close" filled v-model="certificateNumber" mask="AAAA - #### - #### - ####"
 														label="Номер сертификата" style="border-radius: 0.375rem; overflow: hidden; width: 288px;"/>
-													<q-input clearable clear-icon="close" filled v-model="pin" type="number" label="PIN" style="border-radius: 0.375rem; overflow: hidden;"/>
+													<q-input class="q-mb-md" clearable clear-icon="close" filled v-model="pin" type="number" label="PIN" style="border-radius: 0.375rem; overflow: hidden;"/>
 												</div>
 
 												<q-btn class="text-h6" label="Активировать" type="submit" color="positive" style="border-radius: 0.375rem;"/>
@@ -761,5 +761,27 @@ setup() {
 	}
 	.q-table__control-name {
 		color: #fff !important;
+	}
+	@media (max-width: 1538px){
+	.page-navigation .nav-pult {
+    left: 25%;
+    right: auto;
+	}
+	}
+	@media (max-width: 1200px) {
+		.table-cert {
+			flex-direction: column;
+			gap: 20px;
+		}
+		.cert-body {
+			flex-direction: column;
+			gap: 30px;
+		}
+		.cert-body .col-4 {
+			width: 100% !important;
+		}
+		.cert-body .col {
+			width: 100% !important;
+		}
 	}
 </style>
