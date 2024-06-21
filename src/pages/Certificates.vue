@@ -75,7 +75,7 @@
 									<div class="row col bg-dark-box q-pt-md q-pb-md q-pl-lg q-pr-lg">
 
 										<!-- Блок 1 Загрузка сертификата  -->
-										<div class="column items-center justify-center" style="width: 100%; display: non;">
+										<div class="column items-center justify-center" style="width: 100%; display: none;">
 											<div class="row">
 												<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация о сертификате
 													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
@@ -598,9 +598,6 @@ setup() {
 	.q-field__focusable-action {
 		color: #C7CCCC;
 	}
-	// .q-placeholder {
-	// 	color: #fff;
-	// }
 	.bg-dark-box {
 		background-color: #1D1F24;
 	}
@@ -632,21 +629,21 @@ setup() {
 		flex-direction: column;
 		align-items: flex-start;
 		background-color: #25272D;
-		border-radius: 4px;
+		border-radius: 0.25rem;
 		overflow: hidden;
-		padding: 11px 16px;
-		gap: 8px;
+		padding: 0.6875rem 1rem;
+		gap: 0.5rem;
 	}
 	.input-info__name {
-		font-size: 16px;
+		font-size: 1rem;
 		font-weight: 500;
-		line-height: 18.75px;
+		line-height: 1.1719rem;
 		color: #9E9E9E;
 	}
 	.input-info__value {
-		font-size: 20px;
+		font-size: 1.25rem;
 		font-weight: 500;
-		line-height: 23.44px;
+		line-height: 1.465rem;
 		color: #fff;
 	}
 	.input-info__value--active {
@@ -655,10 +652,6 @@ setup() {
 	.col-4--medium {
 		width: 30% !important;
 	}
-	.q-dialog__inner--minimized .q-card-activ {
-      //   max-width: 832px;
-		//   width: 100%;
-    }
   .q-table__top,
   .q-table__bottom,
   thead tr:first-child th {
@@ -670,79 +663,78 @@ setup() {
 		z-index: 1;
 	 }
 	 thead tr:last-child th {
-		top: 40px;
+		top: 2.5rem;
 	}
 	thead tr:first-child th {
 		top: 0;
 	}
 	tbody {
-		scroll-margin-top: 48px;
+		scroll-margin-top: 3rem;
 	}
 	.q-table__card {
 		background-color: #1C1E22;
 	}
 	.q-table th, .q-table td {
 	 color: #fff;
-    padding: 10px 16px;
+    padding: 0.625rem 1rem;
     background-color: #1C1E22;
-	font-size: 18px !important;
+	font-size: 1.125rem !important;
 	font-weight: 500;
-	line-height: 21.09px;
+	line-height: 1.3181rem;
 	}
 	.q-table thead, .q-table tr, .q-table th, .q-table td {
     border: none;
 	}
 	.q-table .q-virtual-scroll__content .text-left {
-		width: 216px;
+		width: 13.5rem;
 		background: #252e42;
-		border-radius: 6px;
-		font-size: 18px;
+		border-radius: 0.375rem;
+		font-size: 1.125rem;
 		font-weight: 700;
-		line-height: 21.09px;
+		line-height: 1.3181rem;
 	}
 	.q-table tbody tr td:nth-child(1) {
 		text-align: center;
-		width: 64px;
-		font-size: 18px;
+		width: 4rem;
+		font-size: 1.125rem;
 		font-weight: 500;
-		line-height: 21.09px;
+		line-height: 1.3181rem;
 	}
 	.q-table tbody tr td:nth-child(2) {
-		width: 216px;
+		width: 13.5rem;
 		background: #252e42;
-		border-radius: 6px;
-		font-size: 18px;
+		border-radius: 0.375rem;
+		font-size: 1.125rem;
 		font-weight: 700;
-		line-height: 21.09px;
-		border: 2px solid #1C1E22;
+		line-height: 1.3181rem;
+		border: 0.125rem solid #1C1E22;
 	}
 	.q-table thead tr th {
 		text-align: left;
 		color: #535965;
 		font-size: 18px;
 		font-weight: 500;
-		line-height: 21.09px;
+		line-height: 1.3181rem;
 		white-space: normal;
 	}
 	.q-table thead tr th:nth-child(1) {
 		text-align: center;
 	}
 	.q-table thead tr th:nth-child(2) {
-	 width: 200px;
-   //  display: flex;
+	 width: 12.5rem;
     align-items: center;
 	}
 	.q-table thead tr th:nth-child(3) {
-		padding-left: 80px;
+		padding-left: 5rem;
 	}
 	.q-table thead tr th:nth-child(2) .q-table__sort-icon {
-    transform: translateY(10px);
+    transform: translateY(0.625rem);
 }
 	.q-table tbody td {
     text-align: left;
 	}
 	.q-table tbody td:nth-child(3) {
-    padding-left: 80px;
+    padding-left: 5rem;
 	}
 	.q-table th.sortable .q-table__sort-icon {
     opacity: 1;
@@ -755,15 +747,15 @@ setup() {
 		justify-content: flex-start;
 	}
 	.q-table__control span {
-	font-size: 18px;
+	font-size: 1.125rem;
 	font-weight: 500;
-	line-height: 21.09px;
+	line-height: 1.3181rem;
 	color: #9E9E9E;
 	}
 	.q-table__control span:nth-child(2) {
-	font-size: 24px;
+	font-size: 1.5rem;
 	font-weight: 400;
-	line-height: 28.13px;
+	line-height: 1.7581rem;
 	color: #fff;
 	}
 	.q-table__control-name {
