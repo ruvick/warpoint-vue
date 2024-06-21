@@ -820,11 +820,17 @@ export default {
    //  display: flex;
     align-items: center;
 	}
+	.q-table thead tr th:nth-child(3) {
+		padding-left: 80px;
+	}
 	.q-table thead tr th:nth-child(2) .q-table__sort-icon {
     transform: translateY(10px);
 }
 	.q-table tbody td {
     text-align: left;
+	}
+	.q-table tbody td:nth-child(3) {
+    padding-left: 80px;
 	}
 	.q-table th.sortable .q-table__sort-icon {
     opacity: 1;
