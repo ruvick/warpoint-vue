@@ -74,6 +74,11 @@ const links = ref([
     url: '/certificates'
   },
   {
+    title: 'Промокоды',
+    iconPuth: 'promo',
+    url: '/promocodes'
+  },
+  {
     title: 'Остатки',
     iconPuth: 'ostatki',
     url: '/sdf'

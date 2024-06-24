@@ -1,10 +1,10 @@
 <template>
-
+<q-layout>
 	<!-- Container  -->
-	<q-page-container class="my-page-container">
+	<q-page-container class="my-page-container"> 
+		<q-page class="my-page-body q-pt-md q-pb-sm" style="padding: 0.3937rem 2rem 0.3937rem 8.5rem; margin-top: 4.375rem;">
 
 		<!-- Обертка  -->
-		<div class="my-page-body q-pt-md q-pb-sm" style="padding: 0.3937rem 2rem 0.3937rem 8.5rem; margin-top: 4.375rem; min-height: 93vh;">
 			<div class="q-pa-md" style="padding: 0;">
 				<div class="q-gutter-y-md">
 
@@ -25,8 +25,6 @@
 							<q-tab class="no-hover" style="flex: 0;" name="movies" label="История активаций" />
 						</q-tabs>
 
-						<!-- <q-separator /> -->
-
 						<q-tab-panels class="bg-dark-panel" v-model="tab" animated>
 
 							<!-- Content Tab 1 -->
@@ -46,36 +44,16 @@
 													label="Номер сертификата" style="border-radius: 0.375rem; overflow: hidden;"/>
 												<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="pin" type="number" label="PIN" style="border-radius: 0.375rem; overflow: hidden;"/>
 											</q-form>
-											<q-btn class="text-h6" label="Проверить баланс" type="submit" color="primary" style="border-radius: 0.375rem;"/>
-											<!-- <q-btn class="text-h6 no-hover" outline color="primary" label="Очистить" type="submit" primary style="border-radius: 0.375rem;"/> -->
+											<q-btn class="text-h6 q-mr-sm" label="Проверить баланс" type="submit" color="primary" style="border-radius: 0.375rem;"/> 
+											<q-btn class="text-h6 no-hover" outline color="primary" label="Очистить" type="submit" primary style="border-radius: 0.375rem;"/>
 										</div>
-
-										<!-- Блок 2 left  -->
-										<!-- <div class="q-pt-md">
-											<div class="text-h6 q-mb-xl">Узнайте у клиента номер заказа сертификата:</div>
-
-											<q-form @submit="onSubmit"  class="column" method="post" style="width: 23.5rem;">
-												<q-input
-													color="grey-9"
-													standout
-													v-model="text"
-													type="text"
-													class="my-input-standart my-input-standart-middle bg-blue-grey-8 q-ml-auto"
-													placeholder="Номер заказа сертификата"
-													style="width: 100%;">		
-													<template v-slot:prepend>
-														<q-icon name="svguse:icons/allIcons.svg#loop" size="32px" color="grey-9" />
-													</template>
-												</q-input>								
-											</q-form>
-										</div> -->
 
 									</div>
 
 									<div class="row col bg-dark-box q-pt-md q-pb-md q-pl-lg q-pr-lg">
 
 										<!-- Блок 1 Загрузка сертификата  -->
-										<div class="column items-center justify-center" style="width: 100%; display: none;">
+										<div class="column items-center justify-center" style="width: 100%; display: non;">
 											<div class="row">
 												<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация о сертификате
 													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
@@ -161,7 +139,7 @@
 										</div>
 
 										<!-- Блок 3 Нет сертификата  -->
-										<div class="column" style="width: 100%; display: none;">
+										<div class="column" style="width: 100%; display: non;">
 											<div class="column justify-center items-center text-h6 text-grey-10 q-mb-xs">Вы точно указали правильный номер сертификата?
 												<div class="col" style="width: 289px; height: 202px;" >
 													<svg viewBox="0 0 289 202"><use xlink:href="icons/allIcons.svg#sert-no"></use></svg>
@@ -170,20 +148,12 @@
 
 											<div class="row justify-center">
 												<q-btn class="q-btn-no text-h6 no-hover text-grey-10" icon-right="close" outline flat label="Очистить всё" type="reset" primary style="text-transform: none"/>
-												<q-btn class="q-btn-no text-h6 no-hover" color="primary" icon-right="close" outline flat label="Повторить поиск" type="button" primary style="text-transform: none"/>
+												<q-btn class="q-btn-no text-h6 no-hover" color="primary" outline flat type="button" primary style="text-transform: none">
+													<span class="block">Повторить поиск</span>
+													<q-icon name="svguse:icons/allIcons.svg#loading" size="25px" class="q-mr-sm" />
+												</q-btn>
 											</div>
 										</div>
-
-										<!-- Блок 4 Загрузка сертификата  -->
-										<!-- <div class="column items-center justify-center" style="width: 100%;">
-											<div class="row">
-												<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация
-													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
-														<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#loop"></use></svg>
-													</i>
-												</div>
-											</div>
-										</div> -->
 
 									</div>
 
@@ -248,7 +218,7 @@
 									<div class="row col bg-dark-box q-pt-md q-pb-md q-pl-lg q-pr-lg">
 
 										<!-- Блок 1 Right  -->
-										<div class="column items-center justify-center" style="width: 100%; display: none;">
+										<div class="column items-center justify-center" style="width: 100%; display: non;">
 											<div class="row">
 												<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация
 													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
@@ -363,19 +333,30 @@
 													<svg viewBox="0 0 289 202"><use xlink:href="icons/allIcons.svg#sert-activ"></use></svg>
 												</div>
 												<div class="row justify-center">
-													<q-btn class="q-btn-no text-h6 no-hover text-grey-10 text-capitalize" icon-right="mail" outline flat label="На главную" type="reset" primary/>
+
+													<q-btn class="q-btn-no text-h6 no-hover text-grey-10 text-capitalize" outline flat type="reset" primary>
+														<span class="block">На главную</span>
+														<q-icon name="svguse:icons/allIcons.svg#home" size="25px" class="q-mr-sm" />
+													</q-btn>
+
 												</div>
 											</div>
 
 											<!-- Активация не прошла -->
-											<div class="column items-center" style="width: 100%; display: none;">
+											<div class="column items-center" style="width: 100%; display: non;">
 												<div class="col" style="width: 289px; height: 202px;" >
 													<svg viewBox="0 0 289 202"><use xlink:href="icons/allIcons.svg#activ-failed"></use></svg>
 												</div>
 												<div class="row justify-center">
 													<q-btn class="q-btn-no text-h6 no-hover text-grey-10" icon-right="close" outline flat label="Очистить всё" type="reset" primary no-caps/>
-													<q-btn class="q-btn-no text-h6 no-hover text-grey-10" icon-right="close" outline flat label="Повторить попытку" type="button" primary no-caps/>
-													<q-btn class="q-btn-no q-btn-no--send text-h6 no-hover" color="primary" icon-right="send" outline flat label="Написать в техподдержку" type="button" primary no-caps/>
+													<q-btn class="q-btn-no text-h6 no-hover text-grey-10" outline flat type="button" primary no-caps>
+														<span class="block">Повторить поиск</span>
+														<q-icon name="svguse:icons/allIcons.svg#loading-w" size="25px" class="q-mr-sm" />
+													</q-btn>
+													<q-btn class="q-btn-no q-btn--send text-h6 no-hover" color="primary" outline flat type="button" primary no-caps>
+														<span class="block">Написать в техподдержку</span>
+														<q-icon name="svguse:icons/allIcons.svg#send" size="25px" class="q-mr-sm" />
+													</q-btn>
 												</div>
 											</div>
 
@@ -467,7 +448,6 @@
 												</div>
 											</div>
 
-
 									</q-card-section>
 									</q-card>
 								</q-dialog>
@@ -480,9 +460,9 @@
 				</div>
   		</div>
 
-	</div>
-</q-page-container>
-
+			</q-page>
+		</q-page-container>
+	</q-layout>
 </template>
 
 <script>
@@ -762,6 +742,9 @@ setup() {
 	.q-table__control-name {
 		color: #fff !important;
 	}
+	.q-btn--send .q-icon {
+		margin: 0.5rem 0.3125rem 0.3125rem 0.3125rem;
+	}
 	@media (max-width: 1538px){
 	.page-navigation .nav-pult {
     left: 25%;
@@ -780,8 +763,8 @@ setup() {
 		.cert-body .col-4 {
 			width: 100% !important;
 		}
-		.cert-body .col {
-			width: 100% !important;
-		}
+		// .cert-body .col {
+		// 	width: 100% !important;
+		// }
 	}
 </style>

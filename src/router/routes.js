@@ -19,12 +19,20 @@ const routes = [
 					requiresAuth: true
 				}
 			},
+			{
+				path: 'promocodes',
+				component: () => import('pages/PromoCodes.vue'),
+				meta: {
+					title: 'Промокоды',
+					requiresAuth: true
+				}
+			},
 		]
 	},
 
 	{
 		path: '/',
-		component: () => import('layouts/AuthLayout.vue'), // Регистрация
+		component: () => import('layouts/AuthLayout.vue'), // Регистрация 
 		children: [
 			{
 				path: '/login',
