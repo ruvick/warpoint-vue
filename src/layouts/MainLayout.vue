@@ -84,9 +84,9 @@ const links = ref([
     url: '/sdf'
   },
   {
-    title: 'Товары',
+    title: 'Товары и услуги',
     iconPuth: 'products',
-    url: '/sdf'
+    url: '/products'
   },
   {
     title: 'Аналитика',
@@ -123,3 +123,12 @@ const logout = () => {
 
 
 </script>
+
+<style>
+
+.my-left-drawer .list-links .q-item {
+    padding: 5px;
+    text-align: center;
+}
+
+</style>

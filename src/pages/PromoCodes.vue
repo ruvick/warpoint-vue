@@ -10,7 +10,7 @@
 						<div class="text-h6">Список промокодов</div>
 					</div>
 					<div class="col-auto">
-						<q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogCreatePromoModal = true">
+						<q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogPromoModal = true">
 							<q-icon name="svguse:icons/allIcons.svg#plus" size="12px" class="q-mr-sm" />
 							<span class="block">Создать промокод</span>
           			</q-btn>
@@ -20,7 +20,7 @@
 				<!-- Table  -->
 				<q-table
 					class="my-sticky-dynamic table-promo"
-					style="height: 643px"
+					style="height: 550px"
 					flat
 					:rows="rows"
 					:columns="columns"
@@ -35,12 +35,29 @@
 					>
 					<template v-slot:bottom>
 						<div class="q-table__control">
-							<span> <span class="q-table__control-name">Записей:</span> {{ rows.length }} из {{ totalRows }}</span>
+							<span><span class="q-table__control-name">Записей:</span> {{ rows.length }} из {{ totalRows }}</span>
 						</div>
+					</template>
+					<template v-slot:body-cell-status="props">
+						<q-td :props="props" :class="getStatusClass(props.row.status)">
+							{{ props.row.status }}
+						</q-td>
+					</template>
+					<template v-slot:body-cell-startDate="props">
+						<q-td :props="props">
+							<div>{{ props.row.startDate }}</div>
+							<div class="additional-text">{{ props.row.startDateAdditional }}</div>
+						</q-td>
+					</template>
+					<template v-slot:body-cell-endDate="props">
+						<q-td :props="props">
+							<div>{{ props.row.endDate }}</div>
+							<div class="additional-text">{{ props.row.endDateAdditional }}</div>
+						</q-td>
 					</template>
 					<template v-slot:body-cell-management="props">
 						<q-td>
-							<q-btn class="q-btn-management" :props="props" @click="dialogPromoManagementModal = true" >
+							<q-btn class="q-btn-management" :props="props" @click="dialogPromoModal = true">
 								<span></span>
 								<span></span>
 								<span></span>
@@ -49,22 +66,13 @@
 					</template>
 				</q-table>
 
-				<!-- Окно Создание Промокода  -->
+				<!-- Окно Промокода  -->
 				<q-dialog
-					v-model="dialogCreatePromoModal"
+					v-model="dialogPromoModal"
 					class="dialog-full dialog-new-booking"
 					position="right"
 				>
-					<CreatePromoModal />
-				</q-dialog>
-
-				<!-- Окно Управление Промокодом  -->
-				<q-dialog
-					v-model="dialogPromoManagementModal"
-					class="dialog-full dialog-new-booking"
-					position="right"
-				>
-					<PromoManagementModal />
+					<PromoModal />
 				</q-dialog>
 			
 		</q-page>
@@ -76,22 +84,19 @@
 <script setup>
 import { ref, computed } from 'vue';
 
-// Подключение компонентов 
-import PromoManagementModal from 'src/components/PromoManagementModal.vue'
-import CreatePromoModal from 'src/components/CreatePromoModal.vue'
-const dialogPromoManagementModal = ref(false)
-const dialogCreatePromoModal = ref(false)
+// Подключение компонентов
+import PromoModal from 'src/components/PromoModal.vue';
+
+const dialogPromoModal = ref(false);
 
 const rows = ref([
-{  promocode: 'WYLSA', date: '14.01.2024', created: 'УК', status: 'Завершен', typeDiscount: 'Абсолютная', startDate: '01.01.2024', endDate: '01.03.2024',
-	discountAmount: '1 000 ₽', distribution: 'ИГРЫ', management: '',
- },
- { promocode: 'WPteam', date: '14.01.2024', created: 'Вами', status: 'Активен', typeDiscount: 'Процентная', startDate: '01.01.2024', endDate: '01.03.2024',
-	discountAmount: '50%', distribution: 'ИГРЫ, ТОВАРЫ', management: '',
- },
- { promocode: 'GVA12', date: '14.01.2024', created: 'Вами', status: 'Активен', typeDiscount: 'Процентная', startDate: '01.01.2024', endDate: '01.03.2024',
-	discountAmount: '20%', distribution: 'ИГРЫ, ТОВАРЫ', management: '',
- },
+{ promocode: 'WYLSA', date: '14.01.2024', created: 'УК', status: 'Завершен', typeDiscount: 'Абсолютная', startDate: '01.01.2024', endDate: '01.03.2024', startDateAdditional: 'в 14:00', endDateAdditional: 'в 15:00', discountAmount: '1 000 ₽', distribution: 'ИГРЫ', management: '' },
+{ promocode: 'WPteam', date: '14.01.2024', created: 'Вами', status: 'Активен', typeDiscount: 'Процентная', startDate: '01.01.2024', endDate: '01.03.2024', startDateAdditional: 'в 14:00', endDateAdditional: 'в 15:00', discountAmount: '50%', distribution: 'ИГРЫ, ТОВАРЫ', management: '' },
+{ promocode: 'GVA12', date: '14.01.2024', created: 'Вами', status: 'Активен', typeDiscount: 'Процентная', startDate: '01.01.2024', endDate: '01.03.2024', startDateAdditional: 'в 14:00', endDateAdditional: 'в 15:00', discountAmount: '20%', distribution: 'ИГРЫ, ТОВАРЫ', management: '' },
+{ promocode: '09may', date: '14.01.2024', created: 'Вами', status: 'Завершен', typeDiscount: 'Процентная', startDate: '01.01.2024', endDate: '01.03.2024', startDateAdditional: 'в 14:00', endDateAdditional: 'в 15:00', discountAmount: '30%', distribution: 'ИГРЫ, ТОВАРЫ', management: '' },
+{ promocode: 'SQUAD', date: '14.01.2024', created: 'Вами', status: 'Активен', typeDiscount: 'Процентная', startDate: '01.01.2024', endDate: '01.03.2024', startDateAdditional: 'в 14:00', endDateAdditional: 'в 15:00', discountAmount: '1 500 ₽', distribution: 'ИГРЫ, ТОВАРЫ', management: '' },
+{ promocode: 'BNUI-01', date: '14.01.2024', created: 'Вами', status: 'Завершен', typeDiscount: 'Процентная', startDate: '01.01.2024', endDate: '01.03.2024', startDateAdditional: 'в 14:00', endDateAdditional: 'в 15:00', discountAmount: '50%', distribution: 'ИГРЫ, ТОВАРЫ', management: '' },
+{ promocode: '12PROMO', date: '14.01.2024', created: 'Вами', status: 'Активен', typeDiscount: 'Процентная', startDate: '01.01.2024', endDate: '01.03.2024', startDateAdditional: 'в 14:00', endDateAdditional: 'в 15:00', discountAmount: '50%', distribution: 'ИГРЫ, ТОВАРЫ', management: '' },
 ]);
 
 const columns = ref([
@@ -104,7 +109,7 @@ const columns = ref([
 { name: 'endDate', label: 'Дата и время окончания', field: 'endDate', sortable: true },
 { name: 'discountAmount', label: 'Размер скидки', field: 'discountAmount', sortable: true },
 { name: 'distribution', label: 'На что распространяется', field: 'distribution', sortable: true },
-{ name: 'management', label: 'Управление', field: 'management', }
+{ name: 'management', label: 'Управление', field: 'management' }
 ]);
 
 const loading = ref(false);
@@ -116,25 +121,42 @@ const onScroll = () => {
 console.log('Virtual scroll event');
 };
 
-// export default {
-// name: 'PromoCodes',
-// setup() {
-
-   //  return {
-     columns,
-     rows,
-     loading,
-     pagination,
-     totalRows,
-     onScroll
-   //  };
-// }
-// };
+const getStatusClass = (status) => {
+return {
+    'status-active': status === 'Активен',
+    'status-completed': status === 'Завершен'
+};
+};
 </script>
 
 <style lang="scss">
 
 	.table-promo {
+		.status-completed {
+			&::before{
+				content:''; 
+				top: 50%;
+				transform: translateY(-50%);
+				width: 8px;
+				height: 8px; 
+				background-color: #E23239;
+				border-radius: 50%;
+			}
+		}
+		.status-active {
+			&::before{
+				content:''; 
+				top: 50%;
+				transform: translateY(-50%);
+				width: 8px;
+				height: 8px; 
+				background-color: #44A248;
+				border-radius: 50%;
+			}
+		}
+		.additional-text {
+			color: #616161;
+		}
 		.q-table thead tr th:nth-child(2) {
     		width: auto;
     		align-items: center;
@@ -182,6 +204,12 @@ console.log('Virtual scroll event');
 			text-align: right;
     		display: flex;
     		justify-content: flex-end;
+		}
+		.q-table__control span {
+    		color: #fff;
+		}
+		.q-table__control-name {
+			color: #9E9E9E !important;
 		}
 	}
 	.q-btn-management {
