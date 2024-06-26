@@ -10,6 +10,9 @@
 					</div>
 				</div>
 
+				
+
+
 				<q-btn label="Открыть окно" @click="dialogProductsModal = true" />
 
 				<!-- Окно  -->

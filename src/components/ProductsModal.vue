@@ -23,9 +23,9 @@
 					 <div class="body-modal__inner row items-center q-mb-lg">
 						 <q-input class="q-mr-lg" filled label="Наименование" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 500px; width: 100%;"/>
 						 <div class="q-toggle-container text-grey-10">
-						  <span class="left-label">Активен</span>
+						  <span class="left-label">Товар</span>
 						  <q-toggle v-model="toggle" />
-						  <span class="right-label">Да</span>
+						  <span class="right-label">Услуга</span>
 						 </div>
 					 </div>
 	
@@ -51,21 +51,14 @@
 					</div>
 	
 					<div class="body-modal__item col-auto q-mb-lg">
-					 <q-file
-						 name="poster_file"
-						 v-model="file"
-						 filled
-						 class="custom-file-uploader"
-					 >
-						 <template v-slot:prepend>
-						  <div class="custom-uploader-content">
-							  <img src="icons/camera.svg" alt="Custom Image" class="custom-image" />
-							  <div class="custom-text">Загрузить фото
-								<q-icon name="svguse:icons/allIcons.svg#upload" size="26px" class="q-ml-sm" />
-							  </div>
-						  </div>
-						 </template>
-					 </q-file> 
+						<q-uploader
+    label="Загрузить фото"
+    auto-upload
+    :url="getUrl"
+    multiple
+    class="custom-file-uploader"
+    @uploaded-files="handleUploadedFiles"
+  />
 					</div>
 	
 				</div>
@@ -94,7 +87,7 @@
 	</template>
 	
 	<script setup>
-	import { ref } from 'vue';
+	import { ref, onMounted, onBeforeUnmount } from 'vue';
 	
 	const input = ref('');
 	const toggle = ref(false);
@@ -108,59 +101,198 @@
 	{ label: 'Подкатегория 1', value: 'subcategory1' },
 	{ label: 'Подкатегория 2', value: 'subcategory2' }
 	]);
+
+	let observer;
+
+// function getUrl() {
+// return 'https://your-upload-url.com/upload'; // Замените на ваш URL для загрузки
+// }
+
+// function handleUploadedFiles({ files }) {
+// if (files.length > 0) {
+//     const fileName = files[0].name;
+//     const titleElement = document.querySelector('.q-uploader__header-content .q-uploader__title');
+//     if (titleElement) {
+//      titleElement.textContent = fileName;
+//     }
+// }
+// }
+
+// function handleFileRemoved() {
+// const titleElement = document.querySelector('.q-uploader__header-content .q-uploader__title');
+// if (titleElement) {
+//     titleElement.textContent = 'Загрузить фото';
+//     titleElement.classList.remove('no-after');
+// }
+// }
+
+onMounted(() => {
+const targetNode = document.querySelector('.q-uploader__list');
+const config = { childList: true, subtree: true };
+
+observer = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+     if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+        const fileHeader = mutation.addedNodes[0].querySelector('.q-uploader__file-header .q-uploader__title');
+
+        if (fileHeader) {
+         const fileName = fileHeader.textContent;
+			const customUploader = document.querySelector('.custom-file-uploader');
+         const titleElement = document.querySelector('.q-uploader__header-content .q-uploader__title');
+			titleElement.classList.add('no-after');
+			customUploader.classList.add('no-after');
+         if (titleElement) {
+            titleElement.textContent = fileName;
+         }
+		}
+
+     }
+    }
+});
+
+const	customUploaderCl = ('custom-file-uploader .q-btn--round');
+if (customUploaderCl) {
+	document.addEventListener("click", function (e) {
+		const customUploader = document.querySelector('.custom-file-uploader');
+    	const titleElement = document.querySelector('.q-uploader__header-content .q-uploader__title');
+    if (titleElement && customUploader) {
+        titleElement.textContent = 'Загрузить фото';
+        titleElement.classList.remove('no-after');
+		  customUploader.classList.remove('no-after');
+    }
+	});
+}
+
+if (targetNode) {
+    observer.observe(targetNode, config);
+}
+});
+
+onBeforeUnmount(() => {
+if (observer) {
+    observer.disconnect();
+}
+});
+</script>
 	
-	const file = ref(null);
-	</script>
-	
-	<style >
+	<style lang="scss">
 	.custom-file-uploader {
+		position: relative;
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		width: 280px;
+		flex-direction: column-reverse;
 		height: 280px;
-		border: none;
+		background-color: #25272D;
 		border-radius: 8px;
-		text-align: center;
+		box-shadow: none;
 		overflow: hidden;
+		&::before{
+			content:''; 
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 148px;
+			height: 148px; 
+			background-size: 100%; 
+			background-position: 0 0; 
+			background-repeat: no-repeat; 
+			background-image: url('/public/icons/camera.svg');
+		}
 	}
-	
-	.custom-uploader-content {
+	.custom-file-uploader.no-after {
+		&::before{
+			display: none;
+		}
+	}
+	.custom-file-uploader .q-uploader__file--img {
+			position: absolute !important;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: #fff;
+			width: 148px;
+			height: 135px;
+			background-position: 50% 50%;
+			background-size: cover;
+			background-repeat: no-repeat;
+			min-width: auto;
+			border: 0;
+		}
+	.custom-file-uploader .q-uploader__header {
+		position: relative;
+		border-top-left-radius: inherit;
+		border-top-right-radius: inherit;
+		background-color: #25272D;
+		color: #fff;
+		width: 100%;
+	}
+	.custom-file-uploader .q-uploader__subtitle {
+		display: none;
+	}
+	.custom-file-uploader .q-btn--actionable {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 1;
+	}
+	.custom-file-uploader button .q-anchor--skip  {
+			position: absolute;
+			top: -5px;
+			right: -30px;
+			color: #5B89F8;
+		}
+	.custom-file-uploader .q-btn.q-btn--rectangle  {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		overflow: visible;
+		opacity: 0;
+	}
+	.custom-file-uploader .q-btn--actionable:hover .q-focus-helper {
+    opacity: 0 !important;
+	}	
+	.custom-file-uploader .q-uploader__file-header-content {
+		// display: none;
+		opacity: 0;
+		visibility: hidden;
+	}
+	.custom-file-uploader .q-uploader__header-content {
+    	padding: 30px;
+	}
+	.custom-file-uploader .q-uploader__title {
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		pointer-events: none;
-	}
-	
-	.custom-file-uploader .custom-image {
-		max-width: 100px;
-		margin-bottom: 10px;
-		pointer-events: none;
-	}
-	.custom-file-uploader .q-field__prepend {
-		pointer-events: none;
-	}
-	
-	.custom-file-uploader .custom-text {
+		align-self: center;
 		font-size: 18px;
 		font-weight: 500;
 		line-height: 21.09px;
 		color: #5B89F8;
-		margin-top: 20px;
+		text-align: center;
+		&::after {
+			content:''; 
+			float: right;
+			width: 24px;
+			height: 24px; 
+			margin-left: 10px; 
+			background-size: 100%; 
+			background-position: 0 0; 
+			background-repeat: no-repeat; 
+			background-image: url('/public/icons/upload.svg');
+		}
 	}
-	.custom-file-uploader .q-field__control {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	.custom-file-uploader .q-uploader__title.no-after {
+		&::after {
+			display: none;
+		}
 	}
-	.custom-file-uploader .q-field__control-container {
-		display: none;
+	.custom-file-uploader .q-uploader__file--img .q-uploader__file-header {
+    	padding-bottom: 0;
+    	background: none;
 	}
-	.custom-file-uploader .q-field--filled .q-field__control {
-    background: #25272D;
+	.custom-file-uploader .q-uploader__list {
+    position: static;
 	}
 	</style>
