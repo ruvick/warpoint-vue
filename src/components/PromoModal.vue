@@ -299,12 +299,7 @@ const typeDiscountsr = ref([
 
 </script>
 
-
 <style>
-
-	.modal-card-body {
-
-	}
 	.body-box-promo__checkbox .q-expansion-item__container {
 		width: 100%;
 	}

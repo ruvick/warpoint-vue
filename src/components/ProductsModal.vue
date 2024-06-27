@@ -10,58 +10,119 @@
 	
 			  <!-- Header -->
 			  <q-card-section class="modal-card__header" style="padding: 0 0 32px 0;">
-				<div class="text-title-middle text-grey-10">Создание нового товара / услуги</div>
+					<div class="text-title-middle text-grey-10">Создание нового товара / услуги</div>
 			  </q-card-section>
 	
 			  <q-card-section class="modal-card__body body-modal" style="height: 730px; overflow: auto;">
 	
-				<div class="body-modal__row row" style="padding-bottom: 20px;">
-	
-					<div class="body-modal__item col colum q-mr-lg q-mb-lg">
-					 <div class="text-h6 text-white q-mb-lg">Основная информация</div>
-	
-					 <div class="body-modal__inner row items-center q-mb-lg">
-						 <q-input class="q-mr-lg" filled label="Наименование" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 500px; width: 100%;"/>
-						 <div class="q-toggle-container text-grey-10">
-						  <span class="left-label">Товар</span>
-						  <q-toggle v-model="toggle" />
-						  <span class="right-label">Услуга</span>
-						 </div>
-					 </div>
-	
-					 <div class="body-modal__inner row">
-						 <q-select
-						  class="q-mr-lg q-mb-lg"
-						  filled
-						  v-model="selectedOption"
-						  :options="typeDiscount"
-						  label="Категория"
-						  style="max-width: 312px; width: 100%; border-radius: 0.375rem; overflow: hidden;"
-						 />
-						 <q-select
-						  class="q-mr-lg q-mb-lg"
-						  filled
-						  v-model="selectedOptions"
-						  :options="typeDiscounts"
-						  label="Подкатегория"
-						  style="max-width: 312px; width: 100%; border-radius: 0.375rem; overflow: hidden;"
-						 />
-					 </div>
-	
+					<div class="body-modal__row row" style="padding-bottom: 20px;">
+		
+						<div class="body-modal__item col colum q-mr-lg q-mb-lg">
+						<div class="text-h6 text-white q-mb-lg">Основная информация</div> 
+		
+						<div class="body-modal__inner row items-center q-mb-lg">
+							<q-input class="q-mr-lg" filled label="Наименование" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 500px; width: 100%;"/>
+							<div class="q-toggle-container column items-center text-grey-10">
+								<q-toggle v-model="toggle" />
+								<div class="row">
+									<span class="left-label q-mr-md" style="color: #5B89F8;">Товар</span>
+									<span class="right-label" style="color: #535965;">Услуга</span>
+								</div>
+							</div>
+						</div>
+		
+						<div class="body-modal__inner row">
+							<q-select
+								class="q-mr-lg q-mb-lg"
+								filled
+								v-model="selectedOption"
+								:options="typeDiscount"
+								label="Категория"
+								style="max-width: 312px; width: 100%; border-radius: 0.375rem; overflow: hidden;"
+							/>
+							<q-select
+								class="q-mr-lg q-mb-lg"
+								filled
+								v-model="selectedOptions"
+								:options="typeDiscounts"
+								label="Подкатегория"
+								style="max-width: 312px; width: 100%; border-radius: 0.375rem; overflow: hidden;"
+							/>
+						</div>
+		
+						</div>
+		
+						<div class="body-modal__item col-auto q-mb-lg">
+							<q-uploader
+								label="Загрузить фото"
+								auto-upload
+								:url="getUrl"
+								multiple
+								class="custom-file-uploader"
+								@uploaded-files="handleUploadedFiles"
+							/>
+						</div>
+		
 					</div>
-	
-					<div class="body-modal__item col-auto q-mb-lg">
-						<q-uploader
-    label="Загрузить фото"
-    auto-upload
-    :url="getUrl"
-    multiple
-    class="custom-file-uploader"
-    @uploaded-files="handleUploadedFiles"
-  />
+
+					<q-separator style="background-color: #25272D;" />
+
+					<div class="body-modal__row row" style="padding-top: 40px; padding-bottom: 20px;">
+		
+						<div class="body-modal__item col colum q-mr-lg q-mb-lg">
+							<div class="text-h6 text-white q-mb-lg">Количественные параметры</div> 
+
+								<div class="body-modal__inner row items-center q-mb-lg">
+									<q-select
+										class="q-mr-lg q-mb-lg"
+										filled
+										v-model="selectedOption"
+										:options="typeDiscount"
+										label="Единица измерения"
+										style="max-width: 312px; width: 100%; border-radius: 0.375rem; overflow: hidden;"
+									/>									
+									<q-input class="q-mr-lg q-mb-lg" type="number" filled label="Критический остаток (кол-во)" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 312px; width: 100%;"/>
+									<div class="q-toggle-container row items-center no-wrap text-grey-10 q-mr-lg q-mb-lg" style="max-width: 202px; width: 100%;">
+										<span class="left-label">Учитывать остатки при реализации</span>
+										<q-toggle v-model="toggle" />
+										<span class="right-label">Да</span>
+									</div>
+								</div>
+
+						</div>
+
 					</div>
-	
-				</div>
+
+					<q-separator style="background-color: #25272D;" />
+
+					<div class="body-modal__row row justify-between" style="padding-top: 40px; padding-bottom: 20px;">
+		
+						<div class="body-modal__item col-auto column q-mr-lg q-mb-lg">
+							<div class="text-h6 text-white q-mb-lg">Финансовые параметры</div> 
+								<q-input class="q-mr-lg q-mb-lg" type="number" filled label="Цена продажи" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 312px; width: 100%;"/>
+								<q-input class="q-mr-lg q-mb-lg" type="number" filled label="Себестоимость" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 312px; width: 100%;"/>
+							</div>
+
+							<div class="body-modal__item col-auto row items-center q-mb-lg">
+								<div class="column q-mr-lg" style="align-items: flex-end; justify-content: space-between;">
+									<div class="q-toggle-container text-grey-10 q-mb-lg">
+										<span class="left-label">Скидки</span>
+										<q-toggle v-model="toggle" />
+										<span class="right-label">Да</span>
+									</div>
+									<div class="q-toggle-container text-grey-10 q-mb-lg">
+										<span class="left-label">Наценка</span>
+										<q-toggle v-model="toggle" />
+										<span class="right-label">Да</span>
+									</div>
+								</div>
+								<div class="column">
+									<q-input class="q-mb-lg" type="number" filled label="Max скидка (%)" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 216px; width: 100%;"/>
+									<q-input class="q-mb-lg" type="number" filled label="Max наценка (%)" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 216px; width: 100%;"/>
+								</div>
+							</div>
+
+					</div>
 	
 			  </q-card-section>
 	
@@ -294,5 +355,9 @@ if (observer) {
 	}
 	.custom-file-uploader .q-uploader__list {
     position: static;
+	}
+	.q-virtual-scroll__content .q-item {
+		color: #fff;
+    background: #262e42;
 	}
 	</style>

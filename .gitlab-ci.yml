@@ -4,20 +4,20 @@ stages:
 git pull:
   stage: git pull
   only: 
-    - dev
+    - front
   tags:
     - booking-dev
   script:
    #/root/git_pull.sh
-   - cd /var/www/dserver_front/erp2/
+   - cd /var/www/dserver_front/erp2_front/
    #- mkdir erp2
    #- echo $CI_PROJECT_DIR/
-   #- git pull origin dev
+   #- git pull origin front
    - git fetch --all
-   - git reset --hard origin/dev 
+   - git reset --hard origin/front
    - yarn
    - yarn quasar build
    #- cd /var/www/dserver_front/erp2/
    #- npm install
    #- npm run build
-   - echo "DEV branch done"
+   - echo "FRONT branch done"
