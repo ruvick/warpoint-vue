@@ -27,6 +27,16 @@ const routes = [
 					requiresAuth: true
 				}
 			},
+			// Убрать
+			{
+				path: 'reservation-window',
+				component: () => import('pages/ReservationWindow.vue'),
+				meta: {
+					title: 'Бронь Окна',
+					requiresAuth: true
+				}
+			},
+			// =================================================
 			{
 				path: 'products',
 				component: () => import('pages/Products.vue'),

@@ -108,6 +108,13 @@ const links = ref([
     iconPuth: 'location',
     url: '/sdf'
   },
+  // Убрать
+  {
+    title: 'Бронь Окна',
+    iconPuth: 'promo',
+    url: '/reservation-window'
+  },
+  // =================
   {
     title: 'Настройки',
     iconPuth: 'settings',

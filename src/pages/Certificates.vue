@@ -375,82 +375,18 @@
 									<div class="text-h6 q-mb-xl">История активаций подарочных сертфикатов</div>
 								</div>
 
-								<q-table
-									class="my-sticky-dynamic"
-									style="height: 643px"
-									flat
-									:rows="rows"
-									:columns="columns"
-									:loading="loading"
-									row-key="index"
-									virtual-scroll
-									:virtual-scroll-item-size="48"
-									:virtual-scroll-sticky-size-start="48"
-									:pagination="pagination"
-									:rows-per-page-options="[0]"
-									@virtual-scroll="onScroll"
+								<!-- Table История активаций подарочных сертфикатов -->
+								<TableHistory/>
+
+								<!-- Dialog  -->
+								<q-dialog
+									v-model="ActivationInfo"
 								>
-									<template v-slot:bottom>
-										<div class="q-table__control">
-											<span> <span class="q-table__control-name">Записей:</span> {{ rows.length }} из {{ totalRows }}</span>
-											<span style="margin-left: 50px;"> {{ formattedTotalCarbs }} ₽</span>
-										</div>
-									</template>
-								</q-table>
+									<ActivationInfo />
+								</q-dialog>
 
 								<!-- Кнопка открытия модального окна  -->
-								<q-btn class="cert-modal q-mt-xl" @click="icon = true">Открыть модальное окно</q-btn>
-
-								<!-- Popup  -->
-								<q-dialog v-model="icon"> 
-									<q-card class="q-card-activ bg-blue-grey-9 q-pt-xs q-pb-xl" style="max-width: 832px; width: 100%;">
-									<q-card-section class="row items-center q-pl-xl">
-										<div class="text-h6 text-grey-10">Информация об активации сертификата</div>
-										<q-space />
-										<q-btn class="text-grey-10" icon="close" flat round dense v-close-popup />
-									</q-card-section>
-
-									<q-card-section class="q-pt-xl q-pr-xl q-pl-xl">
-
-											<!-- Статус  -->
-											<div class="row items-center justify-center q-mb-xl" style="width: 100%;">
-
-												<div class="input-info q-mr-lg q-mb-md" style="min-width: 232px;">
-													<div class="input-info__name">Номер заказа сертфиката</div>
-													<div class="input-info__value">1234-5678-90</div>
-												</div>
-
-												<div class="input-info q-mr-lg q-mb-md" style="min-width: 200px;">
-													<div class="input-info__name">Номинал</div>
-													<div class="input-info__value">5 000 ₽</div>
-												</div>
-
-												<div class="input-info q-mr-lg q-mb-md" style="min-width: 216px;">
-													<div class="input-info__name">Статус оплаты</div>
-													<div class="input-info__value input-info__value--active">ОПЛАЧЕН</div>
-												</div>
-
-											</div>
-
-											<!-- Таблица  -->
-											<div class="row q-pr-md q-pl-md">
-												<div class="column">
-													<div class="item text-grey-10 q-mr-lg q-mb-xl">Дата и время:</div>
-													<div class="item text-grey-9 text-grey-10 q-mr-lg q-mb-md">Имя покупателя:</div>
-													<div class="item text-grey-9 text-grey-10 q-mr-lg q-mb-md">Телефон покупателя:</div>
-													<div class="item text-grey-9 text-grey-10 q-mr-lg q-mb-md">E-mail:</div>
-												</div>
-												<div class="column">
-													<div class="item text-grey-9 q-mb-xl">14 июня 2024 в 13:46:12</div>
-													<div class="item text-grey-9 q-mb-md">Егор Дивеев</div>
-													<div class="item text-grey-9 q-mb-md">+7 (903) 000-00-02</div>
-													<div class="item text-grey-9 q-mb-md">samtynoob@example.ru</div>
-												</div>
-											</div>
-
-									</q-card-section>
-									</q-card>
-								</q-dialog>
+								<q-btn class="cert-modal q-mt-xl" @click="ActivationInfo = true">Открыть модальное окно</q-btn>
 
 							</q-tab-panel>
 
@@ -466,53 +402,22 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 
-const rows = ref([
-{ index: 1, orderNumber: '1234-5678-90', date: '20.08.2024', time: '20.08.2024', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 2, orderNumber: '2464-5832-45', date: '20.08.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 3, orderNumber: '4365-4754-78', date: '21.08.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 4, orderNumber: '5475-1358-30', date: '24.08.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 5, orderNumber: '5735-6403-73', date: '29.08.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 6, orderNumber: '5674-3089-24', date: '01.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 7, orderNumber: '5678-9247-89', date: '01.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 8, orderNumber: '6804-8956-48', date: '02.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 9, orderNumber: '5367-6478-90', date: '04.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 10, orderNumber: '5674-7889-51', date: '08.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 11, orderNumber: '5678-9247-89', date: '01.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 12, orderNumber: '5674-3089-24', date: '01.09.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-{ index: 13, orderNumber: '4365-4754-78', date: '21.08.2024', time: '11:10:56', nominal: '5000 ₽', protein: 'RU00-0000-0000-0000', sodium: 'Активирован' },
-]);
-
-const columns = ref([
-{ name: 'index', label: '№', field: 'index' },
-{ name: 'orderNumber', required: true, label: 'Номер заказа сертификата', align: 'right', field: row => row.orderNumber, format: val => `${val}`, sortable: true },
-{ name: 'date', align: 'right', label: 'Дата', field: 'date', sortable: true },
-{ name: 'time', align: 'right', label: 'Время', field: 'time', sortable: true },
-{ name: 'nominal', align: 'right', label: 'Номинал', field: 'nominal', sortable: true },
-{ name: 'protein', align: 'right', label: 'Номер сертификата', field: 'protein', sortable: true },
-{ name: 'sodium', label: 'Статус сертификата', field: 'sodium', sortable: true }
-]);
-
-const loading = ref(false);
-const pagination = ref({ page: 1, rowsPerPage: 13 });
-
-const totalRows = computed(() => rows.value.length);
-
-const totalCarbs = computed(() => {
-return rows.value.reduce((total, row) => total + parseInt(row.nominal.replace(/\s/g, ''), 10), 0);
-});
-
-const formattedTotalCarbs = computed(() => {
-return totalCarbs.value.toLocaleString();
-});
-
-const onScroll = () => {
-console.log('Virtual scroll event');
-};
+import ActivationInfo from 'src/components/certificates/ActivationInfo.vue';
+import TableHistory from 'src/components/certificates/TableHistory.vue';
 
 export default {
 name: 'Certificates',
+components: {
+	ActivationInfo,
+	TableHistory,
+},
+data() {
+	return {
+		ActivationInfo: false,
+	};
+},
 setup() {
     const tab = ref('mails');
     const value = ref(71);
@@ -521,19 +426,11 @@ setup() {
     const icon = ref(false);
 
     return {
-     tab,
+	  tab,
      value,
      certificateNumber,
      pin,
      icon,
-     columns,
-     rows,
-     loading,
-     pagination,
-     totalRows,
-     totalCarbs,
-     formattedTotalCarbs,
-     onScroll
     };
 }
 };
