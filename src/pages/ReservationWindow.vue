@@ -6,8 +6,8 @@
 
 				<div class="column items-start">
 
-					<q-btn unelevated color="blue-1" class="my-btn q-mb-md text-weight-bold" no-caps @click="dialogUprBookingInfo = true" style="min-width: 300px;">
-						<span class="block">Упр бронью Инфо</span>
+					<q-btn unelevated color="blue-1" class="my-btn q-mb-md text-weight-bold" no-caps @click="dialogUprBooking = true" style="min-width: 300px;">
+						<span class="block">Упр бронью </span>
 					</q-btn>
 
 					<q-btn unelevated color="blue-1" class="my-btn q-mb-md text-weight-bold" no-caps @click="openDialog('launchGame')" style="min-width: 300px;">
@@ -26,11 +26,11 @@
 				</q-dialog>
 
 				<q-dialog
-					v-model="dialogUprBookingInfo"
+					v-model="dialogUprBooking"
 					class="dialog-full"
 					position="right"
 				>
-					<UprBookingInfo />
+					<UprBooking />
 				</q-dialog>
 
 			</q-page> 
@@ -43,12 +43,12 @@
 import { ref } from 'vue';
 import LaunchGameModal from 'src/components/bookingmodal/LaunchGameModal.vue';
 import QrCodeModal from 'src/components/bookingmodal/QrCodeModal.vue'; 
-import UprBookingInfo from 'src/components/bookingmodal/UprBookingInfo.vue';
+import UprBooking from 'src/components/bookingmodal/UprBooking.vue';
 
 // Определение переменных состояния для управления видимостью модальных окон
 const dialogVisible = ref(false);
 const currentModal = ref(null);
-const dialogUprBookingInfo = ref(false);
+const dialogUprBooking = ref(false);
 
 // Функция для открытия модального окна
 const openDialog = (modalType) => {
