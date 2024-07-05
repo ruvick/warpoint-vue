@@ -2,17 +2,40 @@
 
 	<div class="content-booking__body body-content-booking row q-pt-xl" style="flex: 1 1 auto; color: #fff;">
 
-	
-	</div>
+		<div class="row col-8">
 
-	<!-- Content Booking Footer  -->
-	<div class="content-booking__footer footer-content-booking row q-pt-xs q-pr-md q-pb-xs q-pl-md">
-		<div class="footer-content-booking__inner row justify-between items-center" style="width: 30%; margin: 0 auto;">
-			<q-btn class="q-btn-no text-h6 no-hover text-grey-10 q-mr-md" outline flat label="Отмена" primary/>
-			<q-btn unelevated color="blue-1" class="my-btn text-weight-bold">
-				<span class="block">Сохранить</span>
-			</q-btn>
+			<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="id1"
+				label="Источник кампании (utm source):" style="min-width: 400px; margin: 0 40px 40px 0; border-radius: 0.375rem; overflow: hidden;"
+			/>
+			<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="id2"
+				label="Тип трафика (utm medium):" style="min-width: 400px; margin: 0 40px 40px 0; border-radius: 0.375rem; overflow: hidden;"
+			/>
+			<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="id3"
+				label="Название кампании (utm campaign):" style="min-width: 400px; margin: 0 40px 40px 0; border-radius: 0.375rem; overflow: hidden;"
+			/>
+			<q-input class="q-mb-lg" clearable clear-icon="close" filled v-model="id4"
+				label="Идентификатор объявления (utm content):" style="min-width: 400px; margin: 0 40px 40px 0; border-radius: 0.375rem; overflow: hidden;"
+			/>
+				
 		</div>
-	</div>
+
+		<!-- Корзина пуста  -->
+		<div class="row items-center justify-center" style="width: 100%; height: 100%;">
+			<div class="row items-center justify-center text-h6 text-grey-10">UTM-метка отсутствует
+				<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
+					<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#utm"></use></svg>
+				</i> 
+			</div>
+		</div>
+
+	</div> 
 
 </template>
+
+<script>
+
+</script>
+
+<style>
+
+</style>

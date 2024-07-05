@@ -84,7 +84,7 @@
 			font-size: 20px;
 			font-weight: 500;
 			line-height: 23.44px;
-			padding: 12px 16px;
+			padding: 8px 13px;
 			width: 100%;
 		}
 		.header-navbar-booking__buttons .q-btn-item:hover .q-focus-helper {

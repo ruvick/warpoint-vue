@@ -81,3 +81,33 @@
 	</div>
 	
 </template>
+
+<script>
+
+</script>
+
+<style>
+	.table-content-booking {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: flex-end;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 21.09px;
+	}
+	.table-content-booking__label {
+	margin-right: 56px;
+	padding: 6px;
+	}
+	.table-content-booking__value {
+	padding: 6px;
+	}
+	.booking-textarea {
+	min-width: 504px;
+	width: 100%;
+	height: 228px;
+	}
+	.booking-textarea .q-field__control {
+	height: 100%;
+	}
+</style>

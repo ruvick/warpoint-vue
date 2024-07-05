@@ -13,7 +13,7 @@
 			  <div class="text-title-middle text-grey-10">Управление бронью <span style="color: #fff;">№419-562: VR-ARENA / Открытая игра / 9 февраля 2024 (16:00 - 18:00)</span></div>
 		  </q-card-section>
 	
-		  <q-card-section class="booking-modal__body body-booking-modal row q-pt-lg q-pl-lg q-pr-lg q-pb-lg" style="height: 100%; gap: 20px;">
+		  <q-card-section class="booking-modal__body body-booking-modal row q-pt-lg q-pl-lg q-pr-lg q-pb-lg" style="height: 100%; gap: 10px;">
 	
 			  <!-- Booking Navbar -->
 			  <NavBarBooking v-model:modelValue="model" :options="options" />
@@ -86,26 +86,5 @@
 	</script>
 	
 	<style>
-	.table-content-booking {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	font-size: 18px;
-	font-weight: 500;
-	line-height: 21.09px;
-	}
-	.table-content-booking__label {
-	margin-right: 56px;
-	padding: 6px;
-	}
-	.table-content-booking__value {
-	padding: 6px;
-	}
-	.booking-textarea {
-	min-width: 504px;
-	width: 100%;
-	height: 228px;
-	}
-	.booking-textarea .q-field__control {
-	height: 100%;
-	}
+
 	</style>
