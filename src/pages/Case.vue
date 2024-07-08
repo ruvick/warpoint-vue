@@ -28,10 +28,10 @@
 					 <q-tab-panels class="bg-dark-panel" v-model="tab" animated>
 
 						 <!-- Content Tab 1 -->
-						 <q-tab-panel class="column bg-dark-panel q-pt-lg q-pb-md" name="mails">
+						 <q-tab-panel class="column items-start bg-dark-panel q-pt-lg q-pb-md" name="mails">
 
 						  <!-- Top panel -->
-						  <div class="row q-mb-xl">
+						  <div class="row q-mb-xl" style="width: 100%;">
 							  <div class="col">
 								<div class="text-h6">Список касс</div>
 							  </div>
@@ -46,11 +46,21 @@
 						  </div>
 
 						  <!-- Card Wrapper  -->
-							<div class="case-wrapper row">
+							<div class="case-cards__inner row">
 								<CaseCard 
 									title="ОСНОВНАЯ КАССА"
-									subtitle="Касса на ресепшн"
+									subtitle="КАССА НА РЕСЕПШН"
 									price="56 000"
+								/>
+								<CaseCard 
+									title="РАСЧЁТНЫЙ СЧЁТ"
+									subtitle="БАНК ТОЧКА"
+									price="0"
+								/>
+								<CaseCard 
+									title="КАССА ДЛЯ ПРЕДОПЛАТ"
+									subtitle="КАССА ДЛЯ УЧЕТА ПРЕДОПЛАТ"
+									price="0"
 								/>
 							</div>
 
@@ -86,5 +96,15 @@
 </script>
 	
 <style lang="scss">
+
+	.case-cards__inner {
+		display: grid; 
+		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
+		gap: 40px;
+		width: 100%;
+		.case-card {
+			// height: 224px;
+		}
+	}
 
 </style>
