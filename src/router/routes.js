@@ -45,6 +45,14 @@ const routes = [
 					requiresAuth: true
 				}
 			},
+			{
+				path: 'case',
+				component: () => import('src/pages/Case.vue'),
+				meta: {
+					title: 'Касса',
+					requiresAuth: true
+				}
+			},
 		]
 	},
 

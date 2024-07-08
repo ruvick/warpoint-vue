@@ -10,24 +10,24 @@
 					<ProductsSideBar/>
 					
 					<!-- Body -->
-					<div class="products__cards cards-product col" style="padding: 26px 32px 32px 32px; background-color: #1A1B1D;">
+					<div class="products__cards cards-product col" style="padding: 1.625rem 2rem 2rem 2rem; background-color: #1A1B1D;">
 
 						<!-- Top Panel  -->
-						<div class="cards-product__nav nav-cards-product row items-center justify-between" style="margin-bottom: 24px;">
+						<div class="cards-product__nav nav-cards-product row items-center justify-between" style="margin-bottom: 1.5rem;">
 							<div class="nav-cards-product__actions row items-center col-auto">
-								<div class="" style="font-size: 24px; margin-right: 32px;">VR-Аттракционы</div>
+								<div class="" style="font-size: 1.5rem; margin-right: 2rem;">VR-Аттракционы</div>
 								<q-tabs class="text-primary my-tabs no-ripple no-hover tabs-display q-ml-lg bg-dark" v-model="tab">
 									<q-tab name="bar">
-										<q-icon name="svguse:icons/allIcons.svg#nav-tab-bar" size="22.5px" />
+										<q-icon name="svguse:icons/allIcons.svg#nav-tab-bar" size="1.4063rem" />
 									</q-tab>
 									<q-tab name="list">
-										<q-icon name="svguse:icons/allIcons.svg#nav-tab-list" size="30px" />
+										<q-icon name="svguse:icons/allIcons.svg#nav-tab-list" size="1.875rem" />
 									</q-tab>
 								</q-tabs>
 							</div>
 							<div class="nav-cards-product__buttons col-auto row items-center">
-								<q-btn unelevated color="blue-1" class="my-btn text-weight-bold" no-caps @click="dialogProductsModal = true" style="margin-right: 40px;">
-									<q-icon name="svguse:icons/allIcons.svg#plus" size="12px" class="q-mr-sm" />
+								<q-btn unelevated color="blue-1" class="my-btn text-weight-bold" no-caps @click="dialogProductsModal = true" style="margin-right: 2.5rem;">
+									<q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
 									<span class="block">Новый товар / услуга</span>
           					</q-btn>
 								<q-input
@@ -36,10 +36,10 @@
 									type="text"
 									class="my-input-standart my-input-standart-middle bg-blue-grey-8"
 									placeholder="Название или артикул"
-									style="min-width: 352px;"
+									style="min-width: 22rem;"
 								>
 									<template v-slot:prepend>
-										<q-icon name="svguse:icons/allIcons.svg#loop" size="32px" color="grey-9" />
+										<q-icon name="svguse:icons/allIcons.svg#loop" size="2rem" color="grey-9" />
 									</template>
 								</q-input>
 							</div>
@@ -59,7 +59,6 @@
 					position="right">
 					<ProductsModal />
 				</q-dialog>
-				<!-- Открытие модалки End -->
 
 			</q-page>
 		</q-page-container> 
@@ -131,11 +130,11 @@ export default {
 	 background: #5B89F84D;
 	}
 	.q-expansion-item {
-		border-radius: 6px;
+		border-radius: 0.375rem;
 		overflow: hidden;
 	}
 	.q-card.body-box-promo__checkbox {
-		padding-bottom: 15px !important;
+		padding-bottom: 0.9375rem !important;
 	}
 	.q-expansion-item.active {
 		background-color: #25272d;
@@ -145,13 +144,13 @@ export default {
 	}
 	.products-radio {
 		.q-btn {
-			font-size: 18px;
+			font-size: 1.125rem;
 			font-weight: 500;
-			line-height: 21.09px;
+			line-height: 1.3181rem;
 			color: #ADC4FC;
 			margin: 0;
 			width: 100%;
-			padding: 0 30px;
+			padding: 0 1.875rem;
 		}
 		.q-btn__content {
 		text-align: left;

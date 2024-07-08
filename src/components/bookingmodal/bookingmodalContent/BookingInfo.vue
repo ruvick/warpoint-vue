@@ -56,11 +56,12 @@
 					maxlength="500"
 					autogrow
 					class="booking-textarea"
+					style="background-color: #25272D;"
 				/>
 
 				<div class="row items-center" style="padding-top: 36px;">
-					<q-input class="" clearable clear-icon="close" filled v-model="promocodeBooking"
-						label="Промокод" style="min-width: 336px; border-radius: 0.375rem; overflow: hidden;"/>
+					<q-input class="q-mr-lg" clearable clear-icon="close" filled v-model="promocodeBooking"
+						label="Промокод" style="min-width: 336px; border-radius: 0.375rem; overflow: hidden; background-color: #25272D;"/>
 					<q-btn class="text-h6 no-hover" outline color="primary" label="Отменить" type="submit" primary style="border-radius: 0.375rem;"/>
 				</div>
 

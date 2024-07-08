@@ -11,7 +11,7 @@
 					</div>
 					<div class="col-auto">
 						<q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogPromoModal = true">
-							<q-icon name="svguse:icons/allIcons.svg#plus" size="12px" class="q-mr-sm" />
+							<q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
 							<span class="block">Создать промокод</span>
           			</q-btn>
 					</div>
@@ -54,8 +54,8 @@ const dialogPromoModal = ref(false);
 				content:''; 
 				top: 50%;
 				transform: translateY(-50%);
-				width: 8px;
-				height: 8px; 
+				width: 0.5rem;
+				height: 0.5rem; 
 				background-color: #E23239;
 				border-radius: 50%;
 			}
@@ -65,8 +65,8 @@ const dialogPromoModal = ref(false);
 				content:''; 
 				top: 50%;
 				transform: translateY(-50%);
-				width: 8px;
-				height: 8px; 
+				width: 0.5rem;
+				height: 0.5rem; 
 				background-color: #44A248;
 				border-radius: 50%;
 			}
@@ -97,7 +97,7 @@ const dialogPromoModal = ref(false);
 			border: none;
 		}
 		.q-table thead tr th .q-table__sort-icon {
-    		height: 40px;
+    		height: 2.5rem;
 		}
 		.q-table thead tr th:nth-child(1),
 		.q-table thead tr th:nth-child(3),
@@ -114,7 +114,7 @@ const dialogPromoModal = ref(false);
     		text-align: left;
 		}
 		.q-table tbody tr td:nth-child(1) {
-    		width: 200px;
+    		width: 12.5rem;
     		text-align: left;
 		}
 		.q-table tbody tr td:nth-child(10) {
@@ -133,19 +133,19 @@ const dialogPromoModal = ref(false);
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 40px;
-		height: 40px;
+		width: 2.5rem;
+		height: 2.5rem;
 		overflow: hidden;
 		background-color: #282D37;
-		border-radius: 8px;
+		border-radius: 0.5rem;
 		margin-left: auto;
 		.q-btn__content {
 			flex-wrap: nowrap;
-    		gap: 5px;
+    		gap: 0.3125rem;
 				span {
-				width: 5px;
-				flex: 0 0 5px;
-				height: 5px;
+				width: 0.3125rem;
+				flex: 0 0 0.3125rem;
+				height: 0.3125rem;
 				border-radius: 50%;
 				background: #5B89F8;
 			}

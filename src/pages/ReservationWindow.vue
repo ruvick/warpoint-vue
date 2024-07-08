@@ -6,15 +6,15 @@
 
 				<div class="column items-start">
 
-					<q-btn unelevated color="blue-1" class="my-btn q-mb-md text-weight-bold" no-caps @click="dialogUprBooking = true" style="min-width: 300px;">
+					<q-btn unelevated color="blue-1" class="my-btn q-mb-md text-weight-bold" no-caps @click="dialogUprBooking = true" style="min-width: 18.75rem;">
 						<span class="block">Упр бронью </span>
 					</q-btn>
 
-					<q-btn unelevated color="blue-1" class="my-btn q-mb-md text-weight-bold" no-caps @click="openDialog('launchGame')" style="min-width: 300px;">
+					<q-btn unelevated color="blue-1" class="my-btn q-mb-md text-weight-bold" no-caps @click="openDialog('launchGame')" style="min-width: 18.75rem;">
 						<span class="block">Диалог Запустить игру</span>
 					</q-btn>
 
-					<q-btn unelevated color="blue-1" class="my-btn q-mb-md text-weight-bold" no-caps @click="openDialog('qrCode')" style="min-width: 300px;">
+					<q-btn unelevated color="blue-1" class="my-btn q-mb-md text-weight-bold" no-caps @click="openDialog('qrCode')" style="min-width: 18.75rem;">
 						<span class="block">Мод окно QR-1</span>
 					</q-btn>
 

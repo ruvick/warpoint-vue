@@ -56,18 +56,18 @@
 										<div class="column items-center justify-center" style="width: 100%; display: non;">
 											<div class="row">
 												<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация о сертификате
-													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
+													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 1.5rem;">
 														<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#sert-ico"></use></svg>
 													</i>
 												</div>
 											</div>
-											<q-circular-progress indeterminate rounded size="30px" color="light-blue" class="q-mt-lg"/>
+											<q-circular-progress indeterminate rounded size="1.875rem" color="light-blue" class="q-mt-lg"/>
 										</div>
 
 										<!-- Блок 2 Информация о сертификате  -->
 										<div class="column items-start" style="width: 100%; display: non;">
 											<div class="row items-center text-h6 text-grey-10 q-mb-xl">Информация о сертификате
-												<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
+												<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 1.5rem;">
 													<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#sert-ico"></use></svg>
 												</i>
 											</div>
@@ -77,22 +77,22 @@
 												<div class="col">
 													<div class="row items-center" style="width: 100%;">
 
-														<div class="input-info q-mr-lg q-mb-md" style="min-width: 200px;">
+														<div class="input-info q-mr-lg q-mb-md" style="min-width: 12.5rem;">
 															<div class="input-info__name">Баланс</div>
 															<div class="input-info__value">3 500 ₽</div>
 														</div>
 
-														<div class="input-info q-mr-lg q-mb-md" style="min-width: 288px;">
+														<div class="input-info q-mr-lg q-mb-md" style="min-width: 18rem;">
 															<div class="input-info__name">Статус</div>
 															<div class="input-info__value input-info__value--active">АКТИВИРОВАН</div>
 														</div>
 
-														<div class="input-info q-mr-lg q-mb-md" style="min-width: 288px;">
+														<div class="input-info q-mr-lg q-mb-md" style="min-width: 18rem;">
 															<div class="input-info__name">Номер сертификата</div>
 															<div class="input-info__value">RU12-3456-7890-9999</div>
 														</div>
 
-														<div class="input-info q-mr-lg q-mb-md" style="min-width: 200px;">
+														<div class="input-info q-mr-lg q-mb-md" style="min-width: 12.5rem;">
 															<div class="input-info__name">Номинал</div>
 															<div class="input-info__value">5 000 ₽</div>
 														</div>
@@ -141,7 +141,7 @@
 										<!-- Блок 3 Нет сертификата  -->
 										<div class="column" style="width: 100%; display: non;">
 											<div class="column justify-center items-center text-h6 text-grey-10 q-mb-xs">Вы точно указали правильный номер сертификата?
-												<div class="col" style="width: 289px; height: 202px;" >
+												<div class="col" style="width: 18.0625rem; height: 12.625rem;" >
 													<svg viewBox="0 0 289 202"><use xlink:href="icons/allIcons.svg#sert-no"></use></svg>
 												</div>
 											</div>
@@ -150,7 +150,7 @@
 												<q-btn class="q-btn-no text-h6 no-hover text-grey-10" icon-right="close" outline flat label="Очистить всё" type="reset" primary style="text-transform: none"/>
 												<q-btn class="q-btn-no text-h6 no-hover" color="primary" outline flat type="button" primary style="text-transform: none">
 													<span class="block">Повторить поиск</span>
-													<q-icon name="svguse:icons/allIcons.svg#loading" size="25px" class="q-mr-sm" />
+													<q-icon name="svguse:icons/allIcons.svg#loading" size="1.5625rem" class="q-mr-sm" />
 												</q-btn>
 											</div>
 										</div>
@@ -207,7 +207,7 @@
 													placeholder="Номер заказа сертификата"
 													style="width: 100%;">		
 													<template v-slot:prepend>
-														<q-icon name="svguse:icons/allIcons.svg#loop" size="32px" color="grey-9" />
+														<q-icon name="svguse:icons/allIcons.svg#loop" size="2rem" color="grey-9" />
 													</template>
 												</q-input>								
 											</q-form>
@@ -221,19 +221,19 @@
 										<div class="column items-center justify-center" style="width: 100%; display: non;">
 											<div class="row">
 												<div class="row items-center justify-center text-h6 text-grey-10">Здесь появится информация
-													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
+													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 1.5rem;">
 														<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#loop"></use></svg>
 													</i>
 												</div>
 											</div>
-											<q-circular-progress indeterminate rounded size="30px" color="light-blue" class="q-mt-lg"/>
+											<q-circular-progress indeterminate rounded size="1.875rem" color="light-blue" class="q-mt-lg"/>
 										</div>
 
 										<!-- Блок 2 Right  -->
 										<div class="column" style="width: 100%; display: non;">
 											<div class="row q-mb-xl">
 												<div class="row items-center text-h6 text-grey-10">Заказ сертификата №1234-5678-90 
-													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
+													<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 1.5rem;">
 														<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#loop"></use></svg>
 													</i>
 												</div>
@@ -244,15 +244,15 @@
 												<!-- Поля статуса -->
 												<div class="col">
 													<div class="column items-start">
-														<div class="input-info q-mb-md" style="min-width: 288px;">
+														<div class="input-info q-mb-md" style="min-width: 18rem;">
 															<div class="input-info__name">Номинал</div>
 															<div class="input-info__value input-info__value--active">25 000 ₽</div>
 														</div>
-														<div class="input-info q-mb-md" style="min-width: 288px;">
+														<div class="input-info q-mb-md" style="min-width: 18rem;">
 															<div class="input-info__name">Статус</div>
 															<div class="input-info__value input-info__value--active">ОПЛАЧЕН</div>
 														</div>
-														<div class="input-info q-mb-md" style="min-width: 288px;">
+														<div class="input-info q-mb-md" style="min-width: 18rem;">
 															<div class="input-info__name">Дата и время оплаты</div>
 															<div class="input-info__value">12 июня 2024, 13:00:17</div>
 														</div>
@@ -315,7 +315,7 @@
 
 												<div class="row q-mb-lg">
 													<q-input class="q-mr-lg q-mb-md" clearable clear-icon="close" filled v-model="certificateNumber" mask="AAAA - #### - #### - ####"
-														label="Номер сертификата" style="border-radius: 0.375rem; overflow: hidden; width: 288px;"/>
+														label="Номер сертификата" style="border-radius: 0.375rem; overflow: hidden; width: 18rem;"/>
 													<q-input class="q-mb-md" clearable clear-icon="close" filled v-model="pin" type="number" label="PIN" style="border-radius: 0.375rem; overflow: hidden;"/>
 												</div>
 
@@ -329,14 +329,14 @@
 
 											<!-- Сертификат активирован -->
 											<div class="column items-center" style="width: 100%;">
-												<div class="col" style="width: 289px; height: 202px;" >
+												<div class="col" style="width: 18.0625rem; height: 12.625rem;" >
 													<svg viewBox="0 0 289 202"><use xlink:href="icons/allIcons.svg#sert-activ"></use></svg>
 												</div>
 												<div class="row justify-center">
 
 													<q-btn class="q-btn-no text-h6 no-hover text-grey-10 text-capitalize" outline flat type="reset" primary>
 														<span class="block">На главную</span>
-														<q-icon name="svguse:icons/allIcons.svg#home" size="25px" class="q-mr-sm" />
+														<q-icon name="svguse:icons/allIcons.svg#home" size="1.5625rem" class="q-mr-sm" />
 													</q-btn>
 
 												</div>
@@ -344,18 +344,18 @@
 
 											<!-- Активация не прошла -->
 											<div class="column items-center" style="width: 100%; display: non;">
-												<div class="col" style="width: 289px; height: 202px;" >
+												<div class="col" style="width: 18.0625rem; height: 12.625rem;" >
 													<svg viewBox="0 0 289 202"><use xlink:href="icons/allIcons.svg#activ-failed"></use></svg>
 												</div>
 												<div class="row justify-center">
 													<q-btn class="q-btn-no text-h6 no-hover text-grey-10" icon-right="close" outline flat label="Очистить всё" type="reset" primary no-caps/>
 													<q-btn class="q-btn-no text-h6 no-hover text-grey-10" outline flat type="button" primary no-caps>
 														<span class="block">Повторить поиск</span>
-														<q-icon name="svguse:icons/allIcons.svg#loading-w" size="25px" class="q-mr-sm" />
+														<q-icon name="svguse:icons/allIcons.svg#loading-w" size="1.5625rem" class="q-mr-sm" />
 													</q-btn>
 													<q-btn class="q-btn-no q-btn--send text-h6 no-hover" color="primary" outline flat type="button" primary no-caps>
 														<span class="block">Написать в техподдержку</span>
-														<q-icon name="svguse:icons/allIcons.svg#send" size="25px" class="q-mr-sm" />
+														<q-icon name="svguse:icons/allIcons.svg#send" size="1.5625rem" class="q-mr-sm" />
 													</q-btn>
 												</div>
 											</div>
@@ -447,7 +447,7 @@ setup() {
 	.my-page-body .q-tab.q-tab--active {
 		min-height: 3rem;
 		background-color: #1C1E22;
-		border-radius: 0.375rem 0.375rem 0px 0px;
+		border-radius: 0.375rem 0.375rem 0 0;
 		.text-primary {
 			color: #5B89F8;
 		}
@@ -590,7 +590,7 @@ setup() {
 	.q-table thead tr th {
 		text-align: left;
 		color: #535965;
-		font-size: 18px;
+		font-size: 1.125rem;
 		font-weight: 500;
 		line-height: 1.3181rem;
 		white-space: normal;
@@ -651,11 +651,11 @@ setup() {
 	@media (max-width: 1200px) {
 		.table-cert {
 			flex-direction: column;
-			gap: 20px;
+			gap: 1.25rem;
 		}
 		.cert-body {
 			flex-direction: column;
-			gap: 30px;
+			gap: 1.875rem;
 		}
 		.cert-body .col-4 {
 			width: 100% !important;

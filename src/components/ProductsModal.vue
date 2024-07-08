@@ -1,27 +1,27 @@
 <template>
 	<q-card class="modal-card bg-blue-grey-9" style="height: 100%;">
 		 <q-btn color="primary" class="btn-close btn-no-effects" v-close-popup>
-		  <q-icon name="svguse:icons/allIcons.svg#close-modal-out" color="white" size="32px" />
+		  <q-icon name="svguse:icons/allIcons.svg#close-modal-out" color="white" size="2rem" />
 		 </q-btn>
 	
 		 <q-card-section class="modal-card__sec q-pt-md q-pl-lg q-pr-xl q-pb-lg" style="display: flex; flex-direction: column; min-height: 100%;">
 	
-		  <q-card-section class="modal-card__wrapper" style="padding: 10px 20px 40px 20px; flex: 1 1 auto">
+		  <q-card-section class="modal-card__wrapper" style="padding: 0.625rem 1.25rem 2.5rem 1.25rem; flex: 1 1 auto">
 	
 			  <!-- Header -->
-			  <q-card-section class="modal-card__header" style="padding: 0 0 32px 0;">
+			  <q-card-section class="modal-card__header" style="padding: 0 0 2rem 0;">
 					<div class="text-title-middle text-grey-10">Создание нового товара / услуги</div>
 			  </q-card-section>
 	
-			  <q-card-section class="modal-card__body body-modal" style="height: 730px; overflow: auto;">
+			  <q-card-section class="modal-card__body body-modal" style="height: 45.625rem; overflow: auto;">
 	
-					<div class="body-modal__row row" style="padding-bottom: 20px;">
+					<div class="body-modal__row row" style="padding-bottom: 1.25rem;">
 		
 						<div class="body-modal__item col colum q-mr-lg q-mb-lg">
 						<div class="text-h6 text-white q-mb-lg">Основная информация</div> 
 		
 						<div class="body-modal__inner row items-center q-mb-lg">
-							<q-input class="q-mr-lg" filled label="Наименование" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 500px; width: 100%;"/>
+							<q-input class="q-mr-lg" filled label="Наименование" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 31.25rem; width: 100%;"/>
 							<div class="q-toggle-container column items-center text-grey-10">
 								<q-toggle v-model="toggle" />
 								<div class="row">
@@ -38,7 +38,7 @@
 								v-model="selectedOption"
 								:options="typeDiscount"
 								label="Категория"
-								style="max-width: 312px; width: 100%; border-radius: 0.375rem; overflow: hidden;"
+								style="max-width: 19.5rem; width: 100%; border-radius: 0.375rem; overflow: hidden;"
 							/>
 							<q-select
 								class="q-mr-lg q-mb-lg"
@@ -46,7 +46,7 @@
 								v-model="selectedOptions"
 								:options="typeDiscounts"
 								label="Подкатегория"
-								style="max-width: 312px; width: 100%; border-radius: 0.375rem; overflow: hidden;"
+								style="max-width: 19.5rem; width: 100%; border-radius: 0.375rem; overflow: hidden;"
 							/>
 						</div>
 		
@@ -67,7 +67,7 @@
 
 					<q-separator style="background-color: #25272D;" />
 
-					<div class="body-modal__row row" style="padding-top: 40px; padding-bottom: 20px;">
+					<div class="body-modal__row row" style="padding-top: 2.5rem; padding-bottom: 1.25rem;">
 		
 						<div class="body-modal__item col colum q-mr-lg q-mb-lg">
 							<div class="text-h6 text-white q-mb-lg">Количественные параметры</div> 
@@ -79,10 +79,10 @@
 										v-model="selectedOption"
 										:options="typeDiscount"
 										label="Единица измерения"
-										style="max-width: 312px; width: 100%; border-radius: 0.375rem; overflow: hidden;"
+										style="max-width: 19.5rem; width: 100%; border-radius: 0.375rem; overflow: hidden;"
 									/>									
-									<q-input class="q-mr-lg q-mb-lg" type="number" filled label="Критический остаток (кол-во)" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 312px; width: 100%;"/>
-									<div class="q-toggle-container row items-center no-wrap text-grey-10 q-mr-lg q-mb-lg" style="max-width: 202px; width: 100%;">
+									<q-input class="q-mr-lg q-mb-lg" type="number" filled label="Критический остаток (кол-во)" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 19.5rem; width: 100%;"/>
+									<div class="q-toggle-container row items-center no-wrap text-grey-10 q-mr-lg q-mb-lg" style="max-width: 12.625rem; width: 100%;">
 										<span class="left-label">Учитывать остатки при реализации</span>
 										<q-toggle v-model="toggle" />
 										<span class="right-label">Да</span>
@@ -95,12 +95,12 @@
 
 					<q-separator style="background-color: #25272D;" />
 
-					<div class="body-modal__row row justify-between" style="padding-top: 40px; padding-bottom: 20px;">
+					<div class="body-modal__row row justify-between" style="padding-top: 2.5rem; padding-bottom: 1.25rem;">
 		
 						<div class="body-modal__item col-auto column q-mr-lg q-mb-lg">
 							<div class="text-h6 text-white q-mb-lg">Финансовые параметры</div> 
-								<q-input class="q-mr-lg q-mb-lg" type="number" filled label="Цена продажи" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 312px; width: 100%;"/>
-								<q-input class="q-mr-lg q-mb-lg" type="number" filled label="Себестоимость" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 312px; width: 100%;"/>
+								<q-input class="q-mr-lg q-mb-lg" type="number" filled label="Цена продажи" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 19.5rem; width: 100%;"/>
+								<q-input class="q-mr-lg q-mb-lg" type="number" filled label="Себестоимость" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 19.5rem; width: 100%;"/>
 							</div>
 
 							<div class="body-modal__item col-auto row items-center q-mb-lg">
@@ -117,8 +117,8 @@
 									</div>
 								</div>
 								<div class="column">
-									<q-input class="q-mb-lg" type="number" filled label="Max скидка (%)" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 216px; width: 100%;"/>
-									<q-input class="q-mb-lg" type="number" filled label="Max наценка (%)" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 216px; width: 100%;"/>
+									<q-input class="q-mb-lg" type="number" filled label="Max скидка (%)" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 13.5rem; width: 100%;"/>
+									<q-input class="q-mb-lg" type="number" filled label="Max наценка (%)" v-model="input" style="border-radius: 0.375rem; overflow: hidden; max-width: 13.5rem; width: 100%;"/>
 								</div>
 							</div>
 
@@ -130,7 +130,7 @@
 	
 		  <q-card-section class="modal-card__footer">
 			  <!-- Bottom-Buttons-Panel -->
-			  <div class="body-modal__row row justify-between items-center" style="padding: 10px;">
+			  <div class="body-modal__row row justify-between items-center" style="padding: 0.625rem;">
 				<div class="col-auto">
 					<q-btn class="q-btn-no text-h6 no-hover text-grey-10" outline flat label="Отмена" type="reset" primary/>
 				</div>
@@ -241,9 +241,9 @@ if (observer) {
 		position: relative;
 		display: flex;
 		flex-direction: column-reverse;
-		height: 280px;
+		height: 17.5rem;
 		background-color: #25272D;
-		border-radius: 8px;
+		border-radius: 0.5rem;
 		box-shadow: none;
 		overflow: hidden;
 		&::before{
@@ -252,8 +252,8 @@ if (observer) {
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			width: 148px;
-			height: 148px; 
+			width: 9.25rem;
+			height: 9.25rem; 
 			background-size: 100%; 
 			background-position: 0 0; 
 			background-repeat: no-repeat; 
@@ -271,8 +271,8 @@ if (observer) {
 			left: 50%;
 			transform: translate(-50%, -50%);
 			color: #fff;
-			width: 148px;
-			height: 135px;
+			width: 9.25rem;
+			height: 8.4375rem;
 			background-position: 50% 50%;
 			background-size: cover;
 			background-repeat: no-repeat;
@@ -300,8 +300,8 @@ if (observer) {
 	}
 	.custom-file-uploader button .q-anchor--skip  {
 			position: absolute;
-			top: -5px;
-			right: -30px;
+			top: -0.3125rem;
+			right: -1.875rem;
 			color: #5B89F8;
 		}
 	.custom-file-uploader .q-btn.q-btn--rectangle  {
@@ -322,22 +322,22 @@ if (observer) {
 		visibility: hidden;
 	}
 	.custom-file-uploader .q-uploader__header-content {
-    	padding: 30px;
+    	padding: 1.875rem;
 	}
 	.custom-file-uploader .q-uploader__title {
 		display: flex;
 		align-self: center;
-		font-size: 18px;
+		font-size: 1.125rem;
 		font-weight: 500;
-		line-height: 21.09px;
+		line-height: 1.3181rem;
 		color: #5B89F8;
 		text-align: center;
 		&::after {
 			content:''; 
 			float: right;
-			width: 24px;
-			height: 24px; 
-			margin-left: 10px; 
+			width: 1.5rem;
+			height: 1.5rem; 
+			margin-left: 0.625rem; 
 			background-size: 100%; 
 			background-position: 0 0; 
 			background-repeat: no-repeat; 

@@ -4,7 +4,7 @@
 
 		<div class="row items-center justify-center" style="width: 100%; height: 100%;">
 			<div class="row items-center justify-center text-h6 text-grey-10">Комментариев пока нет
-				<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 24px;">
+				<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 1.5rem;">
 					<svg viewBox="0 0 24 24"><use xlink:href="icons/allIcons.svg#chat"></use></svg>
 				</i> 
 			</div>

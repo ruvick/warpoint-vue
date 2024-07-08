@@ -66,7 +66,7 @@ const links = ref([
   {
     title: 'Касса',
     iconPuth: 'case',
-    url: '/sdf'
+    url: '/case'
   },
   {
     title: 'Сертификаты',
