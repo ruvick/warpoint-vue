@@ -27,7 +27,7 @@
 		  </div>
 		 </q-card>
 	</div>
-</template>
+</template> 
 	
 <script setup>
 
