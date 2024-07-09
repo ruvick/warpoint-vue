@@ -1,206 +1,244 @@
 <template>
 	<q-layout>
-		 <!-- Container -->
-		 <q-page-container class="my-page-container">
+		  <!-- Container -->
+		  <q-page-container class="my-page-container">
 		  <q-page class="my-page-body q-pt-md q-pb-sm" style="padding: 0.3937rem 2rem 0.3937rem 8.5rem; margin-top: 4.375rem;">
-			  <!-- Обертка -->
-			  <div class="q-pa-md" style="padding: 0;">
-				<div class="q-gutter-y-md">
-					<q-card class="q-layout no-shadow no-border-radius">
-					 <!-- Tabs -->
-					 <q-tabs
-						 v-model="tab"
-						 dense
-						 class="text-grey"
-						 active-color="primary"
-						 indicator-color="primary"
-						 align="justify"
-						 narrow-indicator
-					 >
-						 <q-tab class="no-hover" style="flex: 0;" name="mails" label="Касса" />
-						 <q-tab class="no-hover" style="flex: 0;" name="alarms" label="Денежные операции" />
-						 <q-tab class="no-hover" style="flex: 0;" name="movies" label="Статьи платежей" />
-					 </q-tabs>
+				<!-- Обертка -->
+				<div class="q-pa-md" style="padding: 0;">
+					<div class="q-gutter-y-md">
+						 <q-card class="q-layout no-shadow no-border-radius">
+						  <!-- Tabs -->
+						  <q-tabs
+								v-model="tab"
+								dense
+								class="text-grey"
+								active-color="primary"
+								indicator-color="primary"
+								align="justify"
+								narrow-indicator
+						  >
+								<q-tab class="no-hover" style="flex: 0;" name="mails" label="Касса" />
+								<q-tab class="no-hover" style="flex: 0;" name="alarms" label="Денежные операции" />
+								<q-tab class="no-hover" style="flex: 0;" name="movies" label="Статьи платежей" />
+						  </q-tabs>
 	
-					 <!-- Tab-panels -->
-					 <q-tab-panels class="bg-dark-panel" v-model="tab" animated>
-						 <!-- Content Tab 1 -->
-						 <q-tab-panel class="column items-start bg-dark-panel q-pt-lg q-pb-md" name="mails">
-						  <!-- Top panel -->
-						  <div class="row q-mb-xl" style="width: 100%;">
-							  <div class="col">
-								<div class="text-h6">Список касс</div>
-							  </div>
-							  <div class="col-auto">
-								<q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogCreateCaseModal = true">
-									<q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
-									<span class="block">Создать кассу</span>
-								</q-btn>
-							  </div>
-							  <!-- Окно Создать кассу -->
-							  <CreateCaseModal v-model="dialogCreateCaseModal" />
-						  </div>
-	
-						  <!-- Card Wrapper -->
-						  <div class="case-cards__inner row">
-							  <CaseCard
-								title="ОСНОВНАЯ КАССА"
-								subtitle="Касса на ресепшн"
-								subtitleColor="#C7CCCC"
-								price="56 000"
-								linkName="Операции"
-								@edit="dialogEditCaseModal = true"
-							  />
-							  <CaseCard
-								title="РАСЧЁТНЫЙ СЧЁТ"
-								subtitle="Банк точка"
-								subtitleColor="#C7CCCC"
-								price="0"
-								linkName="Операции"
-								@edit="dialogEditCaseModal = true"
-							  />
-							  <CaseCard
-								title="КАССА ДЛЯ ПРЕДОПЛАТ"
-								subtitle="Касса для учета предоплат КАССА"
-								subtitleColor="#C7CCCC"
-								price="0"
-								linkName="Операции"
-								@edit="dialogEditCaseModal = true"
-							  />
-						  </div>
-						 </q-tab-panel>
-	
-						 <!-- Content Tab 2 -->
-						 <q-tab-panel class="column bg-dark-panel q-pt-lg q-pb-md" name="alarms">
-						  <!-- Panels -->
-						  <div class="column q-mb-lg" style="width: 100%;">
-							  <div class="col">
-								<div class="text-h6 q-mb-sm">Сводка</div>
-							  </div>
-							  <div class="col row items-center">
-								inputs
-							  </div>
-						  </div>
-	
-						  <!-- Panels 2 -->
-						  <div class="column q-mb-lg" style="width: 100%;">
-							  <div class="col">
-								<div class="text-h6 q-mb-sm">Фильтры</div>
-							  </div>
-							  <div class="col row items-center">
-								inputs
-							  </div>
-						  </div>
-	
-						  <!-- Table -->
-						  <div class="column" style="width: 100%;">
-							  <div class="col">
-								<div class="text-h6 q-mb-sm">Список денежных операций</div>
-							  </div>
-							  <div class="col">
-								<q-table
-									class="my-sticky-dynamic case-table-operation"
-									style="height: 643px"
-									flat
-									:rows="rows"
-									:columns="columns"
-									:loading="loading"
-									row-key="index"
-									virtual-scroll
-									:virtual-scroll-item-size="48"
-									:virtual-scroll-sticky-size-start="48"
-									:pagination="pagination"
-									:rows-per-page-options="[0]"
-									@virtual-scroll="onScroll"
-								>
-									<template v-slot:body-cell-management="props">
-									 <q-td :props="props">
-										<span style="font-size: 16; color: #5B89F8;">Удалить</span>
-										 <q-btn flat round dense icon="delete" @click="deleteRow(props.row.index)" style="color: #5B89F8;" />
-									 </q-td>
-									</template>
-									<template v-slot:bottom>
-									 <div class="q-table__control">
-										 <span> <span class="q-table__control-name">Записей:</span> {{ rows.length }} из {{ totalRows }}</span>
-										 <span style="margin-left: 50px;"> {{ formattedTotalCarbs }} ₽</span>
+						  <!-- Tab-panels -->
+						  <q-tab-panels class="bg-dark-panel" v-model="tab" animated>
+								<!-- Content Tab 1 -->
+								<q-tab-panel class="column items-start bg-dark-panel q-pt-lg q-pb-md" name="mails">
+								<!-- Top panel -->
+								<div class="row q-mb-xl" style="width: 100%;">
+									 <div class="col">
+										 <div class="text-h6">Список касс</div>
 									 </div>
-									</template>
-								</q-table>
-							  </div>
-						  </div>
-						 </q-tab-panel>
+									 <div class="col-auto">
+										 <q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogCreateCaseModal = true">
+											  <q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
+											  <span class="block">Создать кассу</span>
+										 </q-btn>
+									 </div>
+									 <!-- Окно Создать кассу -->
+									 <CreateCaseModal v-model="dialogCreateCaseModal" />
+								</div>
 	
-						 <!-- Content Tab 3 -->
-						 <q-tab-panel class="column items-start bg-dark-panel q-pt-lg q-pb-md" name="movies">
-						  <!-- Top panel -->
-						  <div class="row q-mb-xl" style="width: 100%;">
-							  <div class="col">
-								<div class="text-h6">Список статей</div>
-							  </div>
-							  <div class="col-auto">
-								<q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogCreateArticleModal = true">
-									<q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
-									<span class="block">Создать статью</span>
-								</q-btn>
-							  </div>
-							  <!-- Окно Создать статью -->
-							  <CreateArticleModal v-model="dialogCreateArticleModal" />
-						  </div>
+								<!-- Card Wrapper -->
+								<div class="case-cards__inner row">
+									 <CaseCard
+										 title="ОСНОВНАЯ КАССА"
+										 subtitle="Касса на ресепшн"
+										 subtitleColor="#C7CCCC"
+										 price="56 000"
+										 linkName="Операции"
+										 @edit="dialogEditCaseModal = true"
+									 />
+									 <CaseCard
+										 title="РАСЧЁТНЫЙ СЧЁТ"
+										 subtitle="Банк точка"
+										 subtitleColor="#C7CCCC"
+										 price="0"
+										 linkName="Операции"
+										 @edit="dialogEditCaseModal = true"
+									 />
+									 <CaseCard
+										 title="КАССА ДЛЯ ПРЕДОПЛАТ"
+										 subtitle="Касса для учета предоплат КАССА"
+										 subtitleColor="#C7CCCC"
+										 price="0"
+										 linkName="Операции"
+										 @edit="dialogEditCaseModal = true"
+									 />
+								</div>
+								</q-tab-panel>
 	
-						  <!-- Card Wrapper -->
-						  <div class="case-cards__inner row">
-							  <CaseCard
-								title="ВЫПЛАТА ЗАРПЛАТЫ"
-								subtitle="Расходы"
-								headerLinkBg="#5B89F826"
-								backgroundColor="linear-gradient(252.73deg, #ECECEE 0.94%, #8DA5E0 100.73%)"
-								titleColor="#25272D"
-								subtitleColor="#25272D"
-								imageSrc="./icons/art-01.svg"
-								@edit="dialogEditCaseModal = true"
-							  />
-							  <CaseCard
-								title="АРЕНДА"
-								subtitle="Расходы"
-								headerLinkBg="#5B89F826"
-								backgroundColor="linear-gradient(252.73deg, #ECECEE 0.94%, #8DA5E0 100.73%)"
-								titleColor="#25272D"
-								subtitleColor="#25272D"
-								imageSrc="./icons/art-02.svg"
-								@edit="dialogEditCaseModal = true"
-							  />
-							  <CaseCard
-								title="КОММУНАЛЬНЫЕ ПЛАТЕЖИ"
-								subtitle="Расходы"
-								headerLinkBg="#5B89F826"
-								backgroundColor="linear-gradient(252.73deg, #ECECEE 0.94%, #8DA5E0 100.73%)"
-								titleColor="#25272D"
-								subtitleColor="#25272D"
-								imageSrc="./icons/art-03.svg"
-								@edit="dialogEditCaseModal = true"
-							  />
-							  <CaseCard
-								title="РЕКЛАМА И ПРОДВИЖЕНИЕ"
-								subtitle="Расходы"
-								headerLinkBg="#5B89F826"
-								backgroundColor="linear-gradient(252.73deg, #ECECEE 0.94%, #8DA5E0 100.73%)"
-								titleColor="#25272D"
-								subtitleColor="#25272D"
-								imageSrc="./icons/art-04.svg"
-								@edit="dialogEditCaseModal = true"
-							  />
-						  </div>
-						 </q-tab-panel>
-					 </q-tab-panels>
-					</q-card>
+								<!-- Content Tab 2 -->
+								<q-tab-panel class="column bg-dark-panel q-pt-lg q-pb-md" name="alarms">
+								<!-- Panels -->
+								<div class="column items-start q-mb-lg" style="width: 100%;">
+									 <div class="col">
+										 <div class="text-h6 q-mb-sm">Сводка</div>
+									 </div>
+									 <div class="col row items-center" style="width: 100%;">
+										 <!-- <Inputs /> -->
+									 </div>
+								</div>
+	
+								<!-- Panels 2 -->
+								<div class="column items-start q-mb-lg" style="width: 100%;">
+									 <div class="col">
+										 <div class="text-h6 q-mb-sm">Фильтры</div>
+									 </div>
+									 <div class="case-inputs col row items-center" style="width: 100%;">
+										 
+										<q-select
+											class="q-mr-lg q-mb-lg"
+											filled
+											v-model="selectedOptionArticle"
+											:options="typeDiscount"
+											label="Статья"
+											style="max-width: 256px; width: 100%; border-radius: 0.375rem; overflow: hidden;"
+											/>
+
+											<q-select
+											class="q-mr-lg q-mb-lg"
+											filled
+											v-model="selectedOptionCash"
+											:options="typeDiscount"
+											label="Касса"
+											style="max-width: 256px; width: 100%; border-radius: 0.375rem; overflow: hidden;"
+											/>
+
+											<q-select
+											class="q-mr-lg q-mb-lg"
+											filled
+											v-model="selectedOptionMethod"
+											:options="typeDiscount"
+											label="Метод"
+											style="max-width: 256px; width: 100%; border-radius: 0.375rem; overflow: hidden;"
+										/>
+
+									 </div>
+								</div>
+	
+								<!-- Table -->
+								<div class="column" style="width: 100%;">
+									 <div class="col">
+										 <div class="text-h6 q-mb-sm">Список денежных операций</div>
+									 </div>
+									 <div class="col">
+										 <q-table
+											  class="my-sticky-dynamic case-table-operation"
+											  style="height: 643px"
+											  flat
+											  :rows="paginatedRows"
+											  :columns="columns"
+											  :loading="loading"
+											  row-key="id"
+											  virtual-scroll
+											  :virtual-scroll-item-size="48"
+											  :virtual-scroll-sticky-size-start="48"
+											  :pagination="pagination"
+											  :rows-per-page-options="[0]"
+											  @virtual-scroll="onScroll"
+										 >
+											  <template v-slot:body-cell-management="props">
+												<q-td :props="props">
+													 <q-btn no-caps flat round dense @click="deleteRow(props.row.id)" style="color: #5B89F8;">
+													 <span style="font-size: 16; margin-right: 4px;">Удалить</span>
+													 <q-icon name="svguse:icons/allIcons.svg#cart" size="20px" />
+													 </q-btn>
+												</q-td>
+											  </template>
+											  <template v-slot:bottom>
+												<div class="q-table__control">
+													 <span style="margin-right: 50px;"> <span class="q-table__control-name" style="font-size: 18px; color: #9E9E9E !important;">Записей:</span> <span style="font-size: 18px; color: #fff;"> {{ rows.length }} из {{ totalRows }} </span></span>
+													 <span style="font-size: 18px; margin-right: 50px;">На странице: {{ paginatedRows.length }}</span>
+													 <span style="font-size: 18px; color: #fff;"> {{ formattedTotalCarbs }} ₽</span>
+												</div>
+												<q-pagination
+													 v-model="pagination.page"
+													 :max="maxPage"
+													 max-pages="5"
+													 boundary-numbers
+													 direction-links
+													 @update:model-value="updatePagination"
+												/>
+											  </template>
+										 </q-table>
+									 </div>
+								</div>
+								</q-tab-panel>
+	
+								<!-- Content Tab 3 -->
+								<q-tab-panel class="column items-start bg-dark-panel q-pt-lg q-pb-md" name="movies">
+								<!-- Top panel -->
+								<div class="row q-mb-xl" style="width: 100%;">
+									 <div class="col">
+										 <div class="text-h6">Список статей</div>
+									 </div>
+									 <div class="col-auto">
+										 <q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogCreateArticleModal = true">
+											  <q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
+											  <span class="block">Создать статью</span>
+										 </q-btn>
+									 </div>
+									 <!-- Окно Создать статью -->
+									 <CreateArticleModal v-model="dialogCreateArticleModal" />
+								</div>
+	
+								<!-- Card Wrapper -->
+								<div class="case-cards__inner row">
+									 <CaseCard
+										 title="ВЫПЛАТА ЗАРПЛАТЫ"
+										 subtitle="Расходы"
+										 headerLinkBg="#5B89F826"
+										 backgroundColor="linear-gradient(252.73deg, #ECECEE 0.94%, #8DA5E0 100.73%)"
+										 titleColor="#25272D"
+										 subtitleColor="#25272D"
+										 imageSrc="./icons/art-01.svg"
+										 @edit="dialogEditCaseModal = true"
+									 />
+									 <CaseCard
+										 title="АРЕНДА"
+										 subtitle="Расходы"
+										 headerLinkBg="#5B89F826"
+										 backgroundColor="linear-gradient(252.73deg, #ECECEE 0.94%, #8DA5E0 100.73%)"
+										 titleColor="#25272D"
+										 subtitleColor="#25272D"
+										 imageSrc="./icons/art-02.svg"
+										 @edit="dialogEditCaseModal = true"
+									 />
+									 <CaseCard
+										 title="КОММУНАЛЬНЫЕ ПЛАТЕЖИ"
+										 subtitle="Расходы"
+										 headerLinkBg="#5B89F826"
+										 backgroundColor="linear-gradient(252.73deg, #ECECEE 0.94%, #8DA5E0 100.73%)"
+										 titleColor="#25272D"
+										 subtitleColor="#25272D"
+										 imageSrc="./icons/art-03.svg"
+										 @edit="dialogEditCaseModal = true"
+									 />
+									 <CaseCard
+										 title="РЕКЛАМА И ПРОДВИЖЕНИЕ"
+										 subtitle="Расходы"
+										 headerLinkBg="#5B89F826"
+										 backgroundColor="linear-gradient(252.73deg, #ECECEE 0.94%, #8DA5E0 100.73%)"
+										 titleColor="#25272D"
+										 subtitleColor="#25272D"
+										 imageSrc="./icons/art-04.svg"
+										 @edit="dialogEditCaseModal = true"
+									 />
+								</div>
+								</q-tab-panel>
+						  </q-tab-panels>
+						 </q-card>
+					</div>
 				</div>
-			  </div>
 	
-			  <EditCaseModal v-model="dialogEditCaseModal" />
+				<EditCaseModal v-model="dialogEditCaseModal" />
 		  </q-page>
-		 </q-page-container>
+		  </q-page-container>
 	</q-layout>
-	</template>
+</template>
 	
 	<script setup>
 	import { ref, computed } from 'vue';
@@ -216,8 +254,27 @@
 	
 	// table
 	const rows = ref([
-	{ summa: '890', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
-	{ summa: '35 000', article: 'Оплата заказа', date: '18.03.2024', time: '20:58:41', sodium: 'Проведена', case: 'Расчетный счет', method: 'Безналичный', management: '' },
+	{ id: 1, summa: '890 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 2, summa: '35 000 ₽', article: 'Оплата заказа', date: '18.03.2024', time: '20:58:41', sodium: 'Проведена', case: 'Расчетный счет', method: 'Безналичный', management: '' },
+	{ id: 3, summa: '600 000 ₽', article: 'Инкассация', date: '18.03.2024', time: '21:05:17', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 4, summa: '890 ₽', article: 'Внесение средств', date: '18.03.2024', time: '21:05:17', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 5, summa: '20 000 ₽', article: 'Расходная операция', date: '18.03.2024', time: '21:05:17', sodium: 'Проведена', case: 'Основная касса', method: 'Безналичный', management: '' },
+	{ id: 6, summa: '890 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 7, summa: '1 020 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 8, summa: '890 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 9, summa: '40 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 10, summa: '890 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+
+	{ id: 11, summa: '1 020 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 12, summa: '35 000 ₽', article: 'Оплата заказа', date: '18.03.2024', time: '20:58:41', sodium: 'Проведена', case: 'Расчетный счет', method: 'Безналичный', management: '' },
+	{ id: 13, summa: '600 000 ₽', article: 'Инкассация', date: '18.03.2024', time: '21:05:17', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 14, summa: '890 ₽', article: 'Внесение средств', date: '18.03.2024', time: '21:05:17', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 15, summa: '20 000 ₽', article: 'Расходная операция', date: '18.03.2024', time: '21:05:17', sodium: 'Проведена', case: 'Основная касса', method: 'Безналичный', management: '' },
+	{ id: 16, summa: '890 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 17, summa: '1 020 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 18, summa: '890 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 19, summa: '40 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
+	{ id: 20, summa: '890 ₽', article: 'Оплата заказа', date: '06.10.2023', time: '19:43:02', sodium: 'Проведена', case: 'Основная касса', method: 'Наличный', management: '' },
 	]);
 	
 	const columns = ref([
@@ -232,7 +289,7 @@
 	]);
 	
 	const loading = ref(false);
-	const pagination = ref({ page: 1, rowsPerPage: 13 });
+	const pagination = ref({ page: 1, rowsPerPage: 10 });
 	
 	const totalRows = computed(() => rows.value.length);
 	
@@ -244,14 +301,38 @@
 	return totalCarbs.value.toLocaleString();
 	});
 	
+	const paginatedRows = computed(() => {
+	const start = (pagination.value.page - 1) * pagination.value.rowsPerPage;
+	const end = start + pagination.value.rowsPerPage;
+	return rows.value.slice(start, end);
+	});
+	
+	const maxPage = computed(() => {
+	return Math.ceil(totalRows.value / pagination.value.rowsPerPage);
+	});
+	
 	const onScroll = () => {
 	console.log('Virtual scroll event');
 	};
 	
-	const deleteRow = (index) => {
-	rows.value = rows.value.filter(row => row.index !== index);
+	const deleteRow = (id) => {
+	rows.value = rows.value.filter(row => row.id !== id);
 	};
-	</script>
+	
+	const updatePagination = (page) => {
+	pagination.value.page = page;
+	};
+
+	const selectedOptionArticle = ref(null);
+	const selectedOptionCash = ref(null);
+	const selectedOptionMethod = ref(null);
+	const typeDiscount = ref([
+	{ label: 'Option 1', value: 'option1' },
+	{ label: 'Option 2', value: 'option2' },
+	{ label: 'Option 3', value: 'option3' }
+	]);
+
+</script>
 	
 	<style lang="scss">
 	.case-cards__inner {
@@ -377,5 +458,17 @@
 	.q-btn--send .q-icon {
 		 margin: 0.5rem 0.3125rem 0.3125rem 0.3125rem;
 	}
+	.q-table__bottom {
+		justify-content: space-between;
 	}
+	.q-pagination .q-btn.bg-primary {
+		background-color: #1A1B1D !important;
+	}
+	}
+	//  .q-virtual-scroll__content {
+	// 	.q-focus-helper {
+	// 		color: #000;
+	// 		background: red !important;
+	// 	}
+	// }
 	</style>
