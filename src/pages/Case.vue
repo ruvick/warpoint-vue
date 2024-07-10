@@ -180,10 +180,10 @@
 										 </q-table>
 
 										 <q-btn class="no-hover q-mt-xl" no-caps no-hover flat round dense style="color: #5B89F8;" @click="dialogInfoDo = true">
-												<span style="font-size: 20px;">Окно Инфо ДО</span>
-											</q-btn>
+											<span style="font-size: 20px;">Окно Инфо ДО</span>
+										</q-btn>
 
-											<InfoDo v-model="dialogInfoDo" />
+										<InfoDo v-model="dialogInfoDo" />
 
 									 </div>
 								</div>
@@ -408,7 +408,7 @@
 		 font-weight: 700;
 		 line-height: 1.3181rem;
 	}
-	.q-table tbody tr td:nth-child(1) {
+	.q-table tbody tr td:nth-child(1) { 
 		 text-align: left;
 		 width: 13.5rem;
 		 background: #252e42;

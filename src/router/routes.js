@@ -27,6 +27,14 @@ const routes = [
 					requiresAuth: true
 				}
 			},
+			{
+				path: 'warehouse',
+				component: () => import('pages/Warehouse.vue'),
+				meta: {
+					title: 'Склад',
+					requiresAuth: true
+				}
+			},
 			// Убрать
 			{
 				path: 'reservation-window',

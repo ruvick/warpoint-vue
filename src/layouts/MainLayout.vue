@@ -79,9 +79,9 @@ const links = ref([
     url: '/promocodes'
   },
   {
-    title: 'Остатки',
+    title: 'Склад',
     iconPuth: 'ostatki',
-    url: '/sdf'
+    url: '/warehouse'
   },
   {
     title: 'Товары и услуги',

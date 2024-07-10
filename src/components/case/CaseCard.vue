@@ -36,6 +36,7 @@
 		  <div class="footer-case-card__btn">
 			  <q-btn
 				v-if="linkName"
+				@click="dialogOperationCase = true"
 				class="btn-no-effects no-hover q-pa-none"
 				no-caps
 				:style="{
@@ -52,14 +53,20 @@
 	</div>
 	
 	<EditCaseModal v-model="dialogEditCaseModal" />
+	<OperationCase v-model="dialogOperationCase" />
 
 	</template>
 	
 	<script setup>
-	import { defineProps, ref, watch } from 'vue';
-	import EditCaseModal from './casemodal/EditCaseModal.vue';
 
+	import { defineProps, ref, watch } from 'vue';
 	
+	import EditCaseModal from './casemodal/EditCaseModal.vue';
+	import OperationCase from './casemodal/OperationCase.vue';
+
+	const dialogEditCaseModal = ref(false);
+	const dialogOperationCase = ref(false);
+
 	const props = defineProps({
 	title: String,
 	subtitle: String,
@@ -93,9 +100,6 @@
 	}
 	});
 	
-	const dialogEditCaseModal = ref(false);
-
-
 	</script>
 	
 	<style scoped>

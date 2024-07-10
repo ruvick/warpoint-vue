@@ -15,7 +15,7 @@
 	
 		  <q-card-section class="booking-modal__body body-booking-modal row q-pt-lg q-pl-lg q-pr-lg q-pb-lg" style="height: 100%; gap: 0.625rem;">
 			  <!-- Booking Navbar -->
-			  <NavBarBooking v-model:modelValue="model" :options="options" />
+			  <NavBarBooking v-model:modelValue="model" :options="options" /> 
 	
 			  <!-- Booking Content -->
 			  <div class="body-booking-modal__content content-booking col">
