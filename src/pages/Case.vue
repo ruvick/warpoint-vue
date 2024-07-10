@@ -78,7 +78,21 @@
 										 <div class="text-h6 q-mb-sm">Сводка</div>
 									 </div>
 									 <div class="col row items-center" style="width: 100%;">
-										 <!-- <Inputs /> -->
+										 
+										<div class="summary row items-center">
+
+											<div class="summary__item row justify-between items-center q-mr-lg q-mb-lg" style="width: 400px; padding: 18.5px 16px; background-color: #25272D; border-radius: 10px; gap: 10px;">
+												<div class="item-summary__name" style="font-size: 20px; color: #9E9E9E;">Доходы</div>
+												<div class="item-summary__value" style="font-size: 30px;">2 500 000 ₽</div>
+											</div>
+
+											<div class="summary__item row justify-between items-center q-mr-lg q-mb-lg" style="width: 400px; padding: 18.5px 16px; background-color: #25272D; border-radius: 10px; gap: 10px;">
+												<div class="item-summary__name" style="font-size: 20px; color: #9E9E9E;">Расходы</div>
+												<div class="item-summary__value" style="font-size: 30px;">50 000 ₽</div>
+											</div>
+
+										</div>
+
 									 </div>
 								</div>
 	
@@ -142,9 +156,9 @@
 										 >
 											  <template v-slot:body-cell-management="props">
 												<q-td :props="props">
-													 <q-btn no-caps flat round dense @click="deleteRow(props.row.id)" style="color: #5B89F8;">
-													 <span style="font-size: 16; margin-right: 4px;">Удалить</span>
-													 <q-icon name="svguse:icons/allIcons.svg#cart" size="20px" />
+													 <q-btn class="no-hover" no-caps no-hover flat round dense @click="deleteRow(props.row.id)" style="color: #5B89F8;">
+													 	<span style="font-size: 16; margin-right: 4px;">Удалить</span>
+													 	<q-icon name="svguse:icons/allIcons.svg#cart" size="20px" />
 													 </q-btn>
 												</q-td>
 											  </template>
@@ -164,6 +178,13 @@
 												/>
 											  </template>
 										 </q-table>
+
+										 <q-btn class="no-hover q-mt-xl" no-caps no-hover flat round dense style="color: #5B89F8;" @click="dialogInfoDo = true">
+												<span style="font-size: 20px;">Окно Инфо ДО</span>
+											</q-btn>
+
+											<InfoDo v-model="dialogInfoDo" />
+
 									 </div>
 								</div>
 								</q-tab-panel>
@@ -235,6 +256,7 @@
 				</div>
 	
 				<EditCaseModal v-model="dialogEditCaseModal" />
+
 		  </q-page>
 		  </q-page-container>
 	</q-layout>
@@ -246,11 +268,13 @@
 	import CreateArticleModal from 'src/components/case/casemodal/CreateArticleModal.vue';
 	import CaseCard from 'src/components/case/CaseCard.vue';
 	import EditCaseModal from 'src/components/case/casemodal/EditCaseModal.vue';
+	import InfoDo from 'src/components/case/casemodal/InfoDo.vue';
 	
 	const tab = ref('mails');
 	const dialogCreateCaseModal = ref(false);
 	const dialogCreateArticleModal = ref(false);
 	const dialogEditCaseModal = ref(false);
+	const dialogInfoDo = ref(false);
 	
 	// table
 	const rows = ref([
@@ -465,10 +489,10 @@
 		background-color: #1A1B1D !important;
 	}
 	}
-	//  .q-virtual-scroll__content {
-	// 	.q-focus-helper {
-	// 		color: #000;
-	// 		background: red !important;
-	// 	}
-	// }
+	.case-table-operation .q-table thead tr th:nth-child(8) {
+		text-align: right;
+	}
+	.case-table-operation .q-table tbody td:nth-child(8) {
+		text-align: right;
+	}
 	</style>
