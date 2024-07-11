@@ -1,4 +1,5 @@
 <template>
+	
 	<div class="col" style="width: 100%;">
 		 <q-table
 		  class="my-sticky-dynamic case-table-sklad"
@@ -49,14 +50,15 @@
 		  </template>
 		 </q-table>
 	
-		 <InfoMovementModal v-model="dialogInfoMovementModal" />
-
+		 <InfoMovementModal v-model:dialog="dialogInfoMovementModal" :row="selectedRow" />
 	</div>
-	</template>
+
+</template>
 	
-	<script setup>
+<script setup>
+
 	import { ref, computed } from 'vue';
-	import InfoMovementModal from 'src/components/warehouse/warehousemodal/InfoMovementModal.vue'; 
+	import InfoMovementModal from 'src/components/warehouse/warehousemodal/InfoMovementModal.vue';
 	
 	const rows = ref([
 	{ id: 1, index: 1, typeOperation: 'Оприходование', name: 'Футболка S размер', date: '06.10.2023', time: '19:43:12', warehouse: 'Основной', quantity: '+ 10', 'quantity-class': 'green', amount: '890 ₽', management: '' },
@@ -111,9 +113,10 @@
 	const totalCellsOnPage = computed(() => {
 	return rows.value.length * columns.value.length;
 	});
-	</script>
+
+</script>
 	
-	<style lang="scss">
+<style lang="scss">
 
 	.case-table-sklad {
 	.q-table__top,
@@ -158,10 +161,10 @@
 		 line-height: 1.3181rem;
 	}
 	.q-table tbody tr td:nth-child(2) {
-		text-align: left;
-		width: 16.75rem;
-		padding: 0;
-		background: inherit;
+		 text-align: left;
+		 width: 16.75rem;
+		 padding: 0;
+		 background: inherit;
 	}
 	.q-table tbody tr td:nth-child(2) .q-btn {
 		 text-align: left;
@@ -276,4 +279,5 @@
 	.case-table-sklad .q-table tbody td.red {
 	color: #E43D44;
 	}
-	</style>
+
+</style>
