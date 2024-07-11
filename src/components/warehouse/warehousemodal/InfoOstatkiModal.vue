@@ -21,18 +21,18 @@
 						<div class="row">
 							<div class="input-info q-mb-md" style="width: 360px;">
 								<div class="input-info__name">Наименование</div> 
-								<div class="input-info__value">Футболка S размер</div>
+								<div class="input-info__value">{{ row.name }}</div>
 							</div>
 						</div>
 
 						<div class="row justify-between items-center">
 							<div class="input-info q-mr-md" style="width: 168px;">
 								<div class="input-info__name">Количество</div> 
-								<div class="input-info__value">5</div>
+								<div class="input-info__value"> {{ row.remains }} </div>
 							</div>
 							<div class="input-info" style="width: 168px;">
 								<div class="input-info__name">Склад</div> 
-								<div class="input-info__value">Основной</div>
+								<div class="input-info__value"> {{ row.warehouse }} </div>
 							</div>
 						</div>
 
@@ -54,9 +54,9 @@
 					<div class="col-auto">
 						<div class="table-content-booking q-mb-md">
 							<div class="table-content-booking__label text-grey-9">Категория:</div>
-							<div class="table-content-booking__value" style="color: #C7CCCC;">Мерч</div>
+							<div class="table-content-booking__value" style="color: #C7CCCC;"> {{ row.category }} </div>
 							<div class="table-content-booking__label text-grey-9">Подкатегория:</div>
-							<div class="table-content-booking__value" style="color: #C7CCCC;">Футболки</div>
+							<div class="table-content-booking__value" style="color: #C7CCCC;"> {{ row.subcategory }} </div>
 						</div>
 					</div>
 					<div class="col-auto">
@@ -70,9 +70,9 @@
 					<div class="col-auto">
 						<div class="table-content-booking q-mb-md">
 							<div class="table-content-booking__label text-grey-9">Цена продажи:</div>
-							<div class="table-content-booking__value" style="color: #C7CCCC;">2 000 ₽</div>
+							<div class="table-content-booking__value" style="color: #C7CCCC;"> {{ row.costPricePc }} </div>
 							<div class="table-content-booking__label text-grey-9">Себестоимость (итого):</div>
-							<div class="table-content-booking__value" style="color: #C7CCCC;">4 450 ₽</div>
+							<div class="table-content-booking__value" style="color: #C7CCCC;"> {{ row.costPriceTotal }} </div>
 						</div>
 					</div>
 				</div>
@@ -85,7 +85,7 @@
 	</q-dialog>
 </template>
 	
-	<script setup>
+<script setup>
 
 	import { ref, watch } from 'vue';
 
@@ -107,9 +107,11 @@
 	watch(dialog, (newVal) => {
 	emit('update:dialog', newVal);
 	});
-	</script>
+
+</script>
 	
-	<style lang="scss">
+<style lang="scss">
+
 	.input-info {
 	display: flex;
 	flex-direction: column;
@@ -168,4 +170,4 @@
 		}
 	}
 
-	</style>
+</style>

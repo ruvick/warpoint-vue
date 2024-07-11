@@ -91,13 +91,13 @@
 								<div class="text-h6">Список товаров</div>
 							  </div>
 							  <div class="col-auto">
-								<q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogCreateArticleModal = true">
+								<q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogRegisterProductModal = true">
 									<q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
 									<span class="block">Оприходовать товар</span>
 								</q-btn>
 							  </div>
 							  <!-- Окно Создать статью -->
-							  <CreateArticleModal v-model="dialogCreateArticleModal" />
+							  <RegisterProductModal v-model="dialogRegisterProductModal" />
 						  </div>
 	
 						  <!-- Таблица Остатки  -->
@@ -188,9 +188,11 @@
 	<script setup>
 
 	import { ref } from 'vue';
+
+	import RegisterProductModal from 'src/components/warehouse/warehousemodal/RegisterProductModal.vue';
 	import TableSkladOstatki from 'src/components/warehouse/TableSkladOstatki.vue'; 
 	import TableGoodsMovement from 'src/components/warehouse/TableGoodsMovement.vue';
-	import InfoMovementModal from 'src/components/warehouse/warehousemodal/InfoMovementModal.vue'; 
+	// import InfoMovementModal from 'src/components/warehouse/warehousemodal/InfoMovementModal.vue'; 
 	import FilterEmpModal from 'src/components/warehouse/warehousemodal/FilterEmpModal.vue';
 
 	// Elements 
@@ -208,7 +210,8 @@
 	const searchText = ref('');
 
 	// Modals 
-	const dialogInfoMovementModal = ref(false);
+	// const dialogInfoMovementModal = ref(false);
+	const dialogRegisterProductModal = ref(false);
 	const dialogFilterEmpModal = ref(false);
 
 	</script>
