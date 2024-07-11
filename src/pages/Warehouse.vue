@@ -151,12 +151,26 @@
 							  <div class="col">
 								<div class="text-h6">Журнал движения товаров</div>
 							  </div>
-							  <!-- Окно Создать статью -->
-							  <CreateArticleModal v-model="dialogCreateArticleModal" />
 						  </div>
 
 							<!-- Таблица Журнал движения товаров  -->
 							<TableGoodsMovement />
+
+							<div class="row q-mt-xl" style="width: 100%;">
+							  <div class="col">
+								<div class="text-h6">Модальные окна</div>
+								<div class="column items-start q-mt-md">
+									<q-btn unelevated color="blue-1" class="my-btn q-mb-md text-weight-bold" no-caps @click="dialogFilterEmpModal = true">
+										<span class="block">Окно Наим-е Фильтр Emp</span>
+									</q-btn>
+								</div>
+							  </div>
+
+							  <!-- Componenets Modal -->
+								<!-- <InfoMovementModal v-model="dialogInfoMovementModal" /> -->
+								<FilterEmpModal v-model="dialogFilterEmpModal" />
+
+						  </div>
 
 						 </q-tab-panel>
 
@@ -176,22 +190,26 @@
 	import { ref } from 'vue';
 	import TableSkladOstatki from 'src/components/warehouse/TableSkladOstatki.vue'; 
 	import TableGoodsMovement from 'src/components/warehouse/TableGoodsMovement.vue';
+	import InfoMovementModal from 'src/components/warehouse/warehousemodal/InfoMovementModal.vue'; 
+	import FilterEmpModal from 'src/components/warehouse/warehousemodal/FilterEmpModal.vue';
 
+	// Elements 
 	const tab = ref('remains');
-	
-	
 	const categories = ref(['Категория 1', 'Категория 2']);
 	const subcategories = ref(['Подкатегория 1', 'Подкатегория 2']);
 	const warehouses = ref(['Склад 1', 'Склад 2']);
 	const remainsOptions = ref(['Опция 1', 'Опция 2']);
 	const costPriceOptions = ref(['Опция 1', 'Опция 2']);
-	
 	const selectedCategory = ref(null);
 	const selectedSubcategory = ref(null);
 	const selectedWarehouse = ref(null);
 	const selectedRemains = ref(null);
 	const selectedCostPrice = ref(null);
 	const searchText = ref('');
+
+	// Modals 
+	const dialogInfoMovementModal = ref(false);
+	const dialogFilterEmpModal = ref(false);
 
 	</script>
 	

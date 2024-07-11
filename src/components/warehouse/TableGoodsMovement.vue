@@ -27,29 +27,36 @@
 				{{ props.row.quantity }}
 			  </q-td>
 		  </template>
+		  <template v-slot:body-cell-typeOperation="props">
+			  <q-td :props="props">
+				<q-btn flat @click="openWindow(props.row)">
+					{{ props.row.typeOperation }}
+				</q-btn>
+			  </q-td>
+		  </template>
 		  <template v-slot:bottom>
 			  <div class="q-table__control">
 				<span style="margin-right: 50px;">
-					<span class="q-table__control-name" style="font-size: 18px; color: #9E9E9E !important;">Записей:</span>
+					<span class="q-table__control-name q-mr-md" style="font-size: 18px; color: #9E9E9E !important;">Записей:</span>
 					<span style="font-size: 18px; color: #fff;">{{ rows.length }} из {{ totalRows }}</span>
 				</span>
 				<span style="margin-right: 50px;">
-					<span class="q-table__control-name" style="font-size: 18px; color: #9E9E9E !important;">На странице:</span>
+					<span class="q-table__control-name q-mr-md" style="font-size: 18px; color: #9E9E9E !important;">На странице:</span>
 					<span style="font-size: 18px; color: #fff;">{{ rows.length }} из {{ totalRows }}</span>
 				</span>
 				<span style="font-size: 18px; color: #fff;">{{ formattedTotalCostPrice }} ₽</span>
-				<!-- <span style="margin-left: 50px;">
-					<span class="q-table__control-name" style="font-size: 18px; color: #9E9E9E !important;">Общее количество ячеек на странице:</span>
-					<span style="font-size: 18px; color: #fff;">{{ totalCellsOnPage }}</span>
-				</span> -->
 			  </div>
 		  </template>
 		 </q-table>
+	
+		 <InfoMovementModal v-model="dialogInfoMovementModal" />
+
 	</div>
 	</template>
 	
 	<script setup>
 	import { ref, computed } from 'vue';
+	import InfoMovementModal from 'src/components/warehouse/warehousemodal/InfoMovementModal.vue'; 
 	
 	const rows = ref([
 	{ id: 1, index: 1, typeOperation: 'Оприходование', name: 'Футболка S размер', date: '06.10.2023', time: '19:43:12', warehouse: 'Основной', quantity: '+ 10', 'quantity-class': 'green', amount: '890 ₽', management: '' },
@@ -93,12 +100,21 @@
 	console.log('Virtual scroll event');
 	};
 	
+	const dialogInfoMovementModal = ref(false);
+	const selectedRow = ref({});
+	
+	const openWindow = (row) => {
+	selectedRow.value = row;
+	dialogInfoMovementModal.value = true;
+	};
+	
 	const totalCellsOnPage = computed(() => {
 	return rows.value.length * columns.value.length;
 	});
 	</script>
 	
 	<style lang="scss">
+
 	.case-table-sklad {
 	.q-table__top,
 	.q-table__bottom,
@@ -142,8 +158,15 @@
 		 line-height: 1.3181rem;
 	}
 	.q-table tbody tr td:nth-child(2) {
+		text-align: left;
+		width: 16.75rem;
+		padding: 0;
+		background: inherit;
+	}
+	.q-table tbody tr td:nth-child(2) .q-btn {
 		 text-align: left;
-		 width: 16.75rem;
+		 align-items: start;
+		 width: 100%;
 		 background: #252e42;
 		 border-radius: 0.375rem;
 		 font-size: 1.125rem;

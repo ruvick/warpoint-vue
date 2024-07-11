@@ -38,7 +38,7 @@
 										 </q-btn>
 									 </div>
 									 <!-- Окно Создать кассу -->
-									 <CreateCaseModal v-model="dialogCreateCaseModal" />
+									 <CreateCaseModal v-model="dialogCreateCaseModal" /> 
 								</div>
 	
 								<!-- Card Wrapper -->

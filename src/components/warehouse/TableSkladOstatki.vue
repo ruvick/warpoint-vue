@@ -1,50 +1,76 @@
 <template>
-
 	<div class="col" style="width: 100%;">
-		<q-table
-			class="my-sticky-dynamic case-table-sklad"
-			style="height: 700px"
-			flat
-			:rows="rows"
-			:columns="columns"
-			:loading="loading"
-			row-key="id"
-			virtual-scroll 
-			:virtual-scroll-item-size="48"
-			:virtual-scroll-sticky-size-start="48"
-			:rows-per-page-options="[0]"
-			@virtual-scroll="onScroll"
-		>
-			<template v-slot:body-cell-management="props">
-				<q-td>
-					<q-btn class="q-btn-management" :props="props" @click="dialogPromoModal = true">
-						<span></span>
-						<span></span>
-						<span></span>
-					</q-btn>
-				</q-td>
-			</template>
-			<template v-slot:bottom>
-				<div class="q-table__control">
-					<span class="q-mr-xl" style="font-size: 18px; color: #fff;">
-						<span class="q-mr-md" style="font-size: 18px; color: #9E9E9E !important;">Итого (кол-во):</span> 
-						<span class="remais">{{ formattedTotalRemains }}</span>
-					</span>
-					<span style="font-size: 18px; color: #fff;">
-						<span class="q-mr-md" style="font-size: 18px; color: #9E9E9E !important;">Итого (себестоимость):</span> 
-						<span class="costPriceTotal">{{ formattedTotalCostPrice }} ₽</span>
-					</span>
-				</div>
-			</template>
-		</q-table>
+		 <q-table
+		  class="my-sticky-dynamic case-table-sklad"
+		  style="height: 700px"
+		  flat
+		  :rows="rows"
+		  :columns="columns"
+		  :loading="loading"
+		  row-key="id"
+		  virtual-scroll
+		  :virtual-scroll-item-size="48"
+		  :virtual-scroll-sticky-size-start="48"
+		  :rows-per-page-options="[0]"
+		  @virtual-scroll="onScroll"
+		 >
+		  <template v-slot:body-cell-management="props">
+			  <q-td>
+				<q-btn class="q-btn-management" :props="props" @click="dialogPromoModal = true">
+					<span></span>
+					<span></span>
+					<span></span>
+				</q-btn>
+			  </q-td>
+		  </template>
+		  <template v-slot:body-cell-name="props">
+			  <q-td :props="props">
+				<q-btn flat @click="openWindow(props.row)">
+					{{ props.row.name }}
+				</q-btn>
+			  </q-td>
+		  </template>
+		  <template v-slot:bottom>
+			  <div class="q-table__control">
+				<span class="q-mr-xl" style="font-size: 18px; color: #fff;">
+					<span class="q-mr-md" style="font-size: 18px; color: #9E9E9E !important;">Итого (кол-во):</span>
+					<span class="remais">{{ formattedTotalRemains }}</span>
+				</span>
+				<span style="font-size: 18px; color: #fff;">
+					<span class="q-mr-md" style="font-size: 18px; color: #9E9E9E !important;">Итого (себестоимость):</span>
+					<span class="costPriceTotal">{{ formattedTotalCostPrice }} ₽</span>
+				</span>
+			  </div>
+		  </template>
+		 </q-table>
+	
+		 <q-dialog v-model="dialogInfoMovementModal">
+		  <q-card>
+			  <q-card-section>
+				<div class="text-h6">Информация о товаре</div>
+			  </q-card-section>
+	
+			  <q-card-section>
+				<div>Наименование: {{ selectedRow.name }}</div>
+				<div>Категория: {{ selectedRow.category }}</div>
+				<div>Подкатегория: {{ selectedRow.subcategory }}</div>
+				<div>Склад: {{ selectedRow.warehouse }}</div>
+				<div>Остаток: {{ selectedRow.remains }}</div>
+				<div>Себестоимость (шт.): {{ selectedRow.costPricePc }}</div>
+				<div>Себестоимость (итого): {{ selectedRow.costPriceTotal }}</div>
+			  </q-card-section>
+	
+			  <q-card-actions align="right">
+				<q-btn flat label="Закрыть" color="primary" v-close-popup />
+			  </q-card-actions>
+		  </q-card>
+		 </q-dialog>
 	</div>
-
-</template>
-
-<script setup>
-
+	</template>
+	
+	<script setup>
 	import { ref, computed } from 'vue';
-
+	
 	const rows = ref([
 	{ id: 1, index: 1, name: 'Футболка S размер', category: 'Мерч', subcategory: 'Футболки', warehouse: 'Основной', remains: '5', costPricePc: '890 ₽', costPriceTotal: '4 450 ₽', management: '' },
 	{ id: 2, index: 2, name: 'Сок яблочный 0,2 л', category: 'Товар', subcategory: 'Напитки', warehouse: 'Основной', remains: '10', costPricePc: '90 ₽', costPriceTotal: '900 ₽', management: '' },
@@ -104,15 +130,21 @@
 	return totalCostPrice.value.toLocaleString();
 	});
 	
+	const dialogInfoMovementModal = ref(false);
+	const selectedRow = ref({});
+	
+	const openWindow = (row) => {
+	selectedRow.value = row;
+	dialogInfoMovementModal.value = true;
+	};
+	
 	const onScroll = () => {
 	console.log('Virtual scroll event');
 	};
-
-</script>
-
-<style lang="scss">
-
-.case-table-sklad {
+	</script>
+	
+	<style lang="scss">
+	.case-table-sklad {
 	.q-table__top,
 	.q-table__bottom,
 	thead tr:first-child th {
@@ -257,5 +289,13 @@
 		 }
 	}
 	}
-
-</style>
+	.case-table-sklad .q-table tbody td:nth-child(9) {
+	text-align: right;
+	}
+	.case-table-sklad .q-table tbody td.green {
+	color: #69B56D;
+	}
+	.case-table-sklad .q-table tbody td.red {
+	color: #E43D44;
+	}
+	</style>
