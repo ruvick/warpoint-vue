@@ -38,7 +38,7 @@
 		  <template v-slot:bottom>
 			  <div class="q-table__control">
 				<span style="margin-right: 50px;">
-					<span class="q-table__control-name q-mr-md" style="font-size: 18px; color: #9E9E9E !important;">Записей:</span>
+					<span class="q-table__control-name q-mr-md" style="font-size: 18px; color: #9E9E9E !important;">Записей:</span> 
 					<span style="font-size: 18px; color: #fff;">{{ rows.length }} из {{ totalRows }}</span>
 				</span>
 				<span style="margin-right: 50px;">
