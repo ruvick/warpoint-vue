@@ -14,7 +14,7 @@
 			<div class="item-cards-registration__actions" v-if="price">
 				<div class="item-cards-registration__price"> {{ price }} ₽</div>
 				<q-btn color="green" class="btn-no-effects">
-					<q-icon name="svguse:icons/allIcons.svg#plus" color="white" size="14px" />
+					<q-icon name="svguse:icons/allIcons.svg#plus" color="white" size="14px" @click="toggleProducts" />
 				</q-btn>
 			</div>
 		</div>

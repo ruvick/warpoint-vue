@@ -175,6 +175,8 @@
 					</div>
 				</q-card>
 			</q-expansion-item>
+
+			<q-checkbox size="lg" v-model="show" val="lg" label="Показать все" class="checkbox-show text-h6" style="color: #ADC4FC;" />
 		  
 		 </div>
 	</div>
@@ -183,6 +185,8 @@
 <script setup>
 
 	import { ref, defineEmits } from 'vue';
+
+	const show = ref(false);
 	
 	const isActive = ref(false);
 	const emit = defineEmits(['category-selected']);
@@ -204,5 +208,10 @@
 
 <style lang="scss">
 
+.checkbox-show {
+	.q-checkbox__bg {
+		background: #5B89F84D;
+	}
+}
 
 </style>

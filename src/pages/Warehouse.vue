@@ -96,8 +96,7 @@
 									<span class="block">Оприходовать товар</span>
 								</q-btn>
 							  </div>
-							  <!-- Окно Создать статью -->
-							  <!-- <RegisterProductModal v-model="dialogRegisterProductModal" /> -->
+							  <!-- Окно -->
 							  <q-dialog
 									v-model="dialogRegisterProductModal"
 									class="dialog-full"
