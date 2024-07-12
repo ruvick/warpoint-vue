@@ -97,7 +97,14 @@
 								</q-btn>
 							  </div>
 							  <!-- Окно Создать статью -->
-							  <RegisterProductModal v-model="dialogRegisterProductModal" />
+							  <!-- <RegisterProductModal v-model="dialogRegisterProductModal" /> -->
+							  <q-dialog
+									v-model="dialogRegisterProductModal"
+									class="dialog-full"
+									position="right"
+								>
+									<RegisterProductModal />
+								</q-dialog>
 						  </div>
 	
 						  <!-- Таблица Остатки  -->
