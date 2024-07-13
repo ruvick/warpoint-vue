@@ -1,40 +1,51 @@
 <template>
-
+	
 	<div class="cards-registration__item item-cards-registration" v-if="title">
-		<div class="item-cards-registration__img">
-			<q-img
-				v-if="imageSrc"
-				:src="imageSrc"
-				:alt="imageAlt"
-				ratio="16/9" 
-			  />
-		</div>
-		<div class="item-cards-registration__body">
-			<div class="item-cards-registration__title"> {{ title }} </div>
-			<div class="item-cards-registration__actions" v-if="price">
-				<div class="item-cards-registration__price"> {{ price }} ₽</div>
-				<q-btn color="green" class="btn-no-effects">
-					<q-icon name="svguse:icons/allIcons.svg#plus" color="white" size="14px" @click="toggleProducts" />
-				</q-btn>
+			<div class="item-cards-registration__img">
+			 <q-img
+					v-if="imageSrc"
+					:src="imageSrc"
+					:alt="imageAlt"
+					ratio="16/9"
+			 />
 			</div>
-		</div>
+			<div class="item-cards-registration__body">
+			 <div class="item-cards-registration__title"> {{ title }} </div>
+			 <div class="item-cards-registration__actions" v-if="price">
+					<div class="item-cards-registration__price"> {{ price }} ₽</div>
+					<q-btn color="green" class="btn-no-effects" @click="addToList">
+					 <q-icon name="svguse:icons/allIcons.svg#plus" color="white" size="14px" />
+					</q-btn>
+			 </div>
+			</div>
 	</div>
 
 </template>
-
+	
 <script setup>
 
-	import { ref } from 'vue';
-
-	defineProps({
+	import { defineProps, defineEmits } from 'vue';
+	
+	const props = defineProps({
 		title: String,
 		imageSrc: String,
 		imageAlt: String,
 		price: Number,
 	});
+	
+	const emit = defineEmits(['add-to-list']);
+	
+	function addToList() {
+		emit('add-to-list', {
+				title: props.title,
+				imageSrc: props.imageSrc,
+				imageAlt: props.imageAlt,
+				price: props.price,
+		});
+	}
 
 </script>
-
+	
 <style lang="scss">
 
 	.cards-registration {
@@ -52,14 +63,14 @@
 		background-color: #27292d;
 		border-radius: 10px;
 		overflow: hidden;
-			img {
+		img {
 				position: absolute;
 				top: 0;
 				left: 0;
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-			}
+		}
 	}
 	.item-cards-registration__body {
 		padding: 8px 0;
@@ -70,7 +81,7 @@
 		line-height: 21.09px;
 		color: #fff;
 	}
-	.item-cards-registration__title:not(:last-child){
+	.item-cards-registration__title:not(:last-child) {
 		margin-bottom: 8px;
 	}
 	.item-cards-registration__actions {
@@ -78,15 +89,15 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
-			.q-btn {
-				font-size: 0;
-				flex: 0 0 32px;
-				width: 32px;
-				height: 32px;
-				padding: 0;
-				overflow: hidden;
-				border-radius: 50%;
-			}
+	.q-btn {
+			font-size: 0;
+			flex: 0 0 32px;
+			width: 32px;
+			height: 32px;
+			padding: 0;
+			overflow: hidden;
+			border-radius: 50%;
+	}
 	}
 	.item-cards-registration__price {
 		font-size: 18px;

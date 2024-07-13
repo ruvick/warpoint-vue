@@ -1,6 +1,6 @@
 <template>
 
-	<div class="no-products column justify-center items-center" style="height: 100%; display: none;">
+	<div class="no-products column justify-center items-center" style="height: 100%; display: non;">
 		<div class="row items-center justify-center text-h6 text-grey-10">
 			Список товаров к оприходованию пуст
 			<i class="q-icon text-grey-10 q-ml-sm" aria-hidden="true" role="presentation" style="font-size: 1.5rem;">
@@ -14,13 +14,8 @@
 
 <script setup>
 
-
-
 </script>
 
 <style lang="scss">
-
-
-
 
 </style>
