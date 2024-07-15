@@ -20,7 +20,7 @@
 			</q-input>
 			<q-btn unelevated color="green" class="my-btn text-weight-bold" no-caps @click="dialogCreateEmployeeModal = true">
 				<q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
-					<span class="block">Создать сотрудника</span>
+					<span class="block">Создать сотрудника</span> 
          </q-btn>
 		</div>
 	</div>
@@ -39,7 +39,7 @@
 
 	import { ref } from 'vue';
 
-	import CreateEmployeeModal from './CreateEmployeeModal.vue';
+	import CreateEmployeeModal from './personalmodal/CreateEmployeeModal.vue';
 
 	const searchPersonal = ref('');
 	const dialogCreateEmployeeModal = ref(false);
