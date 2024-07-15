@@ -14,7 +14,7 @@
 
 						<!-- Top Panel  -->
 						<div class="cards-product__nav nav-cards-product row items-center justify-between" style="margin-bottom: 1.5rem;">
-							<div class="nav-cards-product__actions row items-center col-auto">
+							<div class="nav-cards-product__actions row items-center col-auto q-mr-md q-mb-md">
 								<div class="" style="font-size: 1.5rem; margin-right: 2rem;">VR-Аттракционы</div>
 								<q-tabs class="text-primary my-tabs no-ripple no-hover tabs-display q-ml-lg bg-dark" v-model="tab">
 									<q-tab name="bar">
@@ -26,7 +26,7 @@
 								</q-tabs>
 							</div>
 							<div class="nav-cards-product__buttons col-auto row items-center">
-								<q-btn unelevated color="blue-1" class="my-btn text-weight-bold" no-caps @click="dialogProductsModal = true" style="margin-right: 2.5rem;">
+								<q-btn unelevated color="blue-1" class="my-btn text-weight-bold q-mb-sm" no-caps @click="dialogProductsModal = true" style="margin-right: 2.5rem;">
 									<q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
 									<span class="block">Новый товар / услуга</span>
           					</q-btn>
@@ -34,7 +34,7 @@
 									color="grey-9"
 									standout
 									type="text"
-									class="my-input-standart my-input-standart-middle bg-blue-grey-8"
+									class="my-input-standart my-input-standart-middle bg-blue-grey-8 q-mb-sm"
 									placeholder="Название или артикул"
 									style="min-width: 22rem;"
 								>

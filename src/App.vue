@@ -27,3 +27,11 @@ defineOptions({
   name: 'App'
 });
 </script> 
+
+<style>
+
+body, html {
+    min-width: 64rem;
+}
+
+</style>

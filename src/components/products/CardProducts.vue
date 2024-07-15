@@ -1,5 +1,6 @@
 <template>
-	<div class="col" style="flex: 0 1 20%; padding: 1rem 0.5rem;">
+
+	<!-- <div class="col" style="flex: 0 1 20%; padding: 1rem 0.5rem;"> -->
 		 <q-card class="catalog-cards__item my-card column item-cards q-pa-md" style="height: 100%; background-color: #212326; border-radius: 0.5rem; overflow: hidden;">
 		  <div class="item-cards__header row items-center justify-between">
 			  <div class="text-h6 text-white" v-if="title"> {{ title }} </div>
@@ -26,7 +27,8 @@
 			  <div class="text-h6 text-white" caps> {{ category }} </div>
 		  </div>
 		 </q-card>
-	</div>
+	<!-- </div> -->
+
 </template> 
 	
 <script setup>

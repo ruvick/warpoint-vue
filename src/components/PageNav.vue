@@ -7,7 +7,7 @@
   </q-dialog>
   <q-dialog
     v-model="dialogNewBooking"
-    class="dialog-full dialog-new-booking"
+    class="dialog-full dialog-new-booking" 
     position="right"
   >
     <NewBooking />
@@ -69,7 +69,7 @@
 
     </div>
 
-    <div class="row q-pt-sm q-ml-auto">
+    <div class="page-navigation__select row q-pt-sm"> 
       <q-btn unelevated color="blue-grey-8" class="my-btn my-btn-select q-mr-md text-weight-medium" no-caps @click="dialogCities = true">
         <span class="block text-grey-10">
           {{ g.selectedCountry?.name }},
@@ -78,7 +78,7 @@
         <q-icon name="svguse:icons/allIcons.svg#select-arrow" size="30.7px" color="primary" class="q-ml-auto q-pl-sm" />
       </q-btn>
       <q-select
-        standout
+        standout	
         v-model="g.selectedArena"
         :options="arenas"
         bg-color="blue-grey-8"
@@ -145,8 +145,24 @@ onMounted( async () => {
 <style lang="scss" scope>
 	.page-navigation {
 		min-height: auto;
+		gap: 1.4375rem;
+		justify-content: space-between;
+		flex-wrap: nowrap;
 		.text-title {
 			text-transform: uppercase;
+		}
+	}
+	.page-navigation .nav-pult {
+		position: static;
+		margin: 0;
+	}
+	@media (max-width: 83.125em){
+		.page-navigation__select {
+			flex-direction: column;
+			gap: 0.625rem;
+			.q-btn {
+				margin: 0;
+			}
 		}
 	}
 </style>

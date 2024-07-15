@@ -89,4 +89,10 @@ import CardProducts from 'src/components/products/CardProducts.vue';
 
 <style>
 
+.catalog-cards {
+	display: grid; 
+	grid-template-columns: repeat(auto-fill, minmax(14.5rem, 1fr)); 
+	gap: 2rem;
+}
+
 </style>

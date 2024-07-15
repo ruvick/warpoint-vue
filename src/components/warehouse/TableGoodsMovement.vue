@@ -3,7 +3,7 @@
 	<div class="col" style="width: 100%;">
 		 <q-table
 		  class="my-sticky-dynamic case-table-sklad"
-		  style="height: 700px"
+		  style="height: 43.75rem"
 		  flat
 		  :rows="rows"
 		  :columns="columns"
@@ -18,7 +18,7 @@
 		  <template v-slot:body-cell-management="props">
 			  <q-td :props="props">
 				<q-btn class="no-hover" no-caps no-hover flat round dense @click="deleteRow(props.row.id)" style="color: #5B89F8;">
-					<span style="font-size: 16px; margin-right: 4px;">Удалить</span>
+					<span style="font-size: 1rem; margin-right: 0.25rem;">Удалить</span>
 					<q-icon name="svguse:icons/allIcons.svg#cart" size="20px" />
 				</q-btn>
 			  </q-td>
@@ -37,15 +37,15 @@
 		  </template>
 		  <template v-slot:bottom>
 			  <div class="q-table__control">
-				<span style="margin-right: 50px;">
-					<span class="q-table__control-name q-mr-md" style="font-size: 18px; color: #9E9E9E !important;">Записей:</span> 
+				<span style="margin-right: 3.125rem;">
+					<span class="q-table__control-name q-mr-md" style="font-size: 1.125rem; color: #9E9E9E !important;">Записей:</span> 
 					<span style="font-size: 18px; color: #fff;">{{ rows.length }} из {{ totalRows }}</span>
 				</span>
-				<span style="margin-right: 50px;">
-					<span class="q-table__control-name q-mr-md" style="font-size: 18px; color: #9E9E9E !important;">На странице:</span>
-					<span style="font-size: 18px; color: #fff;">{{ rows.length }} из {{ totalRows }}</span>
+				<span style="margin-right: 3.125rem;">
+					<span class="q-table__control-name q-mr-md" style="font-size: 1.125rem; color: #9E9E9E !important;">На странице:</span>
+					<span style="font-size: 1.125rem; color: #fff;">{{ rows.length }} из {{ totalRows }}</span>
 				</span>
-				<span style="font-size: 18px; color: #fff;">{{ formattedTotalCostPrice }} ₽</span>
+				<span style="font-size: 1.125rem; color: #fff;">{{ formattedTotalCostPrice }} ₽</span>
 			  </div>
 		  </template>
 		 </q-table>

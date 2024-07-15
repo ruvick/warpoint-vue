@@ -25,50 +25,45 @@
 					 <q-tab-panels class="bg-dark-panel" v-model="tab" animated>
 						 <!-- Content Tab 1 -->
 						 <q-tab-panel class="column items-start bg-dark-panel q-pt-lg q-pb-md" name="remains">
-						  <div class="column q-mb-xl" style="width: 100%;">
+						  <div class="column q-mb-xl items-start" style="width: 100%;">
 							  <div class="col" style="margin-bottom: 11px;">
 								<div class="text-h6">Фильтры</div>
 							  </div>
-							  <div class="row items-center col justify-between">
+							  <div class="inputs-block items-start col">
 								<q-select
-									class="q-mr-xl"
 									filled
 									v-model="selectedCategory"
 									:options="categories"
 									label="Категория"
-									style="width: 256px; border-radius: 0.375rem; overflow: hidden;"
+									style="border-radius: 0.375rem; overflow: hidden;"
 								/>
 								<q-select
-									class="q-mr-xl"
 									filled
 									v-model="selectedSubcategory"
 									:options="subcategories"
 									label="Подкатегория"
-									style="width: 256px; border-radius: 0.375rem; overflow: hidden;"
+									style="border-radius: 0.375rem; overflow: hidden;"
 								/>
 								<q-select
-									class="q-mr-xl"
 									filled
 									v-model="selectedWarehouse"
 									:options="warehouses"
 									label="Склад"
-									style="width: 256px; border-radius: 0.375rem; overflow: hidden;"
+									style="border-radius: 0.375rem; overflow: hidden;"
 								/>
 								<q-select
-									class="q-mr-xl"
 									filled
 									v-model="selectedRemains"
 									:options="remainsOptions"
 									label="Остатки (шт.)"
-									style="width: 256px; border-radius: 0.375rem; overflow: hidden;"
+									style="border-radius: 0.375rem; overflow: hidden;"
 								/>
 								<q-select
-									class="q-mr-xl"
 									filled
 									v-model="selectedCostPrice"
 									:options="costPriceOptions"
 									label="Себестоимость (шт.)"
-									style="width: 256px; border-radius: 0.375rem; overflow: hidden;"
+									style="border-radius: 0.375rem; overflow: hidden;"
 								/>
 								<q-input
 									color="grey-9"
@@ -77,7 +72,6 @@
 									type="text"
 									class="my-input-standart my-input-standart-middle bg-blue-grey-8"
 									placeholder="Название или артикул"
-									style="width: 296px;"
 								>
 									<template v-slot:prepend>
 									 <q-icon name="svguse:icons/allIcons.svg#loop" size="2rem" color="grey-9" />
@@ -114,41 +108,37 @@
 						 <!-- Content Tab 2 -->
 						 <q-tab-panel class="column bg-dark-panel q-pt-lg q-pb-md" name="movement">
 							<div class="column q-mb-xl" style="width: 100%;">
-							  <div class="col" style="margin-bottom: 11px;">
+							  <div class="col" style="margin-bottom: 0.6875rem;">
 								<div class="text-h6">Фильтры</div>
 							  </div>
-							  <div class="row items-center col">
+							  <div class="inputs-block items-center col">
 								<q-select
-									class="q-mr-xl"
 									filled
 									v-model="selectedCategory"
 									:options="categories"
 									label="Дата / период"
-									style="width: 256px; border-radius: 0.375rem; overflow: hidden;"
+									style="border-radius: 0.375rem; overflow: hidden;"
 								/>
 								<q-select
-									class="q-mr-xl"
 									filled
 									v-model="selectedSubcategory"
 									:options="subcategories"
 									label="Тип операции"
-									style="width: 256px; border-radius: 0.375rem; overflow: hidden;"
+									style="border-radius: 0.375rem; overflow: hidden;"
 								/>
 								<q-select
-									class="q-mr-xl"
 									filled
 									v-model="selectedWarehouse"
 									:options="warehouses"
 									label="Склад"
-									style="width: 256px; border-radius: 0.375rem; overflow: hidden;"
+									style="border-radius: 0.375rem; overflow: hidden;"
 								/>
 								<q-select
-									class="q-mr-xl"
 									filled
 									v-model="selectedRemains"
 									:options="remainsOptions"
 									label="Наименование"
-									style="width: 256px; border-radius: 0.375rem; overflow: hidden;"
+									style="border-radius: 0.375rem; overflow: hidden;"
 								/>
 							  </div>
 						  </div>
@@ -224,6 +214,14 @@
 	
 	<style lang="scss">
 
-
+	.inputs-block {
+		display: grid; 
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); 
+		gap: 1.875rem;
+		width: 100%;
+		input {
+			font-size: 1.125rem;
+		}
+	}
 
 	</style>
