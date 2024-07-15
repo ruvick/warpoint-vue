@@ -17,7 +17,7 @@
 					 <q-icon name="svguse:icons/allIcons.svg#plus" color="white" size="14px" />
 					</q-btn>
 			 </div>
-			</div>
+			</div> 
 	</div>
 
 </template>

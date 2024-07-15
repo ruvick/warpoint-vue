@@ -101,7 +101,7 @@ const links = ref([
   {
     title: 'Персонал',
     iconPuth: 'personal',
-    url: '/sdf'
+    url: '/personal'
   },
   {
     title: 'Локация',

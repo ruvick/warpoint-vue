@@ -32,7 +32,7 @@
 										 <div class="text-h6">Список касс</div>
 									 </div>
 									 <div class="col-auto">
-										 <q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogCreateCaseModal = true">
+										 <q-btn unelevated color="blue-1" class="my-btn text-weight-bold" no-caps @click="dialogCreateCaseModal = true">
 											  <q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
 											  <span class="block">Создать кассу</span>
 										 </q-btn>
@@ -197,7 +197,7 @@
 										 <div class="text-h6">Список статей</div>
 									 </div>
 									 <div class="col-auto">
-										 <q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogCreateArticleModal = true">
+										 <q-btn unelevated color="blue-1" class="my-btn text-weight-bold" no-caps @click="dialogCreateArticleModal = true">
 											  <q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
 											  <span class="block">Создать статью</span>
 										 </q-btn>
@@ -494,5 +494,8 @@
 	}
 	.case-table-operation .q-table tbody td:nth-child(8) {
 		text-align: right;
+	}
+	.q-tab-panel {
+		padding-right: 0;
 	}
 	</style>

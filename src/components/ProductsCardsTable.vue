@@ -91,7 +91,7 @@ import CardProducts from 'src/components/products/CardProducts.vue';
 
 .catalog-cards {
 	display: grid; 
-	grid-template-columns: repeat(auto-fill, minmax(14.5rem, 1fr)); 
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
 	gap: 2rem;
 }
 

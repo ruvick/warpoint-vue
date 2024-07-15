@@ -85,7 +85,7 @@
 								<div class="text-h6">Список товаров</div>
 							  </div>
 							  <div class="col-auto">
-								<q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogRegisterProductModal = true">
+								<q-btn unelevated color="blue-1" class="my-btn text-weight-bold" no-caps @click="dialogRegisterProductModal = true">
 									<q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
 									<span class="block">Оприходовать товар</span>
 								</q-btn>
@@ -223,5 +223,7 @@
 			font-size: 1.125rem;
 		}
 	}
-
+	.q-tab-panel {
+		padding-right: 0;
+	}
 	</style>

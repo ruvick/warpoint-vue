@@ -2,7 +2,7 @@
 
 	<q-layout>
 		<q-page-container class="my-page-container">
-			<q-page class="page-promo" style="color: #fff; padding: 4.0625rem 2rem 4.0625rem 2rem;">
+			<q-page class="page-promo" style="color: #fff; padding: 4.0625rem 0 4.0625rem 2rem;">
 
 				<div class="products row">
 

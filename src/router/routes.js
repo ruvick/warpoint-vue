@@ -61,6 +61,14 @@ const routes = [
 					requiresAuth: true
 				}
 			},
+			{
+				path: 'personal',
+				component: () => import('src/pages/Personal.vue'),
+				meta: {
+					title: 'Персонал',
+					requiresAuth: true
+				}
+			},
 		]
 	},
 

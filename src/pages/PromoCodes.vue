@@ -10,7 +10,7 @@
 						<div class="text-h6">Список промокодов</div>
 					</div>
 					<div class="col-auto">
-						<q-btn unelevated color="blue-1" class="my-btn q-mr-md text-weight-bold" no-caps @click="dialogPromoModal = true">
+						<q-btn unelevated color="blue-1" class="my-btn text-weight-bold" no-caps @click="dialogPromoModal = true">
 							<q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
 							<span class="block">Создать промокод</span>
           			</q-btn>
