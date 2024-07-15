@@ -57,7 +57,7 @@
 	
 <script setup>
 
-	import { ref, computed } from 'vue';
+	import { ref, computed } from 'vue'; 
 	import InfoMovementModal from 'src/components/warehouse/warehousemodal/InfoMovementModal.vue';
 	
 	const rows = ref([
