@@ -1,4 +1,5 @@
 <template>
+
 	<q-layout>
 		 <!-- Container -->
 		 <q-page-container class="my-page-container">
@@ -7,6 +8,7 @@
 			  <div class="q-pa-md" style="padding: 0;">
 				<div class="q-gutter-y-md">
 					<q-card class="q-layout no-shadow no-border-radius">
+
 					 <!-- Tabs -->
 					 <q-tabs
 						 v-model="tab"
@@ -25,131 +27,22 @@
 					 <q-tab-panels class="bg-dark-panel" v-model="tab" animated>
 						 <!-- Content Tab 1 -->
 						 <q-tab-panel class="column items-start bg-dark-panel q-pt-lg q-pb-md" name="remains">
-						  <div class="column q-mb-xl items-start" style="width: 100%;">
-							  <div class="col" style="margin-bottom: 11px;">
-								<div class="text-h6">Фильтры</div>
-							  </div>
-							  <div class="inputs-block items-start col">
-								<q-select
-									filled
-									v-model="selectedCategory"
-									:options="categories"
-									label="Категория"
-									style="border-radius: 0.375rem; overflow: hidden;"
-								/>
-								<q-select
-									filled
-									v-model="selectedSubcategory"
-									:options="subcategories"
-									label="Подкатегория"
-									style="border-radius: 0.375rem; overflow: hidden;"
-								/>
-								<q-select
-									filled
-									v-model="selectedWarehouse"
-									:options="warehouses"
-									label="Склад"
-									style="border-radius: 0.375rem; overflow: hidden;"
-								/>
-								<q-select
-									filled
-									v-model="selectedRemains"
-									:options="remainsOptions"
-									label="Остатки (шт.)"
-									style="border-radius: 0.375rem; overflow: hidden;"
-								/>
-								<q-select
-									filled
-									v-model="selectedCostPrice"
-									:options="costPriceOptions"
-									label="Себестоимость (шт.)"
-									style="border-radius: 0.375rem; overflow: hidden;"
-								/>
-								<q-input
-									color="grey-9"
-									standout
-									v-model="searchText"
-									type="text"
-									class="my-input-standart my-input-standart-middle bg-blue-grey-8"
-									placeholder="Название или артикул"
-								>
-									<template v-slot:prepend>
-									 <q-icon name="svguse:icons/allIcons.svg#loop" size="2rem" color="grey-9" />
-									</template>
-								</q-input>
-							  </div>
-						  </div>
-	
-						  <div class="row q-mb-xl" style="width: 100%;">
-							  <div class="col">
-								<div class="text-h6">Список товаров</div>
-							  </div>
-							  <div class="col-auto">
-								<q-btn unelevated color="blue-1" class="my-btn text-weight-bold" no-caps @click="dialogRegisterProductModal = true">
-									<q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
-									<span class="block">Оприходовать товар</span>
-								</q-btn>
-							  </div>
-							  <!-- Окно -->
-							  <q-dialog
-									v-model="dialogRegisterProductModal"
-									class="dialog-full"
-									position="right"
-								>
-									<RegisterProductModal />
-								</q-dialog>
-						  </div>
-	
-						  <!-- Таблица Остатки  -->
-						  <TableSkladOstatki />
-
+						 	<FiltersOstatki/>
+						 	<ListProductPanel/>
+						 	<TableSkladOstatki />
 						 </q-tab-panel>
 	
 						 <!-- Content Tab 2 -->
 						 <q-tab-panel class="column bg-dark-panel q-pt-lg q-pb-md" name="movement">
-							<div class="column q-mb-xl" style="width: 100%;">
-							  <div class="col" style="margin-bottom: 0.6875rem;">
-								<div class="text-h6">Фильтры</div>
-							  </div>
-							  <div class="inputs-block items-center col">
-								<q-select
-									filled
-									v-model="selectedCategory"
-									:options="categories"
-									label="Дата / период"
-									style="border-radius: 0.375rem; overflow: hidden;"
-								/>
-								<q-select
-									filled
-									v-model="selectedSubcategory"
-									:options="subcategories"
-									label="Тип операции"
-									style="border-radius: 0.375rem; overflow: hidden;"
-								/>
-								<q-select
-									filled
-									v-model="selectedWarehouse"
-									:options="warehouses"
-									label="Склад"
-									style="border-radius: 0.375rem; overflow: hidden;"
-								/>
-								<q-select
-									filled
-									v-model="selectedRemains"
-									:options="remainsOptions"
-									label="Наименование"
-									style="border-radius: 0.375rem; overflow: hidden;"
-								/>
-							  </div>
-						  </div>
-	
+
+						  <FiltersGoodsMovement/>
+
 						  <div class="row q-mb-xl" style="width: 100%;">
 							  <div class="col">
 								<div class="text-h6">Журнал движения товаров</div>
 							  </div>
 						  </div>
 
-							<!-- Таблица Журнал движения товаров  -->
 							<TableGoodsMovement />
 
 							<div class="row q-mt-xl" style="width: 100%;">
@@ -161,12 +54,10 @@
 									</q-btn>
 								</div>
 							  </div>
-
 							  <!-- Componenets Modal -->
 								<!-- <InfoMovementModal v-model="dialogInfoMovementModal" /> -->
 								<FilterEmpModal v-model="dialogFilterEmpModal" />
-
-						  </div>
+						  	</div>
 
 						 </q-tab-panel>
 
@@ -179,31 +70,23 @@
 		  </q-page>
 		 </q-page-container>
 	</q-layout>
-	</template>
+
+</template>
 	
 	<script setup>
 
 	import { ref } from 'vue';
-
-	import RegisterProductModal from 'src/components/warehouse/warehousemodal/RegisterProductModal.vue';
+	import FiltersOstatki from 'src/components/warehouse/FiltersOstatki.vue'
 	import TableSkladOstatki from 'src/components/warehouse/TableSkladOstatki.vue'; 
 	import TableGoodsMovement from 'src/components/warehouse/TableGoodsMovement.vue';
-	// import InfoMovementModal from 'src/components/warehouse/warehousemodal/InfoMovementModal.vue'; 
 	import FilterEmpModal from 'src/components/warehouse/warehousemodal/FilterEmpModal.vue';
+	import ListProductPanel from 'src/components/warehouse/ListProductPanel.vue'
+	import FiltersGoodsMovement from 'src/components/warehouse/FiltersGoodsMovement.vue';
+	// import RegisterProductModal from 'src/components/warehouse/warehousemodal/RegisterProductModal.vue';
+	// import InfoMovementModal from 'src/components/warehouse/warehousemodal/InfoMovementModal.vue'; 
 
 	// Elements 
 	const tab = ref('remains');
-	const categories = ref(['Категория 1', 'Категория 2']);
-	const subcategories = ref(['Подкатегория 1', 'Подкатегория 2']);
-	const warehouses = ref(['Склад 1', 'Склад 2']);
-	const remainsOptions = ref(['Опция 1', 'Опция 2']);
-	const costPriceOptions = ref(['Опция 1', 'Опция 2']);
-	const selectedCategory = ref(null);
-	const selectedSubcategory = ref(null);
-	const selectedWarehouse = ref(null);
-	const selectedRemains = ref(null);
-	const selectedCostPrice = ref(null);
-	const searchText = ref('');
 
 	// Modals 
 	// const dialogInfoMovementModal = ref(false);
@@ -214,16 +97,17 @@
 	
 	<style lang="scss">
 
-	.inputs-block {
-		display: grid; 
-		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); 
-		gap: 1.875rem;
-		width: 100%;
-		input {
-			font-size: 1.125rem;
+		.inputs-block {
+			display: grid; 
+			grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); 
+			gap: 1.875rem;
+			width: 100%;
+			input {
+				font-size: 1.125rem;
+			}
 		}
-	}
-	.q-tab-panel {
-		padding-right: 0;
-	}
+		.q-tab-panel {
+			padding-right: 0;
+		}
+
 	</style>
