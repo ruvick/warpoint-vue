@@ -39,7 +39,7 @@
 							</q-td>
 						</template>
 
-						<template v-slot:body-cell-proname="props">
+						<template v-slot:body-cell-proname="props"> 
 							<q-td :props="props">
 								{{ props.row.proname }}
 								<q-btn flat round @click="editRow(props.row)">

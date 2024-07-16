@@ -7,7 +7,7 @@
 				<div class="row items-center">
 					<div class="text-h6 text-white q-mb-lg">Личные данные</div> 
 				</div>
-				<div class="row items-center" style="max-width: 1200px; width: 100%; gap: 24px;">
+				<div class="row items-center" style="max-width: 75rem; width: 100%; gap: 1.5rem;">
 					<q-input
 						color="grey-9"
 						standout
@@ -17,7 +17,7 @@
 						placeholder="Фамилия"
 						clearable 
 						clear-icon="close" 
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 					<q-input
 						color="grey-9"
@@ -28,7 +28,7 @@
 						placeholder="Имя"
 						clearable 
 						clear-icon="close"
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 					<q-input
 						color="grey-9"
@@ -39,7 +39,7 @@
 						placeholder="Отчество"
 						clearable 
 						clear-icon="close"
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 					<q-select
 						class="my-input-standart my-input-standart-middle bg-blue-grey-8"
@@ -47,7 +47,7 @@
 						v-model="selectedOption"
 						:options="typeGender"
 						label="Пол"
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 					<q-input
 						color="grey-9"
@@ -58,7 +58,7 @@
 						placeholder="Дата рождения"
 						clearable 
 						clear-icon="close"
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 				<div class="row items-center">
 					<div class="text-h6 text-white q-mb-lg">Контакты</div> 
 				</div>
-				<div class="row items-center" style="width: 100%; gap: 24px;">
+				<div class="row items-center" style="width: 100%; gap: 1.5rem;">
 					<q-input
 						color="grey-9"
 						standout
@@ -80,7 +80,7 @@
 						placeholder="Телефон"
 						clearable 
 						clear-icon="close" 
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 					<q-input
 						color="grey-9"
@@ -91,7 +91,7 @@
 						placeholder="E-mail"
 						clearable 
 						clear-icon="close"
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 				</div>
 			</div>
@@ -103,14 +103,14 @@
 				<div class="row items-center">
 					<div class="text-h6 text-white q-mb-lg">Должность</div> 
 				</div>
-				<div class="row items-center" style="width: 100%; gap: 24px;">
+				<div class="row items-center" style="width: 100%; gap: 1.5rem;">
 					<q-select
 						class="my-input-standart my-input-standart-middle bg-blue-grey-8"
 						filled
 						v-model="selectedOption"
 						:options="typePost"
 						label="Должность"
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 				</div>
 			</div>
@@ -121,7 +121,7 @@
 
 	<!-- Content Footer  -->
 	<div class="content-booking__footer footer-content-booking row q-pt-xs q-pr-md q-pb-lg q-pl-md">
-		<div class="footer-content-booking__inner row justify-center items-center" style="width: 100%; gap: 80px;">
+		<div class="footer-content-booking__inner row justify-center items-center" style="width: 100%; gap: 5rem;">
 
 			<q-btn unelevated color="blue-1" class="my-btn text-weight-bold">
 				<span class="block">Редактировать</span>
@@ -158,7 +158,7 @@
 <style lang="scss">
 	.personal-modal {
 		.my-input-standart-middle .q-field__inner .q-field__control .q-field__label {
-			top: 18px;
+			top: 1.125rem;
 		}
 	}
 

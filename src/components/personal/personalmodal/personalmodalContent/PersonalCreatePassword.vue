@@ -7,7 +7,7 @@
 				<div class="row items-center">
 					<div class="text-h6 text-white q-mb-lg">Контакты</div> 
 				</div>
-				<div class="row items-center" style="width: 100%; gap: 24px;">
+				<div class="row items-center" style="width: 100%; gap: 1.5rem;">
 					<q-input
 						color="grey-9"
 						standout
@@ -17,7 +17,7 @@
 						placeholder="Телефон"
 						clearable 
 						clear-icon="close" 
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 					<q-input
 						color="grey-9"
@@ -28,7 +28,7 @@
 						placeholder="E-mail"
 						clearable 
 						clear-icon="close"
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 <style lang="scss">
 	.personal-modal {
 		.my-input-standart-middle .q-field__inner .q-field__control .q-field__label {
-			top: 18px;
+			top: 1.125rem;
 		}
 	}
 

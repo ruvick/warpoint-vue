@@ -4,7 +4,7 @@
 
 		<div class="col q-mb-xl" style="width: 100%;">
 			<div class="column q-pl-xl q-pb-lg">
-				<div class="column items-start" style="width: 100%; gap: 16px;">
+				<div class="column items-start" style="width: 100%; gap: 1rem;">
 					<q-input
 						color="grey-9"
 						standout
@@ -14,7 +14,7 @@
 						placeholder="Новый пароль"
 						clearable 
 						clear-icon="close" 
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 					<q-input
 						color="grey-9"
@@ -25,7 +25,7 @@
 						placeholder="Повторите новый пароль"
 						clearable 
 						clear-icon="close"
-						style="width: 336px;"
+						style="width: 21rem;"
 					/>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 
 	<!-- Content Footer  -->
 	<div class="content-booking__footer footer-content-booking row q-pt-xs q-pr-md q-pb-lg q-pl-md">
-		<div class="footer-content-booking__inner row justify-center items-center" style="width: 100%; gap: 80px;">
+		<div class="footer-content-booking__inner row justify-center items-center" style="width: 100%; gap: 5rem;">
 		</div>
 	</div>
 	
@@ -53,7 +53,7 @@
 <style lang="scss">
 	.personal-modal {
 		.my-input-standart-middle .q-field__inner .q-field__control .q-field__label {
-			top: 18px;
+			top: 1.125rem;
 		}
 	}
 

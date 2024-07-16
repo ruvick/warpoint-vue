@@ -17,11 +17,11 @@
 						<div class="row items-center">
 							<q-btn outline color="primary" class="text-h6 no-hover q-mr-lg" style="border-radius: 0.375rem;">
 								<span>Заблокировать</span>
-								<q-icon name="svguse:icons/allIcons.svg#snowflake" size="32px" style="margin-left: 10px;" />
+								<q-icon name="svguse:icons/allIcons.svg#snowflake" size="32px" style="margin-left: 0.625rem;" />
 							</q-btn>
-							<q-btn class="text-h6 no-hover" primary style="color: #C7CCCC; border: 1px solid #C7CCCC; border-radius: 0.375rem;">
+							<q-btn class="text-h6 no-hover" primary style="color: #C7CCCC; border: 0.0625rem solid #C7CCCC; border-radius: 0.375rem;">
 								<span>Удалить сотрудника</span>
-								<q-icon name="svguse:icons/allIcons.svg#cart" color="red" size="32px" style="margin-left: 10px;" />
+								<q-icon name="svguse:icons/allIcons.svg#cart" color="red" size="32px" style="margin-left: 0.625rem;" />
 							</q-btn>
 						</div>
 					</div>
