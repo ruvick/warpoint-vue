@@ -18,7 +18,7 @@
 					<q-icon name="svguse:icons/allIcons.svg#loop" size="2rem" color="grey-9" />
 				</template>
 			</q-input>
-			<q-btn unelevated color="green" class="my-btn text-weight-bold" no-caps @click="dialogCreateEmployeeModal = true">
+			<q-btn unelevated color="green" class="my-btn text-weight-bold" no-caps @click="dialogCardEmployeeModal = true">
 				<q-icon name="svguse:icons/allIcons.svg#plus" size="0.75rem" class="q-mr-sm" />
 					<span class="block">Создать сотрудника</span> 
          </q-btn>
@@ -26,11 +26,12 @@
 	</div>
 
 	<q-dialog
-		v-model="dialogCreateEmployeeModal"
+		v-model="dialogCardEmployeeModal"
 		class="dialog-full dialog-new-booking"
 		position="right"
 	>
-		<CreateEmployeeModal />
+		<!-- <CreateEmployeeModal /> -->
+		<CardEmployeeModal/>
 	</q-dialog>
 
 </template>
@@ -38,14 +39,15 @@
 <script setup>
 
 	import { ref } from 'vue';
-
-	import CreateEmployeeModal from './personalmodal/CreateEmployeeModal.vue';
+	// import CreateEmployeeModal from './personalmodal/CreateEmployeeModal.vue'; 
+	import CardEmployeeModal from './personalmodal/CardEmployeeModal.vue';
 
 	const searchPersonal = ref('');
-	const dialogCreateEmployeeModal = ref(false);
+	// const dialogCreateEmployeeModal = ref(false);
+	const dialogCardEmployeeModal = ref(false);
 
 </script>
 
-<style>
+<style lang="scss">
 
 </style>

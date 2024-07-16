@@ -9,9 +9,23 @@
 		 <q-card-section class="booking-modal__wrapper" style="height: 100%; padding-bottom: 3.125rem;">
 		  <!-- Header -->
 		  <q-card-section class="booking-modal__header" style="padding: 0.875rem 1.5rem 0.875rem 3rem;">
-			  <div class="text-title-middle text-grey-10">
-				Создание нового сотрудника
-			  </div>
+				<div class="row justify-between items-center">
+					<div class="col-auto text-title-middle text-grey-10">
+						Карточка сотрудника <span class="text-white">— Крестовский Владислав</span>
+			  		</div>
+					<div class="col-auto">
+						<div class="row items-center">
+							<q-btn outline color="primary" class="text-h6 no-hover q-mr-lg" style="border-radius: 0.375rem;">
+								<span>Заблокировать</span>
+								<q-icon name="svguse:icons/allIcons.svg#snowflake" size="32px" style="margin-left: 10px;" />
+							</q-btn>
+							<q-btn class="text-h6 no-hover" primary style="color: #C7CCCC; border: 1px solid #C7CCCC; border-radius: 0.375rem;">
+								<span>Удалить сотрудника</span>
+								<q-icon name="svguse:icons/allIcons.svg#cart" color="red" size="32px" style="margin-left: 10px;" />
+							</q-btn>
+						</div>
+					</div>
+				</div>
 		  </q-card-section>
 	
 		  <q-card-section class="booking-modal__body body-booking-modal row q-pt-lg q-pl-lg q-pr-lg q-pb-lg" style="height: 100%; gap: 0.625rem;">
@@ -42,16 +56,16 @@
 
 	import { ref, computed } from 'vue';
 	import NavBarPersonal from './NavBarPersonal.vue';
-	import PersonalCreateInfo from 'src/components/personal/personalmodal/personalmodalContent/PersonalCreateInfo.vue';
-	import PersonalCreateLevel from 'src/components/personal/personalmodal/personalmodalContent/PersonalCreateLevel.vue';
-	import PersonalCreatePassword from 'src/components/personal/personalmodal/personalmodalContent/PersonalCreatePassword.vue';
+	import PersonalCardInfo from 'src/components/personal/personalmodal/personalmodalContent/PersonalCardInfo.vue';
+	import PersonalCardLevel from 'src/components/personal/personalmodal/personalmodalContent/PersonalCardLevel.vue';
+	import PersonalCardPassword from 'src/components/personal/personalmodal/personalmodalContent/PersonalCardPassword.vue';
 
 	const model = ref('info');
 	
 	const options = [
-		{ label: 'Инфо', value: 'info', component: PersonalCreateInfo, class: '' },
-		{ label: 'Уровень доступа', value: 'accessLevel', component: PersonalCreateLevel, class: '' },
-		{ label: 'Пароль', value: 'password', component: PersonalCreatePassword, class: '' },
+		{ label: 'Инфо', value: 'info', component: PersonalCardInfo, class: '' },
+		{ label: 'Уровень доступа', value: 'accessLevel', component: PersonalCardLevel, class: '' },
+		{ label: 'Пароль', value: 'password', component: PersonalCardPassword, class: '' },
 	];
 	
 	const currentComponent = computed(() => {
