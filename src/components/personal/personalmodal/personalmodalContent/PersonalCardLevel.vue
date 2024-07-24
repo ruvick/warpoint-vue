@@ -4,7 +4,7 @@
 
 		<div class="personal-level row" style="height: 100%; color: #fff;">
 
-			<div class="personal-level__navigation col-3 column" style="height: 50.375rem; overflow: auto; padding: 3rem;">
+			<div class="personal-level__navigation col-3 column" style="overflow: auto; padding: 3rem; flex: 0 0 22.3125rem;">
 				<div class="column">
 					<div class="body-box-promo__item row items-center justify-between" style="max-width: 22.5rem; width: 100%; border-bottom: 0.0625rem solid #5B89F826;">
 						<q-expansion-item class="body-box-promo__checkbox text-h6 text-white no-hover row items-center justify-between" style="width: 100%;" expand-separator>
@@ -157,5 +157,18 @@
 	}
 	.body-modal .q-field__native, .q-field__input {
     color: #fff;
+	}
+	.footer-content-booking__inner {
+		gap: 0.9375rem !important;
+	}
+	.q-checkbox__bg.absolute {
+		background-color: #3C4046;
+		border-radius: 0.375rem;
+		border: none;
+	}
+	.q-checkbox__label {
+		font-size: 1.125rem;
+		font-weight: 500;
+		line-height: 1.3181rem;
 	}
 </style>

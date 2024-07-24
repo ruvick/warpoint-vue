@@ -119,7 +119,7 @@
 		
 	</div>
 
-	<!-- Content Footer  -->
+	<!-- Content Footer  --> 
 	<div class="content-booking__footer footer-content-booking row q-pt-xs q-pr-md q-pb-xs q-pl-md">
 		<div class="footer-content-booking__inner row justify-between items-center" style="width: 100%;">
 			<q-btn class="q-btn-no text-h6 no-hover text-grey-10 q-mr-md" outline flat label="Отмена" primary/>

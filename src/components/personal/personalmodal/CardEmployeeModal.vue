@@ -6,10 +6,10 @@
 		  <q-icon name="svguse:icons/allIcons.svg#close-modal-out" color="white" size="2rem" />
 		 </q-btn>
 	
-		 <q-card-section class="booking-modal__wrapper" style="height: 100%; padding-bottom: 3.125rem;">
+		 <q-card-section class="booking-modal__wrapper" style="height: 100%; overflow: auto; display: flex; flex-direction: column;">
 		  <!-- Header -->
 		  <q-card-section class="booking-modal__header" style="padding: 0.875rem 1.5rem 0.875rem 3rem;">
-				<div class="row justify-between items-center">
+				<div class="row justify-between items-center" style="gap: 15px;">
 					<div class="col-auto text-title-middle text-grey-10">
 						Карточка сотрудника <span class="text-white">— Крестовский Владислав</span>
 			  		</div>
@@ -28,13 +28,13 @@
 				</div>
 		  </q-card-section>
 	
-		  <q-card-section class="booking-modal__body body-booking-modal row q-pt-lg q-pl-lg q-pr-lg q-pb-lg" style="height: 100%; gap: 0.625rem;">
+		  <q-card-section class="booking-modal__body body-booking-modal row q-pt-lg q-pl-lg q-pr-lg" style="height: 100%; gap: 0.625rem;">
 			  <!-- Booking Navbar -->
 			  <NavBarPersonal v-model:modelValue="model" :options="options" />  
 	
 			  <!-- Booking Content -->
 			  <div class="body-booking-modal__content content-booking col">
-				<div class="content-booking__wrapper column" style="height: 100%;">
+				<div class="content-booking__wrapper column" style="min-height: 100%;">
 					<!-- Content Header -->
 					<div class="content-booking__header header-content-booking q-pl-xl q-pt-sm q-pt-md">
 					 <div :class="['header-content-booking__title', 'text-title-middle', 'text-white', currentClass]" style="text-transform: uppercase;">

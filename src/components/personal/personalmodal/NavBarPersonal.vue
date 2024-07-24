@@ -1,6 +1,6 @@
 <template>
 
-	<div class="body-booking-modal__navbar navbar-booking-modal col-2 column items-start">
+	<div class="body-booking-modal__navbar navbar-booking-modal col-2 column items-start" style="flex: 0 0 268px;">
 		 <!-- Navbar Header -->
 		 <div class="navbar-booking-modal__header header-navbar-booking" style="flex: 1 1 auto; width: 100%;">
 		  <q-btn-toggle
