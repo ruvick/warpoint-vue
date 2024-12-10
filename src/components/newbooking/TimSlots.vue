@@ -42,43 +42,44 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { currentTime, getTimeSlotCaption, getTimeSlotStyle } from 'src/composables/useDateTimeBooking'
 
-const emit = defineEmits(['checkTime', 'changeData'])
-const props = defineProps({
-  listTimeslots: Array,
-  timeBooking: Object
-})
+	import { computed } from 'vue'
+	import { currentTime, getTimeSlotCaption, getTimeSlotStyle } from 'src/composables/useDateTimeBooking'
 
-const coefficient = (available, players) => {
-  if (players === 0) return 0
-  return (available / players) * 100
-}
-const coeffBusy = (available, players) => {
-  if (players === 0) return 0
-  const free = (available / players) * 100
-  return 100 - free
-}
+	const emit = defineEmits(['checkTime', 'changeData'])
+	const props = defineProps({
+		listTimeslots: Array,
+		timeBooking: Object
+	})
 
-const activeTimeSlot = computed(() => {
-  return !!props.listTimeslots.find((el) => el.start === props.timeBooking?.start)
-})
+	const coefficient = (available, players) => {
+		if (players === 0) return 0
+		return (available / players) * 100
+	}
+	const coeffBusy = (available, players) => {
+		if (players === 0) return 0
+		const free = (available / players) * 100
+		return 100 - free
+	}
 
-const checkTime = (bool, time) => {
-  const dateTime = time.start.split('T')
-  const date = dateTime[0].split('-')
-  const day = date[2]
-  const month = date[1]
+	const activeTimeSlot = computed(() => {
+		return !!props.listTimeslots.find((el) => el.start === props.timeBooking?.start)
+	})
 
-  const checkDM = Number(day) === currentTime.day && Number(month) === currentTime.month
+	const checkTime = (bool, time) => {
+		const dateTime = time.start.split('T')
+		const date = dateTime[0].split('-')
+		const day = date[2]
+		const month = date[1]
 
-  if (!bool && checkDM) {
-    const hour = dateTime[1].split(':')[0]
-    if (Number(hour) > currentTime.hour) return false
-    else return true
-  }
-  return !!bool
-}
+		const checkDM = Number(day) === currentTime.day && Number(month) === currentTime.month
+
+		if (!bool && checkDM) {
+			const hour = dateTime[1].split(':')[0]
+			if (Number(hour) > currentTime.hour) return false
+			else return true
+		}
+		return !!bool
+	}
 
 </script>
